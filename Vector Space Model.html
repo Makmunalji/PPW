@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1. Import Library &#8212; My sample book</title>
+    <title>Vector Space Model &#8212; My sample book</title>
   
   
   
@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Vector Space Model';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Implementasi" href="Logistic%20Regression.html" />
+    <link rel="next" title="Klasifikasi Brita" href="Logistic%20Regression.html" />
     <link rel="prev" title="Matakuliah Pencarian Penambangan Web (PPW)" href="Crawling_Brita.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -186,12 +186,9 @@
 
 
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Import Library</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Vector Space Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Logistic%20Regression.html">Klasifikasi Brita</a></li>
 
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="Logistic%20Regression.html">Implementasi</a></li>
 </ul>
 
     </div>
@@ -377,7 +374,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>1. Import Library</h1>
+    <h1>Vector Space Model</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -387,13 +384,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1. Import Library</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#load-dataset">2. Load dataset</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocess-dataset">3. Preprocess Dataset</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pemodelan-vector-space">4. Pemodelan Vector Space</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil">5. Hasil</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">1. Import Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-dataset">2. Load dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocess-dataset">3. Preprocess Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemodelan-vector-space">4. Pemodelan Vector Space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil">5. Hasil</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -404,9 +400,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <p>#Vector Space Model</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="vector-space-model">
+<h1>Vector Space Model<a class="headerlink" href="#vector-space-model" title="Link to this heading">#</a></h1>
 <section id="import-library">
-<h1>1. Import Library<a class="headerlink" href="#import-library" title="Link to this heading">#</a></h1>
+<h2>1. Import Library<a class="headerlink" href="#import-library" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>pandas: Digunakan untuk manipulasi dan analisis data, khususnya dalam bentuk tabel (DataFrame).</p></li>
 <li><p>nltk: Toolkit untuk pemrosesan teks (NLP), seperti tokenisasi, stemming, lemmatization, dan penghilangan stopwords.</p></li>
@@ -455,7 +452,7 @@ document.write(`
 </div>
 </section>
 <section id="load-dataset">
-<h1>2. Load dataset<a class="headerlink" href="#load-dataset" title="Link to this heading">#</a></h1>
+<h2>2. Load dataset<a class="headerlink" href="#load-dataset" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># membaca dataset bola dan health menggunakan modul read_CSV</span>
@@ -609,7 +606,7 @@ document.write(`
 </div>
 </section>
 <section id="preprocess-dataset">
-<h1>3. Preprocess Dataset<a class="headerlink" href="#preprocess-dataset" title="Link to this heading">#</a></h1>
+<h2>3. Preprocess Dataset<a class="headerlink" href="#preprocess-dataset" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">preprocess_text</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
@@ -661,7 +658,7 @@ document.write(`
 </div>
 </section>
 <section id="pemodelan-vector-space">
-<h1>4. Pemodelan Vector Space<a class="headerlink" href="#pemodelan-vector-space" title="Link to this heading">#</a></h1>
+<h2>4. Pemodelan Vector Space<a class="headerlink" href="#pemodelan-vector-space" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># menyimpan modul CounVectorizer kedalam variable vectorizer</span>
@@ -696,7 +693,7 @@ document.write(`
 </div>
 </section>
 <section id="hasil">
-<h1>5. Hasil<a class="headerlink" href="#hasil" title="Link to this heading">#</a></h1>
+<h2>5. Hasil<a class="headerlink" href="#hasil" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfTF</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;VSM.csv&#39;</span><span class="p">)</span>
@@ -1338,6 +1335,7 @@ document.write(`
 </div></div></div>
 </div>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1383,7 +1381,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Implementasi</p>
+        <p class="prev-next-title">Klasifikasi Brita</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1403,13 +1401,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1. Import Library</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#load-dataset">2. Load dataset</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocess-dataset">3. Preprocess Dataset</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pemodelan-vector-space">4. Pemodelan Vector Space</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil">5. Hasil</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">1. Import Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-dataset">2. Load dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocess-dataset">3. Preprocess Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemodelan-vector-space">4. Pemodelan Vector Space</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil">5. Hasil</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
