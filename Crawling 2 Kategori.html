@@ -60,8 +60,6 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Crawling 2 Kategori';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1. Import Library" href="Vector%20Space%20Model.html" />
-    <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,6 +122,8 @@
       
       
       
+        
+      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -180,6 +180,12 @@
             </li>
         </ul>
         <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Crawling_Brita.html">Matakuliah Pencarian Penambangan Web (PPW)</a></li>
+
+
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="Vector%20Space%20Model.html">1. Import Library</a></li>
 
 
@@ -424,16 +430,16 @@ document.write(`
 <span class="k">for</span> <span class="n">page_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">education_article</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">max_articles</span><span class="p">:</span>
         <span class="k">break</span>  <span class="c1"># Hentikan jika jumlah artikel sudah mencapai batas</span>
-    
+
     <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://indeks.kompas.com/?site=edukasi&amp;page=</span><span class="si">{</span><span class="n">page_num</span><span class="si">}</span><span class="s2">&quot;</span>
     <span class="n">page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
     <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">page</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
     <span class="n">articles</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;articleItem&#39;</span><span class="p">)</span>
-    
+
     <span class="k">for</span> <span class="n">article</span> <span class="ow">in</span> <span class="n">articles</span><span class="p">:</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">education_article</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">max_articles</span><span class="p">:</span>
             <span class="k">break</span>  <span class="c1"># Hentikan jika jumlah artikel sudah mencapai batas</span>
-        
+
         <span class="n">article_url</span> <span class="o">=</span> <span class="n">article</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;article-link&#39;</span><span class="p">)[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
         <span class="n">title</span> <span class="o">=</span> <span class="n">article</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;h2&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;articleTitle&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
         <span class="n">category</span> <span class="o">=</span> <span class="n">article</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;articlePost-subtitle&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
@@ -446,10 +452,10 @@ document.write(`
 
             <span class="n">content_paragraphs</span> <span class="o">=</span> <span class="n">cSoup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;read__content&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span>
             <span class="n">content</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">p</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">content_paragraphs</span><span class="p">])</span>
-            
+
             <span class="c1"># Append the article details to the results list</span>
             <span class="n">education_article</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">title</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">category</span><span class="p">])</span>
-    
+
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">education_article</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">max_articles</span><span class="p">:</span>
         <span class="k">break</span>  <span class="c1"># Hentikan jika jumlah artikel sudah mencapai batas</span>
 </pre></div>
@@ -462,16 +468,16 @@ document.write(`
 <span class="k">for</span> <span class="n">page_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">health_article</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">max_articles</span><span class="p">:</span>
         <span class="k">break</span>  <span class="c1"># Hentikan jika jumlah artikel sudah mencapai batas</span>
-    
+
     <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://indeks.kompas.com/?site=health&amp;page=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">page_num</span><span class="p">)</span>
     <span class="n">page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
     <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">page</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
     <span class="n">articles</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;articleItem&#39;</span><span class="p">)</span>
-    
+
     <span class="k">for</span> <span class="n">article</span> <span class="ow">in</span> <span class="n">articles</span><span class="p">:</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">health_article</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">max_articles</span><span class="p">:</span>
             <span class="k">break</span>  <span class="c1"># Hentikan jika jumlah artikel sudah mencapai batas</span>
-        
+
         <span class="n">article_url</span> <span class="o">=</span> <span class="n">article</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;article-link&#39;</span><span class="p">)[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
         <span class="n">title</span> <span class="o">=</span> <span class="n">article</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;h2&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;articleTitle&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
         <span class="n">category</span> <span class="o">=</span> <span class="n">article</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;articlePost-subtitle&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
@@ -482,110 +488,12 @@ document.write(`
 
         <span class="n">content_paragraphs</span> <span class="o">=</span> <span class="n">cSoup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;read__content&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span>
         <span class="n">content</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">p</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">content_paragraphs</span><span class="p">])</span>
-        
+
         <span class="c1"># Append the article details to the results list</span>
         <span class="n">health_article</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">title</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">category</span><span class="p">])</span>
-    
+
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">health_article</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">max_articles</span><span class="p">:</span>
         <span class="k">break</span>  <span class="c1"># Hentikan jika jumlah artikel sudah mencapai batas</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-4-40c6a4ca0312&gt;</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span>         <span class="n">date</span> <span class="o">=</span> <span class="n">article</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;articlePost-date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> 
-<span class="ne">---&gt; </span><span class="mi">20</span>         <span class="n">cPage</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">article_url</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span>         <span class="n">cSoup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">cPage</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span><span class="w"> </span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/api.py</span> in <span class="ni">get</span><span class="nt">(url, params, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">71</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">72</span><span class="sd"> </span>
-<span class="ne">---&gt; </span><span class="mi">73</span><span class="sd">     return request(&quot;get&quot;, url, params=params, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">74</span><span class="sd"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">75</span><span class="sd"> </span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/api.py</span> in <span class="ni">request</span><span class="nt">(method, url, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span><span class="sd">     # cases, and look like a memory leak in others.</span>
-<span class="g g-Whitespace">     </span><span class="mi">58</span><span class="sd">     with sessions.Session() as session:</span>
-<span class="ne">---&gt; </span><span class="mi">59</span><span class="sd">         return session.request(method=method, url=url, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">60</span><span class="sd"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">61</span><span class="sd"> </span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/sessions.py</span> in <span class="ni">request</span><span class="nt">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
-<span class="g g-Whitespace">    </span><span class="mi">587</span><span class="sd">         }</span>
-<span class="g g-Whitespace">    </span><span class="mi">588</span><span class="sd">         send_kwargs.update(settings)</span>
-<span class="ne">--&gt; </span><span class="mi">589</span><span class="sd">         resp = self.send(prep, **send_kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">590</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">591</span><span class="sd">         return resp</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/sessions.py</span> in <span class="ni">send</span><span class="nt">(self, request, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">744</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">745</span><span class="sd">         if not stream:</span>
-<span class="ne">--&gt; </span><span class="mi">746</span><span class="sd">             r.content</span>
-<span class="g g-Whitespace">    </span><span class="mi">747</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">748</span><span class="sd">         return r</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/models.py</span> in <span class="ni">content</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">900</span><span class="sd">                 self._content = None</span>
-<span class="g g-Whitespace">    </span><span class="mi">901</span><span class="sd">             else:</span>
-<span class="ne">--&gt; </span><span class="mi">902</span><span class="sd">                 self._content = b&quot;&quot;.join(self.iter_content(CONTENT_CHUNK_SIZE)) or b&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">903</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">904</span><span class="sd">         self._content_consumed = True</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/models.py</span> in <span class="ni">generate</span><span class="nt">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">818</span><span class="sd">             if hasattr(self.raw, &quot;stream&quot;):</span>
-<span class="g g-Whitespace">    </span><span class="mi">819</span><span class="sd">                 try:</span>
-<span class="ne">--&gt; </span><span class="mi">820</span><span class="sd">                     yield from self.raw.stream(chunk_size, decode_content=True)</span>
-<span class="g g-Whitespace">    </span><span class="mi">821</span><span class="sd">                 except ProtocolError as e:</span>
-<span class="g g-Whitespace">    </span><span class="mi">822</span><span class="sd">                     raise ChunkedEncodingError(e)</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/response.py</span> in <span class="ni">stream</span><span class="nt">(self, amt, decode_content)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1055</span><span class="sd">         &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1056</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunked</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">supports_chunked_reads</span><span class="p">():</span>
-<span class="ne">-&gt; </span><span class="mi">1057</span>             <span class="k">yield from</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_chunked</span><span class="p">(</span><span class="n">amt</span><span class="p">,</span> <span class="n">decode_content</span><span class="o">=</span><span class="n">decode_content</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1058</span>         <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1059</span>             <span class="k">while</span> <span class="ow">not</span> <span class="n">is_fp_closed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_fp</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_decoded_buffer</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/response.py</span> in <span class="ni">read_chunked</span><span class="nt">(self, amt, decode_content)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1204</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1205</span>             <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1206</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_update_chunk_length</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1207</span>                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk_left</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1208</span>                     <span class="k">break</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/response.py</span> in <span class="ni">_update_chunk_length</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1123</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk_left</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1124</span>             <span class="k">return</span> <span class="kc">None</span>
-<span class="ne">-&gt; </span><span class="mi">1125</span>         <span class="n">line</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fp</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>  <span class="c1"># type: ignore[union-attr]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1126</span>         <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;;&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1127</span>         <span class="k">try</span><span class="p">:</span>
-
-<span class="nn">/usr/lib/python3.10/socket.py</span> in <span class="ni">readinto</span><span class="nt">(self, b)</span>
-<span class="g g-Whitespace">    </span><span class="mi">703</span>         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">704</span>             <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">705</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sock</span><span class="o">.</span><span class="n">recv_into</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">706</span>             <span class="k">except</span> <span class="n">timeout</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">707</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_timeout_occurred</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="nn">/usr/lib/python3.10/ssl.py</span> in <span class="ni">recv_into</span><span class="nt">(self, buffer, nbytes, flags)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1301</span>                   <span class="s2">&quot;non-zero flags not allowed in calls to recv_into() on </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
-<span class="g g-Whitespace">   </span><span class="mi">1302</span>                   <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1303</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">nbytes</span><span class="p">,</span> <span class="n">buffer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1304</span>         <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1305</span>             <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">recv_into</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">nbytes</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
-
-<span class="nn">/usr/lib/python3.10/ssl.py</span> in <span class="ni">read</span><span class="nt">(self, len, buffer)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1157</span>         <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1158</span>             <span class="k">if</span> <span class="n">buffer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1159</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">len</span><span class="p">,</span> <span class="n">buffer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1160</span>             <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1161</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -608,7 +516,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
+<div class="output text_html">
+  <div id="df-36979a2f-5f18-4a81-a9f9-73b7010032dd" class="colab-df-container">
+    <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -635,37 +545,37 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>Ketua Prodi Statistika Matana University: "Dat...</td>
-      <td>KOMPAS.com - Ketua Program Studi Statistika Ma...</td>
-      <td>12/09/2024</td>
+      <td>UNJ Masuk Daftar "Top Kolaborator BRIN" untuk ...</td>
+      <td>KOMPAS.com - Universitas Negeri Jakarta (UNJ) ...</td>
+      <td>15/10/2024</td>
       <td>Edu</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Dee Lestari Bagi Tips Tingkatkan Kreativitas P...</td>
-      <td>KOMPAS.com - Nama Dewi Lestari sudah dikenal m...</td>
-      <td>11/09/2024</td>
+      <td>Dorong Inovasi Robotika, Ukrida Gelar "Indones...</td>
+      <td>KOMPAS.com - Universitas Kristen Krida Wacana ...</td>
+      <td>15/10/2024</td>
       <td>Edu</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>2 Instansi Pemerintahan yang Masih Buka Pendaf...</td>
-      <td>KOMPAS.com - Ada dua instansi milik pemerintah...</td>
-      <td>11/09/2024</td>
+      <td>Profil Raffi Ahmad, Dipanggil Prabowo Saat Pem...</td>
+      <td>KOMPAS.com - Artis Raffi Farid Ahmad atau yang...</td>
+      <td>15/10/2024</td>
       <td>Edu</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Jadwal Pendaftaran STIS 2025, Siswa Kelas 12 S...</td>
-      <td>KOMPAS.com - Masuk Sekolah Tinggi Ilmu Statist...</td>
-      <td>11/09/2024</td>
+      <td>Cerita Eunike, Tak Pegang Smartphone 1 Tahun a...</td>
+      <td>KOMPAS.com - Butuh perjuangan agar bisa lolos ...</td>
+      <td>15/10/2024</td>
       <td>Edu</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>PKKMB UDB Surakarta Gandeng Kompas.com Asah Ke...</td>
-      <td>KOMPAS.com - Fakultas Hukum dan Bisnis Univers...</td>
-      <td>11/09/2024</td>
+      <td>Latar Belakang Pendidikan Sri Mulyani, Jabat M...</td>
+      <td>\nKOMPAS.com - Sri Mulyani Indrawati dikabarka...</td>
+      <td>15/10/2024</td>
       <td>Edu</td>
     </tr>
     <tr>
@@ -677,43 +587,125 @@ document.write(`
     </tr>
     <tr>
       <th>95</th>
-      <td>Mewujudkan Desa/Kelurahan Bebas Stunting</td>
-      <td>TAHUN 2024 menjadi tahun krusial bagi Indonesi...</td>
-      <td>09/09/2024</td>
+      <td>8 Hal yang Menyehatkan Jantung Memperlambat Pe...</td>
+      <td>\nKOMPAS.com - Kebiasaan untuk menjaga kesehat...</td>
+      <td>11/10/2024</td>
       <td>Health</td>
     </tr>
     <tr>
       <th>96</th>
-      <td>Anak Juga Bisa Kolesterol Tinggi, Ini Bahayanya</td>
-      <td>KOMPAS.com - Orang biasanya baru peduli pada k...</td>
-      <td>09/09/2024</td>
+      <td>Bagaimana Cara Kurangi Kolesterol Berlebih? In...</td>
+      <td>KOMPAS.com-Kolesterol berlebih dalam tubuh bis...</td>
+      <td>11/10/2024</td>
       <td>Health</td>
     </tr>
     <tr>
       <th>97</th>
-      <td>Bagaimana Mengobati Hipoglikemia? Ini Caranya...</td>
-      <td>KOMPAS.com - Hipoglikemia bisa mengakibatkan p...</td>
-      <td>09/09/2024</td>
+      <td>6 Suplemen Makanan yang Harus Diwaspadai Pende...</td>
+      <td>KOMPAS.com - Jika Anda menderita diabetes, And...</td>
+      <td>11/10/2024</td>
       <td>Health</td>
     </tr>
     <tr>
       <th>98</th>
-      <td>Cek Apa untuk Mengetahui Sakit Jantung? Beriku...</td>
-      <td>KOMPAS.com - Penyakit jantung masih menjadi pe...</td>
-      <td>09/09/2024</td>
+      <td>Bahaya Sleep Apnea Lebih dari Sekedar Mengorok...</td>
+      <td>KOMPAS.com - Sleep apnea yang ditandai dengan ...</td>
+      <td>11/10/2024</td>
       <td>Health</td>
     </tr>
     <tr>
       <th>99</th>
-      <td>10 Ciri-ciri Kanker Payudara yang Mudah Dikena...</td>
-      <td>KOMPAS.com - Gejala kanker payudara sering kal...</td>
-      <td>09/09/2024</td>
+      <td>Coba Terapi Akupunktur untuk Kurangi Kadar Kol...</td>
+      <td>KOMPAS.com- Ada berbagai cara untuk membantu m...</td>
+      <td>11/10/2024</td>
       <td>Health</td>
     </tr>
   </tbody>
 </table>
 <p>100 rows × 4 columns</p>
-</div></div></div>
+</div>
+    <div class="colab-df-buttons">
+      
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-36979a2f-5f18-4a81-a9f9-73b7010032dd')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+      
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+    
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-36979a2f-5f18-4a81-a9f9-73b7010032dd button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-36979a2f-5f18-4a81-a9f9-73b7010032dd');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+  
+    </div>
+  </div>
+  </div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -733,7 +725,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d0b011e0419e9722b18fe660692f9ae9f151d200912b7a8a33fea9074950e542.png" src="_images/d0b011e0419e9722b18fe660692f9ae9f151d200912b7a8a33fea9074950e542.png" />
+<img alt="_images/da2e7bb9018f4fc6663b4015dc9c63af25772f0f0c1bbbe093f3b0f8180c4dda.png" src="_images/da2e7bb9018f4fc6663b4015dc9c63af25772f0f0c1bbbe093f3b0f8180c4dda.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -768,7 +760,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
+<div class="output text_html">
+  <div id="df-146ad38b-ea15-4edb-b4f7-86fcaa09580c" class="colab-df-container">
+    <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -795,37 +789,37 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>Ketua Prodi Statistika Matana University: "Dat...</td>
-      <td>KOMPAS.com - Ketua Program Studi Statistika Ma...</td>
-      <td>12/09/2024</td>
+      <td>UNJ Masuk Daftar "Top Kolaborator BRIN" untuk ...</td>
+      <td>KOMPAS.com - Universitas Negeri Jakarta (UNJ) ...</td>
+      <td>15/10/2024</td>
       <td>Edu</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Dee Lestari Bagi Tips Tingkatkan Kreativitas P...</td>
-      <td>KOMPAS.com - Nama Dewi Lestari sudah dikenal m...</td>
-      <td>11/09/2024</td>
+      <td>Dorong Inovasi Robotika, Ukrida Gelar "Indones...</td>
+      <td>KOMPAS.com - Universitas Kristen Krida Wacana ...</td>
+      <td>15/10/2024</td>
       <td>Edu</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>2 Instansi Pemerintahan yang Masih Buka Pendaf...</td>
-      <td>KOMPAS.com - Ada dua instansi milik pemerintah...</td>
-      <td>11/09/2024</td>
+      <td>Profil Raffi Ahmad, Dipanggil Prabowo Saat Pem...</td>
+      <td>KOMPAS.com - Artis Raffi Farid Ahmad atau yang...</td>
+      <td>15/10/2024</td>
       <td>Edu</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Jadwal Pendaftaran STIS 2025, Siswa Kelas 12 S...</td>
-      <td>KOMPAS.com - Masuk Sekolah Tinggi Ilmu Statist...</td>
-      <td>11/09/2024</td>
+      <td>Cerita Eunike, Tak Pegang Smartphone 1 Tahun a...</td>
+      <td>KOMPAS.com - Butuh perjuangan agar bisa lolos ...</td>
+      <td>15/10/2024</td>
       <td>Edu</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>PKKMB UDB Surakarta Gandeng Kompas.com Asah Ke...</td>
-      <td>KOMPAS.com - Fakultas Hukum dan Bisnis Univers...</td>
-      <td>11/09/2024</td>
+      <td>Latar Belakang Pendidikan Sri Mulyani, Jabat M...</td>
+      <td>\nKOMPAS.com - Sri Mulyani Indrawati dikabarka...</td>
+      <td>15/10/2024</td>
       <td>Edu</td>
     </tr>
     <tr>
@@ -837,43 +831,125 @@ document.write(`
     </tr>
     <tr>
       <th>95</th>
-      <td>Mewujudkan Desa/Kelurahan Bebas Stunting</td>
-      <td>TAHUN 2024 menjadi tahun krusial bagi Indonesi...</td>
-      <td>09/09/2024</td>
+      <td>8 Hal yang Menyehatkan Jantung Memperlambat Pe...</td>
+      <td>\nKOMPAS.com - Kebiasaan untuk menjaga kesehat...</td>
+      <td>11/10/2024</td>
       <td>Health</td>
     </tr>
     <tr>
       <th>96</th>
-      <td>Anak Juga Bisa Kolesterol Tinggi, Ini Bahayanya</td>
-      <td>KOMPAS.com - Orang biasanya baru peduli pada k...</td>
-      <td>09/09/2024</td>
+      <td>Bagaimana Cara Kurangi Kolesterol Berlebih? In...</td>
+      <td>KOMPAS.com-Kolesterol berlebih dalam tubuh bis...</td>
+      <td>11/10/2024</td>
       <td>Health</td>
     </tr>
     <tr>
       <th>97</th>
-      <td>Bagaimana Mengobati Hipoglikemia? Ini Caranya...</td>
-      <td>KOMPAS.com - Hipoglikemia bisa mengakibatkan p...</td>
-      <td>09/09/2024</td>
+      <td>6 Suplemen Makanan yang Harus Diwaspadai Pende...</td>
+      <td>KOMPAS.com - Jika Anda menderita diabetes, And...</td>
+      <td>11/10/2024</td>
       <td>Health</td>
     </tr>
     <tr>
       <th>98</th>
-      <td>Cek Apa untuk Mengetahui Sakit Jantung? Beriku...</td>
-      <td>KOMPAS.com - Penyakit jantung masih menjadi pe...</td>
-      <td>09/09/2024</td>
+      <td>Bahaya Sleep Apnea Lebih dari Sekedar Mengorok...</td>
+      <td>KOMPAS.com - Sleep apnea yang ditandai dengan ...</td>
+      <td>11/10/2024</td>
       <td>Health</td>
     </tr>
     <tr>
       <th>99</th>
-      <td>10 Ciri-ciri Kanker Payudara yang Mudah Dikena...</td>
-      <td>KOMPAS.com - Gejala kanker payudara sering kal...</td>
-      <td>09/09/2024</td>
+      <td>Coba Terapi Akupunktur untuk Kurangi Kadar Kol...</td>
+      <td>KOMPAS.com- Ada berbagai cara untuk membantu m...</td>
+      <td>11/10/2024</td>
       <td>Health</td>
     </tr>
   </tbody>
 </table>
 <p>100 rows × 4 columns</p>
-</div></div></div>
+</div>
+    <div class="colab-df-buttons">
+      
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-146ad38b-ea15-4edb-b4f7-86fcaa09580c')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+      
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+    
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-146ad38b-ea15-4edb-b4f7-86fcaa09580c button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-146ad38b-ea15-4edb-b4f7-86fcaa09580c');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+  
+    </div>
+  </div>
+  </div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -893,7 +969,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d0b011e0419e9722b18fe660692f9ae9f151d200912b7a8a33fea9074950e542.png" src="_images/d0b011e0419e9722b18fe660692f9ae9f151d200912b7a8a33fea9074950e542.png" />
+<img alt="_images/da2e7bb9018f4fc6663b4015dc9c63af25772f0f0c1bbbe093f3b0f8180c4dda.png" src="_images/da2e7bb9018f4fc6663b4015dc9c63af25772f0f0c1bbbe093f3b0f8180c4dda.png" />
 </div>
 </div>
 
@@ -927,24 +1003,6 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="intro.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Welcome to your Jupyter Book</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="Vector%20Space%20Model.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">1. Import Library</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               

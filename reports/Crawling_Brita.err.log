@@ -15,26 +15,22 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# membaca dataset bola dan health menggunakan modul read_CSV
-bola = pd.read_csv('bola.csv')
-health = pd.read_csv('health.csv')
+data_bola = pd.read_csv('bola.csv')
+data_health = pd.read_csv('health.csv')
 
-# menggabungkan kedua dataset menngunakan concat
-berita = pd.concat([bola, health])
-
-# menyimpan dataset yang digabung menjadi file csv baru
-berita.to_csv('berita.csv')
+kompas = pd.concat([data_bola, data_health])
+kompas.to_csv('kompas.csv', index=False)
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-[0;32m<ipython-input-3-4c1235933c42>[0m in [0;36m<cell line: 3>[0;34m()[0m
-[1;32m      1[0m [0;31m# membaca dataset bola dan health menggunakan modul read_CSV[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      2[0m [0mbola[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0;34m'bola.csv'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 3[0;31m [0mhealth[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0;34m'health.csv'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      4[0m [0;34m[0m[0m
-[1;32m      5[0m [0;31m# menggabungkan kedua dataset menngunakan concat[0m[0;34m[0m[0;34m[0m[0m
+[0;32m<ipython-input-4-28efa2ef3578>[0m in [0;36m<cell line: 2>[0;34m()[0m
+[1;32m      1[0m [0mdata_bola[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0;34m'bola.csv'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mdata_health[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0;34m'health.csv'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0;34m[0m[0m
+[1;32m      4[0m [0mkompas[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mconcat[0m[0;34m([0m[0;34m[[0m[0mdata_bola[0m[0;34m,[0m [0mdata_health[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0mkompas[0m[0;34m.[0m[0mto_csv[0m[0;34m([0m[0;34m'kompas.csv'[0m[0;34m,[0m [0mindex[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 
 [0;32m/usr/local/lib/python3.10/dist-packages/pandas/io/parsers/readers.py[0m in [0;36mread_csv[0;34m(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)[0m
 [1;32m   1024[0m     [0mkwds[0m[0;34m.[0m[0mupdate[0m[0;34m([0m[0mkwds_defaults[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
