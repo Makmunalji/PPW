@@ -438,12 +438,11 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /root/nltk_data...
-[nltk_data]   Unzipping tokenizers/punkt.zip.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package stopwords to /root/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package stopwords to /root/nltk_data...
 [nltk_data]   Package stopwords is already up-to-date!
 [nltk_data] Downloading package wordnet to /root/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -468,55 +467,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-3-4c1235933c42&gt;</span> in <span class="ni">&lt;cell line: 3&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># membaca dataset bola dan health menggunakan modul read_CSV</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">bola</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;bola.csv&#39;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">health</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;health.csv&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># menggabungkan kedua dataset menngunakan concat</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/io/parsers/readers.py</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1024</span>     <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1025</span> 
-<span class="ne">-&gt; </span><span class="mi">1026</span>     <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1027</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1028</span> 
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">618</span> 
-<span class="g g-Whitespace">    </span><span class="mi">619</span>     <span class="c1"># Create the parser.</span>
-<span class="ne">--&gt; </span><span class="mi">620</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">621</span> 
-<span class="g g-Whitespace">    </span><span class="mi">622</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/io/parsers/readers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1618</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1619</span>         <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="ne">-&gt; </span><span class="mi">1620</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1621</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1622</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, f, engine)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1878</span>                 <span class="k">if</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1879</span>                     <span class="n">mode</span> <span class="o">+=</span> <span class="s2">&quot;b&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1880</span>             <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1881</span>                 <span class="n">f</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1882</span>                 <span class="n">mode</span><span class="p">,</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/io/common.py</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">871</span>         <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">872</span>             <span class="c1"># Encoding</span>
-<span class="ne">--&gt; </span><span class="mi">873</span>             <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">874</span>                 <span class="n">handle</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">875</span>                 <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;health.csv&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -529,7 +479,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
+<div class="output text_html">
+  <div id="df-77fa53e2-978b-431b-8a6d-5729d3920e35" class="colab-df-container">
+    <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -559,51 +511,133 @@ document.write(`
     <tr>
       <th>0</th>
       <td>0</td>
-      <td>MotoGP San Marino 2024: Ketika Marquez Menang ...</td>
-      <td>- 09/09/2024, 05:00 WIB</td>
-      <td>https://www.kompas.com/motogp/read/2024/09/09/...</td>
-      <td>KOMPAS.com - Marc Marquez sukses memenangi Mot...</td>
+      <td>Spanyol Vs Serbia: La Roja Kehilangan Lamine Y...</td>
+      <td>- 15/10/2024, 19:00 WIB</td>
+      <td>https://bola.kompas.com/read/2024/10/15/190000...</td>
+      <td>KOMPAS.com - Pelatih timnas Spanyol, Luis De L...</td>
       <td>Bola</td>
     </tr>
     <tr>
       <th>1</th>
       <td>1</td>
-      <td>Klasemen PON XXI 2024: Futsal Gagal Emas, Jati...</td>
-      <td>- 09/09/2024, 07:59 WIB</td>
-      <td>https://www.kompas.com/sports/read/2024/09/09/...</td>
-      <td>KOMPAS.com - Tim futsal Jawa Timur (Jatim) gag...</td>
+      <td>Susunan Pemain China vs Indonesia: Asnawi Kapt...</td>
+      <td>- 15/10/2024, 17:47 WIB</td>
+      <td>https://bola.kompas.com/read/2024/10/15/174714...</td>
+      <td>KOMPAS.com – Susunan pemain timnas Indonesia m...</td>
       <td>Bola</td>
     </tr>
     <tr>
       <th>2</th>
       <td>2</td>
-      <td>Hasil One Pride MMA 82: Frans Sormin Bekuk Jak...</td>
-      <td>- 09/09/2024, 14:31 WIB</td>
-      <td>https://www.kompas.com/sports/read/2024/09/09/...</td>
-      <td>KOMPAS.com - Frans Lincol Sormin mengalahkan J...</td>
+      <td>Pengamat Sepak Bola Minta Timnas Indonesia Har...</td>
+      <td>- 15/10/2024, 15:38 WIB</td>
+      <td>https://bola.kompas.com/read/2024/10/15/153800...</td>
+      <td>KOMPAS.com - Pengamat sepak bola, Mohamad Kusn...</td>
       <td>Bola</td>
     </tr>
     <tr>
       <th>3</th>
       <td>3</td>
-      <td>Indonesia Vs Australia, Kata Manajer Timnas so...</td>
-      <td>- 09/09/2024, 10:29 WIB</td>
-      <td>https://bola.kompas.com/read/2024/09/09/102929...</td>
-      <td>KOMPAS.com - Timnas Indonesia belum menentukan...</td>
+      <td>Link Live Streaming China Vs Indonesia di Kual...</td>
+      <td>- 15/10/2024, 18:30 WIB</td>
+      <td>https://bola.kompas.com/read/2024/10/15/183000...</td>
+      <td>KOMPAS.com - Timnas Indonesia beberapa saat la...</td>
       <td>Bola</td>
     </tr>
     <tr>
       <th>4</th>
       <td>4</td>
-      <td>Dampak Kehadiran Marteen Paes untuk Persaingan...</td>
-      <td>- 09/09/2024, 11:30 WIB</td>
-      <td>https://bola.kompas.com/read/2024/09/09/113000...</td>
-      <td>KOMPAS.com - Penampilan penjaga gawang timnas ...</td>
+      <td>Persib Belum Kalah, Tyronne Rasakan Kompetitif...</td>
+      <td>- 15/10/2024, 17:01 WIB</td>
+      <td>https://bola.kompas.com/read/2024/10/15/170107...</td>
+      <td>BANDUNG, KOMPAS.com - Persib Bandung jadi sala...</td>
       <td>Bola</td>
     </tr>
   </tbody>
 </table>
-</div></div></div>
+</div>
+    <div class="colab-df-buttons">
+      
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-77fa53e2-978b-431b-8a6d-5729d3920e35')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+      
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+    
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-77fa53e2-978b-431b-8a6d-5729d3920e35 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-77fa53e2-978b-431b-8a6d-5729d3920e35');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+  
+    </div>
+  </div>
+  </div></div>
 </div>
 </section>
 <section id="preprocess-dataset">
@@ -652,7 +686,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;marc marquez sukses memenangi motogp san marino pebalap beralias baby alien itu mengakui adanya bantuan hujan rentang sepekan ini terasa begitu indah bagi pebalap gresini racing marc marquez bagaimana tidak setelah sempat melalui tiga tahun tanpa kemenangan pada balapan motogp marquez langsung berjaya dan finis pertama dalam dua seri beruntun yakni di aragon dan san marino kemenangannya di motogp aragon pekan lalu mengakhiri penantian marquez selama hari untuk berdiri di podium pertama selang sepekan marquez kembali naik podium tertinggi di balapan motogp san marino yang digelar di sirkuit misano minggu baca juga klasemen motogp usai gp san marino marquez bagnaia tempel martin di puncak marquez finis lebih dari tiga detik di depan francesco bagnaia ducati lenovo team yang memulai balapan dari posisi terdepan pebalap asal cervera itu melesat dari posisi sembilan di grid dan memimpin balapan saat lintasan basah sesaat akibat guyuran hujan ringan bantuan hujan ini diakui oleh marquez pemilik enam gelar juara dunia di kelas motogp ketika mulai turun hujan di layar saat itulah saya memutuskan untuk maju menyerang atau mengambil lebih banyak risiko dalam satu putaran saya berhasil melewati lima pebalap dan memimpin balapan kata marquez kepada para wartawan ketika turun hujan marquez tak gegabah untuk mengganti ban seperti jorge martin pramac racing keputusan jorge martin untuk mengganti ban ternyata memang berharga mahal lantaran masuk pit untuk mengganti ban jorge martin yang tadinya berada di urutan kedua harus melihat posisinya melorot jauh ia pada akhirnya harus masuk pit lagi untuk kembali memakai ban kering pada akhirnya jorge martin hanya mampu menuai satu poin karena finis di posisi baca juga hasil motogp san marino marc marquez menang back back marquez mengatakan bahwa dirinya mengikuti bocah lokal asal italia bagnaia untuk tidak mengganti ban seperti diketahui san marino terletak hanya sepelemparan batu dari italia negara bagnaia berasal pebalap lokal memutuskan untuk tetap di luar tak masuk pit jadi mereka pasti lebih tahu dari saya tutur marquez menambahkan sementara itu martin mengakui bahwa dirinya telah membuat kesalahan besar ketika memutuskan untuk masuk pit dengan lap tersisa&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;pelatih timnas spanyol luis de la fuente tetap optimistis akan kedalaman skuad yang dimilikinya meski harus kehilangan satu pemain andalan di lini serang timnas spanyol kehilangan salah satu penyerang kuncinya lamine yamal jelang menghadapi serbia di uefa nation league penyerang la roja yang masih berusia tahun itu mengalami cedera pada bagian hamstring kaki kirinya pemain barcelona tersebut terpaksa meninggalkan timnas spanyol lebih cepat sebagai gantinya rodrigo riquelme dipanggil untuk menggantikan yamal menyoroti banyak pemain inti yang cedera luis de la fuente menyikapi dengan santai dan optimistis baca juga spanyol v denmark hujan tembakan gol debut zubimendi yamal tidak tergantikan namun kami harus bermain dengan pemain dan siapa pun yang menggantikannya akan bermain dengan baik kata la fuente dikutip dari reuters lamine sangat fantastis tetapi anda harus memahami bahwa dalam hidup ini tidak ada yang memberikan sesuatu secara siapa pun yang harus menggantikannya saya yakin mereka akan melakukannya dengan sangat baik katanya jadwal bermain yang padat di klub serta negara membuat beberapa pemain spanyol harus menepi dari lapangan hijau tak hanya yamal beberapa pemain senior turut menjadi korban seperti nico williams dani carvajal rodri unai simon robin le normand dan dani olmo juga mengalami cedera baca juga pujian dan wejangan pelatih timnas spanyol kepada lamine yamal spanyol akan menghadapi serbia di estadio municipal nuevo el arcángel pada selasa atau rabu dini hari wib menghadapi serbia la fuente mewaspadai kecepatan serangan balik yang dimiliki tim lawan ini akan menjadi pertandingan yang sangat sulit karena serbia harus mendapatkan hasil yang baik kata de la fuente semua pemain mereka bermain di besar eropa dan kita bisa melihat bagaimana mereka tampil di sana mereka adalah tim yang banyak berlari melakukan serangan balik ini adalah pertandingan yang akan membutuhkan banyak kedewasaan dan kerja kera kata pelatih berusia tahun itu spanyol masih menempati posisi pertama di grup liga dengan torehan tujuh poin dari tiga laga yang sudah dimainkan serbia tengah menduduki peringkat ketiga dengan empat poin dari satu kemenangan satu imbang dan satu seri simak breaking news dan berita pilihan kami langsung di ponselmu pilih saluran andalanmu ak berita whatsapp channel http pastikan kamu sudah install aplikasi whatsapp ya&#39;
 </pre></div>
 </div>
 </div>
@@ -704,7 +738,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
+<div class="output text_html">
+  <div id="df-c77ef30c-0dde-43f5-9b26-24a99fc969bd" class="colab-df-container">
+    <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -722,26 +758,26 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>aaron</th>
+      <th>abdomen</th>
       <th>abdominal</th>
       <th>abdullah</th>
-      <th>abdurachman</th>
+      <th>abduweli</th>
       <th>abnormal</th>
+      <th>aboard</th>
+      <th>abraq</th>
+      <th>abroad</th>
       <th>absen</th>
-      <th>abstrak</th>
-      <th>academy</th>
-      <th>acara</th>
-      <th>aceh</th>
-      <th>achilles</th>
       <th>...</th>
-      <th>yuli</th>
-      <th>yulia</th>
-      <th>zambo</th>
-      <th>zat</th>
-      <th>zedoaria</th>
+      <th>zhi</th>
+      <th>zhunyi</th>
+      <th>zi</th>
       <th>ziad</th>
+      <th>zii</th>
+      <th>zim</th>
       <th>zink</th>
-      <th>zirkzee</th>
       <th>zona</th>
+      <th>zubimendi</th>
       <th>zymuno</th>
     </tr>
   </thead>
@@ -767,7 +803,7 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
+      <td>1</td>
       <td>0</td>
     </tr>
     <tr>
@@ -781,7 +817,7 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
+      <td>1</td>
       <td>...</td>
       <td>0</td>
       <td>0</td>
@@ -790,7 +826,7 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
+      <td>1</td>
       <td>0</td>
       <td>0</td>
     </tr>
@@ -814,22 +850,22 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
+      <td>1</td>
       <td>0</td>
       <td>0</td>
     </tr>
     <tr>
       <th>3</th>
       <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
       <td>...</td>
       <td>0</td>
       <td>0</td>
@@ -838,8 +874,8 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
       <td>2</td>
+      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
@@ -853,7 +889,7 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
+      <td>1</td>
       <td>...</td>
       <td>0</td>
       <td>0</td>
@@ -891,7 +927,7 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>95</th>
+      <th>707</th>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -903,6 +939,68 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>708</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>709</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>710</th>
+      <td>0</td>
       <td>0</td>
       <td>1</td>
       <td>0</td>
@@ -912,20 +1010,6 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>96</th>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
       <td>...</td>
       <td>0</td>
       <td>0</td>
@@ -939,55 +1023,7 @@ document.write(`
       <td>0</td>
     </tr>
     <tr>
-      <th>97</th>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>98</th>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>99</th>
+      <th>711</th>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -1012,8 +1048,90 @@ document.write(`
     </tr>
   </tbody>
 </table>
-<p>100 rows × 4600 columns</p>
-</div></div></div>
+<p>712 rows × 5280 columns</p>
+</div>
+    <div class="colab-df-buttons">
+      
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-c77ef30c-0dde-43f5-9b26-24a99fc969bd')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+      
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+    
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-c77ef30c-0dde-43f5-9b26-24a99fc969bd button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-c77ef30c-0dde-43f5-9b26-24a99fc969bd');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+  
+    </div>
+  </div>
+  </div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1024,7 +1142,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
+<div class="output text_html">
+  <div id="df-b0988715-617f-46ea-b606-44e55ff47eb3" class="colab-df-container">
+    <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1042,33 +1162,34 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>aaron</th>
+      <th>abdomen</th>
       <th>abdominal</th>
       <th>abdullah</th>
-      <th>abdurachman</th>
+      <th>abduweli</th>
       <th>abnormal</th>
+      <th>aboard</th>
+      <th>abraq</th>
+      <th>abroad</th>
       <th>absen</th>
-      <th>abstrak</th>
-      <th>academy</th>
-      <th>acara</th>
-      <th>aceh</th>
-      <th>achilles</th>
       <th>...</th>
-      <th>yuli</th>
-      <th>yulia</th>
-      <th>zambo</th>
-      <th>zat</th>
-      <th>zedoaria</th>
+      <th>zhi</th>
+      <th>zhunyi</th>
+      <th>zi</th>
       <th>ziad</th>
+      <th>zii</th>
+      <th>zim</th>
       <th>zink</th>
-      <th>zirkzee</th>
       <th>zona</th>
+      <th>zubimendi</th>
       <th>zymuno</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1076,11 +1197,9 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>...</td>
       <td>0.0</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1088,11 +1207,13 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
+      <td>0.057554</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1100,23 +1221,23 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.054431</td>
       <td>...</td>
       <td>0.0</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.023076</td>
       <td>0.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1124,47 +1245,23 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>...</td>
       <td>0.0</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.022232</td>
       <td>0.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.000000</td>
-      <td>0.04922</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.065383</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0.000000</td>
       <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1172,17 +1269,40 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.062765</td>
       <td>...</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.053220</td>
       <td>0.000000</td>
       <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.043898</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.0</td>
     </tr>
@@ -1211,8 +1331,9 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>95</th>
-      <td>0.000000</td>
+      <th>707</th>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1220,23 +1341,23 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>...</td>
       <td>0.0</td>
-      <td>0.044749</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>96</th>
-      <td>0.000000</td>
+      <th>708</th>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1244,23 +1365,23 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>...</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>97</th>
-      <td>0.000000</td>
+      <th>709</th>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1268,47 +1389,47 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>...</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>98</th>
-      <td>0.049152</td>
-      <td>0.00000</td>
+      <th>710</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.04658</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>...</td>
       <td>0.0</td>
       <td>0.000000</td>
+      <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>99</th>
-      <td>0.000000</td>
+      <th>711</th>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1316,24 +1437,105 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>...</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
     </tr>
   </tbody>
 </table>
-<p>100 rows × 4600 columns</p>
-</div></div></div>
+<p>712 rows × 5280 columns</p>
+</div>
+    <div class="colab-df-buttons">
+      
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-b0988715-617f-46ea-b606-44e55ff47eb3')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+      
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+    
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-b0988715-617f-46ea-b606-44e55ff47eb3 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-b0988715-617f-46ea-b606-44e55ff47eb3');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+  
+    </div>
+  </div>
+  </div></div>
 </div>
 </section>
 </section>

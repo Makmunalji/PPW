@@ -458,18 +458,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting Sastrawi
-  Downloading Sastrawi-1.0.1-py2.py3-none-any.whl.metadata (909 bytes)
-Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
-?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/209.7 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">209.7/209.7 kB</span> <span class=" -Color -Color-Red">12.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: Sastrawi
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed Sastrawi-1.0.1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: Sastrawi in /usr/local/lib/python3.10/dist-packages (1.0.1)
 </pre></div>
 </div>
 </div>
@@ -502,7 +491,7 @@ Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package stopwords to /root/nltk_data...
-[nltk_data]   Unzipping corpora/stopwords.zip.
+[nltk_data]   Package stopwords is already up-to-date!
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -524,51 +513,33 @@ Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-5-346690587b34&gt;</span> in <span class="ni">&lt;cell line: 5&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Membaca file CSV dari folder lokal</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> 
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># Tampilkan beberapa baris pertama dari file CSV</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                               judul  \
+0  Spanyol Vs Serbia: La Roja Kehilangan Lamine Y...   
+1  Susunan Pemain China vs Indonesia: Asnawi Kapt...   
+2  Pengamat Sepak Bola Minta Timnas Indonesia Har...   
+3  Link Live Streaming China Vs Indonesia di Kual...   
+4  Persib Belum Kalah, Tyronne Rasakan Kompetitif...   
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/io/parsers/readers.py</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1024</span>     <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1025</span> 
-<span class="ne">-&gt; </span><span class="mi">1026</span>     <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1027</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1028</span> 
+                      waktu  \
+0   - 15/10/2024, 19:00 WIB   
+1   - 15/10/2024, 17:47 WIB   
+2   - 15/10/2024, 15:38 WIB   
+3   - 15/10/2024, 18:30 WIB   
+4   - 15/10/2024, 17:01 WIB   
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">618</span> 
-<span class="g g-Whitespace">    </span><span class="mi">619</span>     <span class="c1"># Create the parser.</span>
-<span class="ne">--&gt; </span><span class="mi">620</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">621</span> 
-<span class="g g-Whitespace">    </span><span class="mi">622</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+                                                 url  \
+0  https://bola.kompas.com/read/2024/10/15/190000...   
+1  https://bola.kompas.com/read/2024/10/15/174714...   
+2  https://bola.kompas.com/read/2024/10/15/153800...   
+3  https://bola.kompas.com/read/2024/10/15/183000...   
+4  https://bola.kompas.com/read/2024/10/15/170107...   
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/io/parsers/readers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1618</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1619</span>         <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="ne">-&gt; </span><span class="mi">1620</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1621</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1622</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, f, engine)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1878</span>                 <span class="k">if</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1879</span>                     <span class="n">mode</span> <span class="o">+=</span> <span class="s2">&quot;b&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1880</span>             <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1881</span>                 <span class="n">f</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1882</span>                 <span class="n">mode</span><span class="p">,</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/io/common.py</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">871</span>         <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">872</span>             <span class="c1"># Encoding</span>
-<span class="ne">--&gt; </span><span class="mi">873</span>             <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">874</span>                 <span class="n">handle</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">875</span>                 <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;kompas.csv&#39;
+                                              konten kategori  
+0  KOMPAS.com - Pelatih timnas Spanyol, Luis De L...     Bola  
+1  KOMPAS.com – Susunan pemain timnas Indonesia m...     Bola  
+2  KOMPAS.com - Pengamat sepak bola, Mohamad Kusn...     Bola  
+3  KOMPAS.com - Timnas Indonesia beberapa saat la...     Bola  
+4  BANDUNG, KOMPAS.com - Persib Bandung jadi sala...     Bola  
 </pre></div>
 </div>
 </div>
@@ -582,7 +553,9 @@ Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
+<div class="output text_html">
+  <div id="df-df90b7a1-3278-414e-a672-0782d852f717" class="colab-df-container">
+    <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -610,42 +583,42 @@ Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
   <tbody>
     <tr>
       <th>0</th>
-      <td>MotoGP San Marino 2024: Ketika Marquez Menang ...</td>
-      <td>- 09/09/2024, 05:00 WIB</td>
-      <td>https://www.kompas.com/motogp/read/2024/09/09/...</td>
-      <td>KOMPAS.com - Marc Marquez sukses memenangi Mot...</td>
+      <td>Spanyol Vs Serbia: La Roja Kehilangan Lamine Y...</td>
+      <td>- 15/10/2024, 19:00 WIB</td>
+      <td>https://bola.kompas.com/read/2024/10/15/190000...</td>
+      <td>KOMPAS.com - Pelatih timnas Spanyol, Luis De L...</td>
       <td>Bola</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Klasemen PON XXI 2024: Futsal Gagal Emas, Jati...</td>
-      <td>- 09/09/2024, 07:59 WIB</td>
-      <td>https://www.kompas.com/sports/read/2024/09/09/...</td>
-      <td>KOMPAS.com - Tim futsal Jawa Timur (Jatim) gag...</td>
+      <td>Susunan Pemain China vs Indonesia: Asnawi Kapt...</td>
+      <td>- 15/10/2024, 17:47 WIB</td>
+      <td>https://bola.kompas.com/read/2024/10/15/174714...</td>
+      <td>KOMPAS.com – Susunan pemain timnas Indonesia m...</td>
       <td>Bola</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Hasil One Pride MMA 82: Frans Sormin Bekuk Jak...</td>
-      <td>- 09/09/2024, 14:31 WIB</td>
-      <td>https://www.kompas.com/sports/read/2024/09/09/...</td>
-      <td>KOMPAS.com - Frans Lincol Sormin mengalahkan J...</td>
+      <td>Pengamat Sepak Bola Minta Timnas Indonesia Har...</td>
+      <td>- 15/10/2024, 15:38 WIB</td>
+      <td>https://bola.kompas.com/read/2024/10/15/153800...</td>
+      <td>KOMPAS.com - Pengamat sepak bola, Mohamad Kusn...</td>
       <td>Bola</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Indonesia Vs Australia, Kata Manajer Timnas so...</td>
-      <td>- 09/09/2024, 10:29 WIB</td>
-      <td>https://bola.kompas.com/read/2024/09/09/102929...</td>
-      <td>KOMPAS.com - Timnas Indonesia belum menentukan...</td>
+      <td>Link Live Streaming China Vs Indonesia di Kual...</td>
+      <td>- 15/10/2024, 18:30 WIB</td>
+      <td>https://bola.kompas.com/read/2024/10/15/183000...</td>
+      <td>KOMPAS.com - Timnas Indonesia beberapa saat la...</td>
       <td>Bola</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Dampak Kehadiran Marteen Paes untuk Persaingan...</td>
-      <td>- 09/09/2024, 11:30 WIB</td>
-      <td>https://bola.kompas.com/read/2024/09/09/113000...</td>
-      <td>KOMPAS.com - Penampilan penjaga gawang timnas ...</td>
+      <td>Persib Belum Kalah, Tyronne Rasakan Kompetitif...</td>
+      <td>- 15/10/2024, 17:01 WIB</td>
+      <td>https://bola.kompas.com/read/2024/10/15/170107...</td>
+      <td>BANDUNG, KOMPAS.com - Persib Bandung jadi sala...</td>
       <td>Bola</td>
     </tr>
     <tr>
@@ -657,7 +630,7 @@ Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
       <td>...</td>
     </tr>
     <tr>
-      <th>146</th>
+      <th>707</th>
       <td>Penurunan Apa Saja yang Terjadi pada Lansia? I...</td>
       <td>- 05/09/2024, 18:00 WIB</td>
       <td>https://health.kompas.com/read/24I05180000468/...</td>
@@ -665,7 +638,7 @@ Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
       <td>Health</td>
     </tr>
     <tr>
-      <th>147</th>
+      <th>708</th>
       <td>Apakah Minum Kopi Pahit Bagus untuk Kesehatan?...</td>
       <td>- 05/09/2024, 16:00 WIB</td>
       <td>https://health.kompas.com/read/24I05160000768/...</td>
@@ -673,7 +646,7 @@ Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
       <td>Health</td>
     </tr>
     <tr>
-      <th>148</th>
+      <th>709</th>
       <td>Sering Digunakan untuk Diet, Ini Manfaat Keseh...</td>
       <td>- 05/09/2024, 13:37 WIB</td>
       <td>https://health.kompas.com/read/24I05133717468/...</td>
@@ -681,7 +654,7 @@ Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
       <td>Health</td>
     </tr>
     <tr>
-      <th>149</th>
+      <th>710</th>
       <td>Kenali "BEACH", Akronim untuk Tanda Peringatan...</td>
       <td>- 05/09/2024, 14:00 WIB</td>
       <td>https://health.kompas.com/read/24I05140000068/...</td>
@@ -689,7 +662,7 @@ Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
       <td>Health</td>
     </tr>
     <tr>
-      <th>150</th>
+      <th>711</th>
       <td>Apakah Bisa Orang Tanpa Diabetes Mengalami Hip...</td>
       <td>- 05/09/2024, 12:00 WIB</td>
       <td>https://health.kompas.com/read/24I05120000068/...</td>
@@ -698,8 +671,90 @@ Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
     </tr>
   </tbody>
 </table>
-<p>151 rows × 5 columns</p>
-</div></div></div>
+<p>712 rows × 5 columns</p>
+</div>
+    <div class="colab-df-buttons">
+      
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-df90b7a1-3278-414e-a672-0782d852f717')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+      
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+    
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-df90b7a1-3278-414e-a672-0782d852f717 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-df90b7a1-3278-414e-a672-0782d852f717');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+  
+    </div>
+  </div>
+  </div></div>
 </div>
 </section>
 <section id="jumlah-dataset-per-label">
@@ -722,7 +777,7 @@ Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/49c28c2ffb5a0df2f0952e90f93c0c684ff8ba632bc41bd801847eb84cbea4ee.png" src="_images/49c28c2ffb5a0df2f0952e90f93c0c684ff8ba632bc41bd801847eb84cbea4ee.png" />
+<img alt="_images/8525c88209d95927fec70d9adc1595dc41d96e64c2057e2b20684e1328b9100a.png" src="_images/8525c88209d95927fec70d9adc1595dc41d96e64c2057e2b20684e1328b9100a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -750,7 +805,9 @@ Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Encoded Labels:
 </pre></div>
 </div>
-<div class="output text_html"><div>
+<div class="output text_html">
+  <div id="df-06359bb8-b77b-46b4-b43b-643bfd941e70" class="colab-df-container">
+    <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -778,42 +835,42 @@ Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
   <tbody>
     <tr>
       <th>0</th>
-      <td>MotoGP San Marino 2024: Ketika Marquez Menang ...</td>
-      <td>- 09/09/2024, 05:00 WIB</td>
-      <td>https://www.kompas.com/motogp/read/2024/09/09/...</td>
-      <td>KOMPAS.com - Marc Marquez sukses memenangi Mot...</td>
+      <td>Spanyol Vs Serbia: La Roja Kehilangan Lamine Y...</td>
+      <td>- 15/10/2024, 19:00 WIB</td>
+      <td>https://bola.kompas.com/read/2024/10/15/190000...</td>
+      <td>KOMPAS.com - Pelatih timnas Spanyol, Luis De L...</td>
       <td>0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Klasemen PON XXI 2024: Futsal Gagal Emas, Jati...</td>
-      <td>- 09/09/2024, 07:59 WIB</td>
-      <td>https://www.kompas.com/sports/read/2024/09/09/...</td>
-      <td>KOMPAS.com - Tim futsal Jawa Timur (Jatim) gag...</td>
+      <td>Susunan Pemain China vs Indonesia: Asnawi Kapt...</td>
+      <td>- 15/10/2024, 17:47 WIB</td>
+      <td>https://bola.kompas.com/read/2024/10/15/174714...</td>
+      <td>KOMPAS.com – Susunan pemain timnas Indonesia m...</td>
       <td>0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Hasil One Pride MMA 82: Frans Sormin Bekuk Jak...</td>
-      <td>- 09/09/2024, 14:31 WIB</td>
-      <td>https://www.kompas.com/sports/read/2024/09/09/...</td>
-      <td>KOMPAS.com - Frans Lincol Sormin mengalahkan J...</td>
+      <td>Pengamat Sepak Bola Minta Timnas Indonesia Har...</td>
+      <td>- 15/10/2024, 15:38 WIB</td>
+      <td>https://bola.kompas.com/read/2024/10/15/153800...</td>
+      <td>KOMPAS.com - Pengamat sepak bola, Mohamad Kusn...</td>
       <td>0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Indonesia Vs Australia, Kata Manajer Timnas so...</td>
-      <td>- 09/09/2024, 10:29 WIB</td>
-      <td>https://bola.kompas.com/read/2024/09/09/102929...</td>
-      <td>KOMPAS.com - Timnas Indonesia belum menentukan...</td>
+      <td>Link Live Streaming China Vs Indonesia di Kual...</td>
+      <td>- 15/10/2024, 18:30 WIB</td>
+      <td>https://bola.kompas.com/read/2024/10/15/183000...</td>
+      <td>KOMPAS.com - Timnas Indonesia beberapa saat la...</td>
       <td>0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Dampak Kehadiran Marteen Paes untuk Persaingan...</td>
-      <td>- 09/09/2024, 11:30 WIB</td>
-      <td>https://bola.kompas.com/read/2024/09/09/113000...</td>
-      <td>KOMPAS.com - Penampilan penjaga gawang timnas ...</td>
+      <td>Persib Belum Kalah, Tyronne Rasakan Kompetitif...</td>
+      <td>- 15/10/2024, 17:01 WIB</td>
+      <td>https://bola.kompas.com/read/2024/10/15/170107...</td>
+      <td>BANDUNG, KOMPAS.com - Persib Bandung jadi sala...</td>
       <td>0</td>
     </tr>
     <tr>
@@ -825,7 +882,7 @@ Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
       <td>...</td>
     </tr>
     <tr>
-      <th>146</th>
+      <th>707</th>
       <td>Penurunan Apa Saja yang Terjadi pada Lansia? I...</td>
       <td>- 05/09/2024, 18:00 WIB</td>
       <td>https://health.kompas.com/read/24I05180000468/...</td>
@@ -833,7 +890,7 @@ Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
       <td>1</td>
     </tr>
     <tr>
-      <th>147</th>
+      <th>708</th>
       <td>Apakah Minum Kopi Pahit Bagus untuk Kesehatan?...</td>
       <td>- 05/09/2024, 16:00 WIB</td>
       <td>https://health.kompas.com/read/24I05160000768/...</td>
@@ -841,7 +898,7 @@ Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
       <td>1</td>
     </tr>
     <tr>
-      <th>148</th>
+      <th>709</th>
       <td>Sering Digunakan untuk Diet, Ini Manfaat Keseh...</td>
       <td>- 05/09/2024, 13:37 WIB</td>
       <td>https://health.kompas.com/read/24I05133717468/...</td>
@@ -849,7 +906,7 @@ Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
       <td>1</td>
     </tr>
     <tr>
-      <th>149</th>
+      <th>710</th>
       <td>Kenali "BEACH", Akronim untuk Tanda Peringatan...</td>
       <td>- 05/09/2024, 14:00 WIB</td>
       <td>https://health.kompas.com/read/24I05140000068/...</td>
@@ -857,7 +914,7 @@ Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
       <td>1</td>
     </tr>
     <tr>
-      <th>150</th>
+      <th>711</th>
       <td>Apakah Bisa Orang Tanpa Diabetes Mengalami Hip...</td>
       <td>- 05/09/2024, 12:00 WIB</td>
       <td>https://health.kompas.com/read/24I05120000068/...</td>
@@ -866,8 +923,90 @@ Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
     </tr>
   </tbody>
 </table>
-<p>151 rows × 5 columns</p>
-</div></div></div>
+<p>712 rows × 5 columns</p>
+</div>
+    <div class="colab-df-buttons">
+      
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-06359bb8-b77b-46b4-b43b-643bfd941e70')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+      
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+    
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-06359bb8-b77b-46b4-b43b-643bfd941e70 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-06359bb8-b77b-46b4-b43b-643bfd941e70');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+  
+    </div>
+  </div>
+  </div></div>
 </div>
 </section>
 </section>
@@ -884,7 +1023,9 @@ Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
+<div class="output text_html">
+  <div id="df-ad57cc6b-fd60-4084-a3f4-c3fa6a704c7e" class="colab-df-container">
+    <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -909,28 +1050,28 @@ Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
   <tbody>
     <tr>
       <th>0</th>
-      <td>KOMPAS.com - Marc Marquez sukses memenangi Mot...</td>
-      <td>kompas.com - marc marquez sukses memenangi mot...</td>
+      <td>KOMPAS.com - Pelatih timnas Spanyol, Luis De L...</td>
+      <td>kompas.com - pelatih timnas spanyol, luis de l...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>KOMPAS.com - Tim futsal Jawa Timur (Jatim) gag...</td>
-      <td>kompas.com - tim futsal jawa timur (jatim) gag...</td>
+      <td>KOMPAS.com – Susunan pemain timnas Indonesia m...</td>
+      <td>kompas.com – susunan pemain timnas indonesia m...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>KOMPAS.com - Frans Lincol Sormin mengalahkan J...</td>
-      <td>kompas.com - frans lincol sormin mengalahkan j...</td>
+      <td>KOMPAS.com - Pengamat sepak bola, Mohamad Kusn...</td>
+      <td>kompas.com - pengamat sepak bola, mohamad kusn...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>KOMPAS.com - Timnas Indonesia belum menentukan...</td>
-      <td>kompas.com - timnas indonesia belum menentukan...</td>
+      <td>KOMPAS.com - Timnas Indonesia beberapa saat la...</td>
+      <td>kompas.com - timnas indonesia beberapa saat la...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>KOMPAS.com - Penampilan penjaga gawang timnas ...</td>
-      <td>kompas.com - penampilan penjaga gawang timnas ...</td>
+      <td>BANDUNG, KOMPAS.com - Persib Bandung jadi sala...</td>
+      <td>bandung, kompas.com - persib bandung jadi sala...</td>
     </tr>
     <tr>
       <th>...</th>
@@ -938,34 +1079,116 @@ Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
       <td>...</td>
     </tr>
     <tr>
-      <th>146</th>
+      <th>707</th>
       <td>KOMPAS.com - Seiring bertambahnya umur, setiap...</td>
       <td>kompas.com - seiring bertambahnya umur, setiap...</td>
     </tr>
     <tr>
-      <th>147</th>
+      <th>708</th>
       <td>KOMPAS.com - Kopi kerap diminum untuk mengatas...</td>
       <td>kompas.com - kopi kerap diminum untuk mengatas...</td>
     </tr>
     <tr>
-      <th>148</th>
+      <th>709</th>
       <td>KOMPAS.com - Dalam beberapa tahun terakhir, cu...</td>
       <td>kompas.com - dalam beberapa tahun terakhir, cu...</td>
     </tr>
     <tr>
-      <th>149</th>
+      <th>710</th>
       <td>KOMPAS.com - Gejala kanker ovarium sering kali...</td>
       <td>kompas.com - gejala kanker ovarium sering kali...</td>
     </tr>
     <tr>
-      <th>150</th>
+      <th>711</th>
       <td>KOMPAS.com - Hipoglikemia umum terjadi pada pe...</td>
       <td>kompas.com - hipoglikemia umum terjadi pada pe...</td>
     </tr>
   </tbody>
 </table>
-<p>151 rows × 2 columns</p>
-</div></div></div>
+<p>712 rows × 2 columns</p>
+</div>
+    <div class="colab-df-buttons">
+      
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-ad57cc6b-fd60-4084-a3f4-c3fa6a704c7e')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+      
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+    
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-ad57cc6b-fd60-4084-a3f4-c3fa6a704c7e button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-ad57cc6b-fd60-4084-a3f4-c3fa6a704c7e');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+  
+    </div>
+  </div>
+  </div></div>
 </div>
 </section>
 <section id="cleansing-text">
@@ -979,7 +1202,9 @@ Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
+<div class="output text_html">
+  <div id="df-4211931e-f89d-4f47-9fe1-58be85e83111" class="colab-df-container">
+    <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1004,28 +1229,28 @@ Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
   <tbody>
     <tr>
       <th>0</th>
-      <td>kompas.com - marc marquez sukses memenangi mot...</td>
-      <td>kompas com   marc marquez sukses memenangi mot...</td>
+      <td>kompas.com - pelatih timnas spanyol, luis de l...</td>
+      <td>kompas com   pelatih timnas spanyol  luis de l...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>kompas.com - tim futsal jawa timur (jatim) gag...</td>
-      <td>kompas com   tim futsal jawa timur  jatim  gag...</td>
+      <td>kompas.com – susunan pemain timnas indonesia m...</td>
+      <td>kompas com   susunan pemain timnas indonesia m...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>kompas.com - frans lincol sormin mengalahkan j...</td>
-      <td>kompas com   frans lincol sormin mengalahkan j...</td>
+      <td>kompas.com - pengamat sepak bola, mohamad kusn...</td>
+      <td>kompas com   pengamat sepak bola  mohamad kusn...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>kompas.com - timnas indonesia belum menentukan...</td>
-      <td>kompas com   timnas indonesia belum menentukan...</td>
+      <td>kompas.com - timnas indonesia beberapa saat la...</td>
+      <td>kompas com   timnas indonesia beberapa saat la...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>kompas.com - penampilan penjaga gawang timnas ...</td>
-      <td>kompas com   penampilan penjaga gawang timnas ...</td>
+      <td>bandung, kompas.com - persib bandung jadi sala...</td>
+      <td>bandung  kompas com   persib bandung jadi sala...</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1033,34 +1258,116 @@ Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
       <td>...</td>
     </tr>
     <tr>
-      <th>146</th>
+      <th>707</th>
       <td>kompas.com - seiring bertambahnya umur, setiap...</td>
       <td>kompas com   seiring bertambahnya umur  setiap...</td>
     </tr>
     <tr>
-      <th>147</th>
+      <th>708</th>
       <td>kompas.com - kopi kerap diminum untuk mengatas...</td>
       <td>kompas com   kopi kerap diminum untuk mengatas...</td>
     </tr>
     <tr>
-      <th>148</th>
+      <th>709</th>
       <td>kompas.com - dalam beberapa tahun terakhir, cu...</td>
       <td>kompas com   dalam beberapa tahun terakhir  cu...</td>
     </tr>
     <tr>
-      <th>149</th>
+      <th>710</th>
       <td>kompas.com - gejala kanker ovarium sering kali...</td>
       <td>kompas com   gejala kanker ovarium sering kali...</td>
     </tr>
     <tr>
-      <th>150</th>
+      <th>711</th>
       <td>kompas.com - hipoglikemia umum terjadi pada pe...</td>
       <td>kompas com   hipoglikemia umum terjadi pada pe...</td>
     </tr>
   </tbody>
 </table>
-<p>151 rows × 2 columns</p>
-</div></div></div>
+<p>712 rows × 2 columns</p>
+</div>
+    <div class="colab-df-buttons">
+      
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-4211931e-f89d-4f47-9fe1-58be85e83111')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+      
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+    
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-4211931e-f89d-4f47-9fe1-58be85e83111 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-4211931e-f89d-4f47-9fe1-58be85e83111');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+  
+    </div>
+  </div>
+  </div></div>
 </div>
 </section>
 <section id="tokenisasi">
@@ -1074,7 +1381,9 @@ Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
+<div class="output text_html">
+  <div id="df-cb25263b-defc-4913-aed6-5fd8b4e7d175" class="colab-df-container">
+    <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1099,28 +1408,28 @@ Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
   <tbody>
     <tr>
       <th>0</th>
-      <td>kompas com   marc marquez sukses memenangi mot...</td>
-      <td>[kompas, com, marc, marquez, sukses, memenangi...</td>
+      <td>kompas com   pelatih timnas spanyol  luis de l...</td>
+      <td>[kompas, com, pelatih, timnas, spanyol, luis, ...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>kompas com   tim futsal jawa timur  jatim  gag...</td>
-      <td>[kompas, com, tim, futsal, jawa, timur, jatim,...</td>
+      <td>kompas com   susunan pemain timnas indonesia m...</td>
+      <td>[kompas, com, susunan, pemain, timnas, indones...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>kompas com   frans lincol sormin mengalahkan j...</td>
-      <td>[kompas, com, frans, lincol, sormin, mengalahk...</td>
+      <td>kompas com   pengamat sepak bola  mohamad kusn...</td>
+      <td>[kompas, com, pengamat, sepak, bola, mohamad, ...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>kompas com   timnas indonesia belum menentukan...</td>
-      <td>[kompas, com, timnas, indonesia, belum, menent...</td>
+      <td>kompas com   timnas indonesia beberapa saat la...</td>
+      <td>[kompas, com, timnas, indonesia, beberapa, saa...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>kompas com   penampilan penjaga gawang timnas ...</td>
-      <td>[kompas, com, penampilan, penjaga, gawang, tim...</td>
+      <td>bandung  kompas com   persib bandung jadi sala...</td>
+      <td>[bandung, kompas, com, persib, bandung, jadi, ...</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1128,34 +1437,116 @@ Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
       <td>...</td>
     </tr>
     <tr>
-      <th>146</th>
+      <th>707</th>
       <td>kompas com   seiring bertambahnya umur  setiap...</td>
       <td>[kompas, com, seiring, bertambahnya, umur, set...</td>
     </tr>
     <tr>
-      <th>147</th>
+      <th>708</th>
       <td>kompas com   kopi kerap diminum untuk mengatas...</td>
       <td>[kompas, com, kopi, kerap, diminum, untuk, men...</td>
     </tr>
     <tr>
-      <th>148</th>
+      <th>709</th>
       <td>kompas com   dalam beberapa tahun terakhir  cu...</td>
       <td>[kompas, com, dalam, beberapa, tahun, terakhir...</td>
     </tr>
     <tr>
-      <th>149</th>
+      <th>710</th>
       <td>kompas com   gejala kanker ovarium sering kali...</td>
       <td>[kompas, com, gejala, kanker, ovarium, sering,...</td>
     </tr>
     <tr>
-      <th>150</th>
+      <th>711</th>
       <td>kompas com   hipoglikemia umum terjadi pada pe...</td>
       <td>[kompas, com, hipoglikemia, umum, terjadi, pad...</td>
     </tr>
   </tbody>
 </table>
-<p>151 rows × 2 columns</p>
-</div></div></div>
+<p>712 rows × 2 columns</p>
+</div>
+    <div class="colab-df-buttons">
+      
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-cb25263b-defc-4913-aed6-5fd8b4e7d175')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+      
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+    
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-cb25263b-defc-4913-aed6-5fd8b4e7d175 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-cb25263b-defc-4913-aed6-5fd8b4e7d175');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+  
+    </div>
+  </div>
+  </div></div>
 </div>
 </section>
 <section id="stopword-removal">
@@ -1171,7 +1562,9 @@ Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
+<div class="output text_html">
+  <div id="df-e51a4403-d7d1-4064-bc76-853d1d787962" class="colab-df-container">
+    <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1196,28 +1589,28 @@ Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
   <tbody>
     <tr>
       <th>0</th>
-      <td>[kompas, com, marc, marquez, sukses, memenangi...</td>
-      <td>[kompas, com, marc, marquez, sukses, memenangi...</td>
+      <td>[kompas, com, pelatih, timnas, spanyol, luis, ...</td>
+      <td>[kompas, com, pelatih, timnas, spanyol, luis, ...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>[kompas, com, tim, futsal, jawa, timur, jatim,...</td>
-      <td>[kompas, com, tim, futsal, jawa, timur, jatim,...</td>
+      <td>[kompas, com, susunan, pemain, timnas, indones...</td>
+      <td>[kompas, com, susunan, pemain, timnas, indones...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>[kompas, com, frans, lincol, sormin, mengalahk...</td>
-      <td>[kompas, com, frans, lincol, sormin, mengalahk...</td>
+      <td>[kompas, com, pengamat, sepak, bola, mohamad, ...</td>
+      <td>[kompas, com, pengamat, sepak, bola, mohamad, ...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>[kompas, com, timnas, indonesia, belum, menent...</td>
-      <td>[kompas, com, timnas, indonesia, menentukan, w...</td>
+      <td>[kompas, com, timnas, indonesia, beberapa, saa...</td>
+      <td>[kompas, com, timnas, indonesia, melanjutkan, ...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>[kompas, com, penampilan, penjaga, gawang, tim...</td>
-      <td>[kompas, com, penampilan, penjaga, gawang, tim...</td>
+      <td>[bandung, kompas, com, persib, bandung, jadi, ...</td>
+      <td>[bandung, kompas, com, persib, bandung, salah,...</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1225,34 +1618,116 @@ Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
       <td>...</td>
     </tr>
     <tr>
-      <th>146</th>
+      <th>707</th>
       <td>[kompas, com, seiring, bertambahnya, umur, set...</td>
       <td>[kompas, com, seiring, bertambahnya, umur, ora...</td>
     </tr>
     <tr>
-      <th>147</th>
+      <th>708</th>
       <td>[kompas, com, kopi, kerap, diminum, untuk, men...</td>
       <td>[kompas, com, kopi, kerap, diminum, mengatasi,...</td>
     </tr>
     <tr>
-      <th>148</th>
+      <th>709</th>
       <td>[kompas, com, dalam, beberapa, tahun, terakhir...</td>
       <td>[kompas, com, cuka, apel, madu, pilihan, popul...</td>
     </tr>
     <tr>
-      <th>149</th>
+      <th>710</th>
       <td>[kompas, com, gejala, kanker, ovarium, sering,...</td>
       <td>[kompas, com, gejala, kanker, ovarium, kali, m...</td>
     </tr>
     <tr>
-      <th>150</th>
+      <th>711</th>
       <td>[kompas, com, hipoglikemia, umum, terjadi, pad...</td>
       <td>[kompas, com, hipoglikemia, penderita, diabete...</td>
     </tr>
   </tbody>
 </table>
-<p>151 rows × 2 columns</p>
-</div></div></div>
+<p>712 rows × 2 columns</p>
+</div>
+    <div class="colab-df-buttons">
+      
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-e51a4403-d7d1-4064-bc76-853d1d787962')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+      
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+    
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-e51a4403-d7d1-4064-bc76-853d1d787962 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-e51a4403-d7d1-4064-bc76-853d1d787962');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+  
+    </div>
+  </div>
+  </div></div>
 </div>
 </section>
 <section id="stemming">
@@ -1272,88 +1747,140 @@ Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-14-586d3805391e&gt;</span> in <span class="ni">&lt;cell line: 6&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Menggunakan Sastrawi untuk stemming teks</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;stemmed_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;no_stopwords_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">tokens</span><span class="p">:</span> <span class="p">[</span><span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;final_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;stemmed_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> 
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
+<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/core/series.py</span> in <span class="ni">apply</span><span class="nt">(self, func, convert_dtype, args, by_row, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4922</span>             <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">4923</span>             <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="ne">-&gt; </span><span class="mi">4924</span>         <span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">4925</span> 
+<span class="g g-Whitespace">   </span><span class="mi">4926</span>     <span class="k">def</span> <span class="nf">_reindex_indexer</span><span class="p">(</span>
 
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>no_stopwords_text</th>
-      <th>final_text</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>[kompas, com, marc, marquez, sukses, memenangi...</td>
-      <td>kompas com marc marquez sukses tang motogp san...</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>[kompas, com, tim, futsal, jawa, timur, jatim,...</td>
-      <td>kompas com tim futsal jawa timur jatim gagal r...</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>[kompas, com, frans, lincol, sormin, mengalahk...</td>
-      <td>kompas com frans lincol sormin kalah jaka naib...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>[kompas, com, timnas, indonesia, menentukan, w...</td>
-      <td>kompas com timnas indonesia tentu warna jersey...</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>[kompas, com, penampilan, penjaga, gawang, tim...</td>
-      <td>kompas com tampil jaga gawang timnas indonesia...</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>146</th>
-      <td>[kompas, com, seiring, bertambahnya, umur, ora...</td>
-      <td>kompas com iring tambah umur orang alami turun...</td>
-    </tr>
-    <tr>
-      <th>147</th>
-      <td>[kompas, com, kopi, kerap, diminum, mengatasi,...</td>
-      <td>kompas com kopi kerap minum atas kantuk minum ...</td>
-    </tr>
-    <tr>
-      <th>148</th>
-      <td>[kompas, com, cuka, apel, madu, pilihan, popul...</td>
-      <td>kompas com cuka apel madu pilih populer kalang...</td>
-    </tr>
-    <tr>
-      <th>149</th>
-      <td>[kompas, com, gejala, kanker, ovarium, kali, m...</td>
-      <td>kompas com gejala kanker ovarium kali muncul s...</td>
-    </tr>
-    <tr>
-      <th>150</th>
-      <td>[kompas, com, hipoglikemia, penderita, diabete...</td>
-      <td>kompas com hipoglikemia derita diabetes kait g...</td>
-    </tr>
-  </tbody>
-</table>
-<p>151 rows × 2 columns</p>
-</div></div></div>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/core/apply.py</span> in <span class="ni">apply</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1425</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1426</span>         <span class="c1"># self.func is Callable</span>
+<span class="ne">-&gt; </span><span class="mi">1427</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply_standard</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1428</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1429</span>     <span class="k">def</span> <span class="nf">agg</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/core/apply.py</span> in <span class="ni">apply_standard</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1505</span>         <span class="c1">#  Categorical (GH51645).</span>
+<span class="g g-Whitespace">   </span><span class="mi">1506</span>         <span class="n">action</span> <span class="o">=</span> <span class="s2">&quot;ignore&quot;</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">CategoricalDtype</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+<span class="ne">-&gt; </span><span class="mi">1507</span>         <span class="n">mapped</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">_map_values</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1508</span>             <span class="n">mapper</span><span class="o">=</span><span class="n">curried</span><span class="p">,</span> <span class="n">na_action</span><span class="o">=</span><span class="n">action</span><span class="p">,</span> <span class="n">convert</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">convert_dtype</span>
+<span class="g g-Whitespace">   </span><span class="mi">1509</span>         <span class="p">)</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/core/base.py</span> in <span class="ni">_map_values</span><span class="nt">(self, mapper, na_action, convert)</span>
+<span class="g g-Whitespace">    </span><span class="mi">919</span>             <span class="k">return</span> <span class="n">arr</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">mapper</span><span class="p">,</span> <span class="n">na_action</span><span class="o">=</span><span class="n">na_action</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">920</span> 
+<span class="ne">--&gt; </span><span class="mi">921</span>         <span class="k">return</span> <span class="n">algorithms</span><span class="o">.</span><span class="n">map_array</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">mapper</span><span class="p">,</span> <span class="n">na_action</span><span class="o">=</span><span class="n">na_action</span><span class="p">,</span> <span class="n">convert</span><span class="o">=</span><span class="n">convert</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">922</span> 
+<span class="g g-Whitespace">    </span><span class="mi">923</span>     <span class="nd">@final</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/core/algorithms.py</span> in <span class="ni">map_array</span><span class="nt">(arr, mapper, na_action, convert)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1741</span>     <span class="n">values</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1742</span>     <span class="k">if</span> <span class="n">na_action</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1743</span>         <span class="k">return</span> <span class="n">lib</span><span class="o">.</span><span class="n">map_infer</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">mapper</span><span class="p">,</span> <span class="n">convert</span><span class="o">=</span><span class="n">convert</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1744</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1745</span>         <span class="k">return</span> <span class="n">lib</span><span class="o">.</span><span class="n">map_infer_mask</span><span class="p">(</span>
+
+<span class="nn">lib.pyx</span> in <span class="ni">pandas._libs.lib.map_infer</span><span class="nt">()</span>
+
+<span class="nn">&lt;ipython-input-14-586d3805391e&gt;</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(tokens)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Menggunakan Sastrawi untuk stemming teks</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;stemmed_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;no_stopwords_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">tokens</span><span class="p">:</span> <span class="p">[</span><span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;final_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;stemmed_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> 
+
+<span class="nn">&lt;ipython-input-14-586d3805391e&gt;</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Menggunakan Sastrawi untuk stemming teks</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;stemmed_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;no_stopwords_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">tokens</span><span class="p">:</span> <span class="p">[</span><span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;final_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;stemmed_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> 
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/Sastrawi/Stemmer/CachedStemmer.py</span> in <span class="ni">stem</span><span class="nt">(self, text)</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span>                 <span class="n">stems</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">word</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span>             <span class="k">else</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">20</span>                 <span class="n">stem</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">delegatedStemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">stem</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span>                 <span class="n">stems</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stem</span><span class="p">)</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/Sastrawi/Stemmer/Stemmer.py</span> in <span class="ni">stem</span><span class="nt">(self, text)</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> 
+<span class="g g-Whitespace">     </span><span class="mi">26</span>         <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">27</span>             <span class="n">stems</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stem_word</span><span class="p">(</span><span class="n">word</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span> 
+<span class="g g-Whitespace">     </span><span class="mi">29</span>         <span class="k">return</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">stems</span><span class="p">)</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/Sastrawi/Stemmer/Stemmer.py</span> in <span class="ni">stem_word</span><span class="nt">(self, word)</span>
+<span class="g g-Whitespace">     </span><span class="mi">34</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">stem_plural_word</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span>         <span class="k">else</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">36</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">stem_singular_word</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span> 
+<span class="g g-Whitespace">     </span><span class="mi">38</span>     <span class="k">def</span> <span class="nf">is_plural</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">):</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/Sastrawi/Stemmer/Stemmer.py</span> in <span class="ni">stem_singular_word</span><span class="nt">(self, word)</span>
+<span class="g g-Whitespace">     </span><span class="mi">82</span><span class="w">         </span><span class="sd">&quot;&quot;&quot;Stem a singular word to its common stem form.&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">83</span>         <span class="n">context</span> <span class="o">=</span> <span class="n">Context</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dictionary</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">visitor_provider</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">84</span>         <span class="n">context</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">85</span> 
+<span class="g g-Whitespace">     </span><span class="mi">86</span>         <span class="k">return</span> <span class="n">context</span><span class="o">.</span><span class="n">result</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/Sastrawi/Stemmer/Context/Context.py</span> in <span class="ni">execute</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span> 
+<span class="g g-Whitespace">     </span><span class="mi">36</span>         <span class="c1">#step 1 - 5</span>
+<span class="ne">---&gt; </span><span class="mi">37</span>         <span class="bp">self</span><span class="o">.</span><span class="n">start_stemming_process</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span> 
+<span class="g g-Whitespace">     </span><span class="mi">39</span>         <span class="c1">#step 6</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/Sastrawi/Stemmer/Context/Context.py</span> in <span class="ni">start_stemming_process</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">     </span><span class="mi">78</span> 
+<span class="g g-Whitespace">     </span><span class="mi">79</span>         <span class="c1">#step 4, 5</span>
+<span class="ne">---&gt; </span><span class="mi">80</span>         <span class="bp">self</span><span class="o">.</span><span class="n">remove_prefixes</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">81</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dictionary</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_word</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">82</span>             <span class="k">return</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/Sastrawi/Stemmer/Context/Context.py</span> in <span class="ni">remove_prefixes</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">     </span><span class="mi">87</span>     <span class="k">def</span> <span class="nf">remove_prefixes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">88</span>         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">89</span>             <span class="bp">self</span><span class="o">.</span><span class="n">accept_prefix_visitors</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix_pisitors</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">90</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dictionary</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_word</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">91</span>                 <span class="k">return</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/Sastrawi/Stemmer/Context/Context.py</span> in <span class="ni">accept_prefix_visitors</span><span class="nt">(self, visitors)</span>
+<span class="g g-Whitespace">    </span><span class="mi">108</span>         <span class="n">removalCount</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">removals</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">109</span>         <span class="k">for</span> <span class="n">visitor</span> <span class="ow">in</span> <span class="n">visitors</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">110</span>             <span class="bp">self</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="n">visitor</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">111</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dictionary</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_word</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">112</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_word</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/Sastrawi/Stemmer/Context/Context.py</span> in <span class="ni">accept</span><span class="nt">(self, visitor)</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span> 
+<span class="g g-Whitespace">     </span><span class="mi">96</span>     <span class="k">def</span> <span class="nf">accept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">visitor</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">97</span>         <span class="n">visitor</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span> 
+<span class="g g-Whitespace">     </span><span class="mi">99</span>     <span class="k">def</span> <span class="nf">accept_visitors</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">visitors</span><span class="p">):</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/Sastrawi/Stemmer/Context/Visitor/AbstractDisambiguatePrefixRule.py</span> in <span class="ni">visit</span><span class="nt">(self, context)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span>         <span class="k">for</span> <span class="n">disambiguator</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">disambiguators</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>             <span class="n">result</span> <span class="o">=</span> <span class="n">disambiguator</span><span class="o">.</span><span class="n">disambiguate</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">current_word</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">15</span>             <span class="k">if</span> <span class="n">context</span><span class="o">.</span><span class="n">dictionary</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">result</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span>                 <span class="k">break</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> 
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
