@@ -214,6 +214,9 @@
 
 
 
+<li class="toctree-l1"><a class="reference internal" href="Keyword.html">Keyword Extraction</a></li>
+
+
 </ul>
 
     </div>
@@ -542,7 +545,6 @@ document.write(`
 [nltk_data] Downloading package stopwords to /root/nltk_data...
 [nltk_data]   Package stopwords is already up-to-date!
 [nltk_data] Downloading package wordnet to /root/nltk_data...
-[nltk_data]   Package wordnet is already up-to-date!
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -580,7 +582,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-3070e79a-2517-4b46-b4c7-679bbd690bef" class="colab-df-container">
+  <div id="df-b44c0fa6-5cfe-4fa2-b37e-451aa7e9217c" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -659,7 +661,7 @@ document.write(`
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-3070e79a-2517-4b46-b4c7-679bbd690bef')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-b44c0fa6-5cfe-4fa2-b37e-451aa7e9217c')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -711,12 +713,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-3070e79a-2517-4b46-b4c7-679bbd690bef button.colab-df-convert');
+        document.querySelector('#df-b44c0fa6-5cfe-4fa2-b37e-451aa7e9217c button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-3070e79a-2517-4b46-b4c7-679bbd690bef');
+        const element = document.querySelector('#df-b44c0fa6-5cfe-4fa2-b37e-451aa7e9217c');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -839,7 +841,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-67e6b73a-6100-4766-bb00-ea2b7d9df78d" class="colab-df-container">
+  <div id="df-a822c864-8155-42cb-87de-998bfb9ebe28" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -862,12 +864,12 @@ document.write(`
       <th>abdomen</th>
       <th>abdominal</th>
       <th>abdullah</th>
+      <th>abdulweli</th>
       <th>abduweli</th>
       <th>abnormal</th>
       <th>aboard</th>
       <th>abraq</th>
       <th>abroad</th>
-      <th>absen</th>
       <th>...</th>
       <th>zhi</th>
       <th>zhunyi</th>
@@ -917,7 +919,7 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>1</td>
+      <td>0</td>
       <td>...</td>
       <td>0</td>
       <td>0</td>
@@ -965,7 +967,7 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>1</td>
+      <td>0</td>
       <td>...</td>
       <td>0</td>
       <td>0</td>
@@ -989,7 +991,7 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>1</td>
+      <td>0</td>
       <td>...</td>
       <td>0</td>
       <td>0</td>
@@ -1027,7 +1029,7 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>1115</th>
+      <th>1166</th>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -1051,7 +1053,7 @@ document.write(`
       <td>0</td>
     </tr>
     <tr>
-      <th>1116</th>
+      <th>1167</th>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -1075,7 +1077,7 @@ document.write(`
       <td>0</td>
     </tr>
     <tr>
-      <th>1117</th>
+      <th>1168</th>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -1099,7 +1101,7 @@ document.write(`
       <td>0</td>
     </tr>
     <tr>
-      <th>1118</th>
+      <th>1169</th>
       <td>0</td>
       <td>0</td>
       <td>1</td>
@@ -1123,7 +1125,7 @@ document.write(`
       <td>0</td>
     </tr>
     <tr>
-      <th>1119</th>
+      <th>1170</th>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -1148,12 +1150,12 @@ document.write(`
     </tr>
   </tbody>
 </table>
-<p>1120 rows × 5550 columns</p>
+<p>1171 rows × 5573 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-67e6b73a-6100-4766-bb00-ea2b7d9df78d')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-a822c864-8155-42cb-87de-998bfb9ebe28')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1205,12 +1207,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-67e6b73a-6100-4766-bb00-ea2b7d9df78d button.colab-df-convert');
+        document.querySelector('#df-a822c864-8155-42cb-87de-998bfb9ebe28 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-67e6b73a-6100-4766-bb00-ea2b7d9df78d');
+        const element = document.querySelector('#df-a822c864-8155-42cb-87de-998bfb9ebe28');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1243,7 +1245,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-5e82983b-9d27-4354-bbfd-7647588877b4" class="colab-df-container">
+  <div id="df-7ff959e2-1926-4df5-9759-646cb5ad5ec9" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1266,12 +1268,12 @@ document.write(`
       <th>abdomen</th>
       <th>abdominal</th>
       <th>abdullah</th>
+      <th>abdulweli</th>
       <th>abduweli</th>
       <th>abnormal</th>
       <th>aboard</th>
       <th>abraq</th>
       <th>abroad</th>
-      <th>absen</th>
       <th>...</th>
       <th>zhi</th>
       <th>zhunyi</th>
@@ -1297,7 +1299,7 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1307,7 +1309,7 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
-      <td>0.058556</td>
+      <td>0.058867</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -1321,7 +1323,7 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.052139</td>
+      <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1330,7 +1332,7 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.023093</td>
+      <td>0.023045</td>
       <td>0.000000</td>
       <td>0.0</td>
     </tr>
@@ -1345,7 +1347,7 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1354,7 +1356,7 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.021882</td>
+      <td>0.021817</td>
       <td>0.000000</td>
       <td>0.0</td>
     </tr>
@@ -1369,7 +1371,7 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.058517</td>
+      <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1378,7 +1380,7 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.051836</td>
+      <td>0.051623</td>
       <td>0.000000</td>
       <td>0.0</td>
     </tr>
@@ -1393,7 +1395,7 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.041545</td>
+      <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1431,7 +1433,7 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>1115</th>
+      <th>1166</th>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
@@ -1441,7 +1443,7 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1455,7 +1457,7 @@ document.write(`
       <td>0.0</td>
     </tr>
     <tr>
-      <th>1116</th>
+      <th>1167</th>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
@@ -1465,7 +1467,7 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1479,7 +1481,7 @@ document.write(`
       <td>0.0</td>
     </tr>
     <tr>
-      <th>1117</th>
+      <th>1168</th>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
@@ -1489,7 +1491,7 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1503,17 +1505,17 @@ document.write(`
       <td>0.0</td>
     </tr>
     <tr>
-      <th>1118</th>
+      <th>1169</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.046137</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.046088</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1527,7 +1529,7 @@ document.write(`
       <td>0.0</td>
     </tr>
     <tr>
-      <th>1119</th>
+      <th>1170</th>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
@@ -1537,7 +1539,7 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1552,12 +1554,12 @@ document.write(`
     </tr>
   </tbody>
 </table>
-<p>1120 rows × 5550 columns</p>
+<p>1171 rows × 5573 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-5e82983b-9d27-4354-bbfd-7647588877b4')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-7ff959e2-1926-4df5-9759-646cb5ad5ec9')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1609,12 +1611,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-5e82983b-9d27-4354-bbfd-7647588877b4 button.colab-df-convert');
+        document.querySelector('#df-7ff959e2-1926-4df5-9759-646cb5ad5ec9 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-5e82983b-9d27-4354-bbfd-7647588877b4');
+        const element = document.querySelector('#df-7ff959e2-1926-4df5-9759-646cb5ad5ec9');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});

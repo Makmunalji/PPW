@@ -1,0 +1,124 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/usr/local/lib/python3.10/dist-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+  File "/usr/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/usr/local/lib/python3.10/dist-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import gdown
+import numpy as np
+import pandas as pd
+import nltk
+from nltk.tokenize import word_tokenize, sent_tokenize
+import re
+from nltk.corpus import stopwords
+from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
+from sklearn.feature_extraction.text import TfidfVectorizer,CountVectorizer, TfidfTransformer
+from sklearn.metrics.pairwise import cosine_similarity
+import networkx as nx
+import matplotlib.pyplot as plt
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+[0;32m/usr/lib/python3.10/importlib/_bootstrap_external.py[0m in [0;36m_path_is_mode_type[0;34m(path, mode)[0m
+
+[0;32m/usr/lib/python3.10/importlib/_bootstrap_external.py[0m in [0;36m_path_stat[0;34m(path)[0m
+
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/usr/local/lib/python3.10/dist-packages/sklearn/__init__.cpython-310-x86_64-linux-gnu.so'
+
+During handling of the above exception, another exception occurred:
+
+[0;31mKeyboardInterrupt[0m                         Traceback (most recent call last)
+[0;32m<ipython-input-2-262680e008b2>[0m in [0;36m<cell line: 4>[0;34m()[0m
+[1;32m      2[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m [0;32mimport[0m [0mpandas[0m [0;32mas[0m [0mpd[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 4[0;31m [0;32mimport[0m [0mnltk[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      5[0m [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0mtokenize[0m [0;32mimport[0m [0mword_tokenize[0m[0;34m,[0m [0msent_tokenize[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0;32mimport[0m [0mre[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.10/dist-packages/nltk/__init__.py[0m in [0;36m<module>[0;34m[0m
+[1;32m    144[0m [0;31m###########################################################[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    145[0m [0;34m[0m[0m
+[0;32m--> 146[0;31m [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0mchunk[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    147[0m [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0mclassify[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    148[0m [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0minference[0m [0;32mimport[0m [0;34m*[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.10/dist-packages/nltk/chunk/__init__.py[0m in [0;36m<module>[0;34m[0m
+[1;32m    153[0m """
+[1;32m    154[0m [0;34m[0m[0m
+[0;32m--> 155[0;31m [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0mchunk[0m[0;34m.[0m[0mapi[0m [0;32mimport[0m [0mChunkParserI[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    156[0m [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0mchunk[0m[0;34m.[0m[0mregexp[0m [0;32mimport[0m [0mRegexpChunkParser[0m[0;34m,[0m [0mRegexpParser[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    157[0m from nltk.chunk.util import (
+
+[0;32m/usr/local/lib/python3.10/dist-packages/nltk/chunk/api.py[0m in [0;36m<module>[0;34m[0m
+[1;32m     11[0m [0;31m##//////////////////////////////////////////////////////[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     12[0m [0;34m[0m[0m
+[0;32m---> 13[0;31m [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0mchunk[0m[0;34m.[0m[0mutil[0m [0;32mimport[0m [0mChunkScore[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     14[0m [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0minternals[0m [0;32mimport[0m [0mdeprecated[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     15[0m [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0mparse[0m [0;32mimport[0m [0mParserI[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.10/dist-packages/nltk/chunk/util.py[0m in [0;36m<module>[0;34m[0m
+[1;32m     10[0m [0;34m[0m[0m
+[1;32m     11[0m [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0mmetrics[0m [0;32mimport[0m [0maccuracy[0m [0;32mas[0m [0m_accuracy[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 12[0;31m [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0mtag[0m[0;34m.[0m[0mmapping[0m [0;32mimport[0m [0mmap_tag[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     13[0m [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0mtag[0m[0;34m.[0m[0mutil[0m [0;32mimport[0m [0mstr2tuple[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     14[0m [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0mtree[0m [0;32mimport[0m [0mTree[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.10/dist-packages/nltk/tag/__init__.py[0m in [0;36m<module>[0;34m[0m
+[1;32m     68[0m [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0mtag[0m[0;34m.[0m[0mapi[0m [0;32mimport[0m [0mTaggerI[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     69[0m [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0mtag[0m[0;34m.[0m[0mutil[0m [0;32mimport[0m [0mstr2tuple[0m[0;34m,[0m [0mtuple2str[0m[0;34m,[0m [0muntag[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 70[0;31m from nltk.tag.sequential import (
+[0m[1;32m     71[0m     [0mSequentialBackoffTagger[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     72[0m     [0mContextTagger[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.10/dist-packages/nltk/tag/sequential.py[0m in [0;36m<module>[0;34m[0m
+[1;32m     24[0m [0;34m[0m[0m
+[1;32m     25[0m [0;32mfrom[0m [0mnltk[0m [0;32mimport[0m [0mjsontags[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 26[0;31m [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0mclassify[0m [0;32mimport[0m [0mNaiveBayesClassifier[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     27[0m [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0mprobability[0m [0;32mimport[0m [0mConditionalFreqDist[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     28[0m [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0mtag[0m[0;34m.[0m[0mapi[0m [0;32mimport[0m [0mFeaturesetTaggerI[0m[0;34m,[0m [0mTaggerI[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.10/dist-packages/nltk/classify/__init__.py[0m in [0;36m<module>[0;34m[0m
+[1;32m     95[0m [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0mclassify[0m[0;34m.[0m[0mpositivenaivebayes[0m [0;32mimport[0m [0mPositiveNaiveBayesClassifier[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     96[0m [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0mclassify[0m[0;34m.[0m[0mrte_classify[0m [0;32mimport[0m [0mRTEFeatureExtractor[0m[0;34m,[0m [0mrte_classifier[0m[0;34m,[0m [0mrte_features[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 97[0;31m [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0mclassify[0m[0;34m.[0m[0mscikitlearn[0m [0;32mimport[0m [0mSklearnClassifier[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     98[0m [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0mclassify[0m[0;34m.[0m[0msenna[0m [0;32mimport[0m [0mSenna[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     99[0m [0;32mfrom[0m [0mnltk[0m[0;34m.[0m[0mclassify[0m[0;34m.[0m[0mtextcat[0m [0;32mimport[0m [0mTextCat[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.10/dist-packages/nltk/classify/scikitlearn.py[0m in [0;36m<module>[0;34m[0m
+[1;32m     36[0m [0;34m[0m[0m
+[1;32m     37[0m [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 38[0;31m     [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mfeature_extraction[0m [0;32mimport[0m [0mDictVectorizer[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     39[0m     [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mpreprocessing[0m [0;32mimport[0m [0mLabelEncoder[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     40[0m [0;32mexcept[0m [0mImportError[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/lib/python3.10/importlib/_bootstrap.py[0m in [0;36m_find_and_load[0;34m(name, import_)[0m
+
+[0;32m/usr/lib/python3.10/importlib/_bootstrap.py[0m in [0;36m_find_and_load_unlocked[0;34m(name, import_)[0m
+
+[0;32m/usr/lib/python3.10/importlib/_bootstrap.py[0m in [0;36m_find_spec[0;34m(name, path, target)[0m
+
+[0;32m/usr/lib/python3.10/importlib/_bootstrap_external.py[0m in [0;36mfind_spec[0;34m(cls, fullname, path, target)[0m
+
+[0;32m/usr/lib/python3.10/importlib/_bootstrap_external.py[0m in [0;36m_get_spec[0;34m(cls, fullname, path, target)[0m
+
+[0;32m/usr/lib/python3.10/importlib/_bootstrap_external.py[0m in [0;36mfind_spec[0;34m(self, fullname, target)[0m
+
+[0;32m/usr/lib/python3.10/importlib/_bootstrap_external.py[0m in [0;36m_path_isfile[0;34m(path)[0m
+
+[0;32m/usr/lib/python3.10/importlib/_bootstrap_external.py[0m in [0;36m_path_is_mode_type[0;34m(path, mode)[0m
+
+[0;31mKeyboardInterrupt[0m: 
+
