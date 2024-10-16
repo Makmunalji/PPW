@@ -28,7 +28,7 @@ print(df.head())
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-[0;32m<ipython-input-5-5bf02d424a9e>[0m in [0;36m<cell line: 5>[0;34m()[0m
+[0;32m<ipython-input-6-5bf02d424a9e>[0m in [0;36m<cell line: 5>[0;34m()[0m
 [1;32m      3[0m [0;34m[0m[0m
 [1;32m      4[0m [0;31m# Membaca file CSV dari folder lokal[0m[0;34m[0m[0;34m[0m[0m
 [0;32m----> 5[0;31m [0mdf[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0mfile_name[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
