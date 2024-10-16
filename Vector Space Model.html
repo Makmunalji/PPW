@@ -197,7 +197,9 @@
 <li class="toctree-l1"><a class="reference internal" href="Logistic%20Regression.html">Klasifikasi Brita</a></li>
 
 
-<li class="toctree-l1"><a class="reference internal" href="Ringkas_Brita.html">Implementasi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ringkas_Brita.html">Graph dan Summarization</a></li>
+
+
 
 
 
@@ -539,6 +541,7 @@ document.write(`
 [nltk_data] Downloading package stopwords to /root/nltk_data...
 [nltk_data]   Package stopwords is already up-to-date!
 [nltk_data] Downloading package wordnet to /root/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -576,7 +579,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-88f424aa-b519-4e5b-978a-93f1e37360f8" class="colab-df-container">
+  <div id="df-2f96f003-a9d1-4485-b976-4b5d684c7d88" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -655,7 +658,7 @@ document.write(`
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-88f424aa-b519-4e5b-978a-93f1e37360f8')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-2f96f003-a9d1-4485-b976-4b5d684c7d88')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -707,12 +710,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-88f424aa-b519-4e5b-978a-93f1e37360f8 button.colab-df-convert');
+        document.querySelector('#df-2f96f003-a9d1-4485-b976-4b5d684c7d88 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-88f424aa-b519-4e5b-978a-93f1e37360f8');
+        const element = document.querySelector('#df-2f96f003-a9d1-4485-b976-4b5d684c7d88');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -835,7 +838,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-6850d83c-915a-492c-a30d-244c3ad61651" class="colab-df-container">
+  <div id="df-66e21bd2-2b74-4867-96d6-9739ca36bd12" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1023,7 +1026,7 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>1013</th>
+      <th>1064</th>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -1047,7 +1050,7 @@ document.write(`
       <td>0</td>
     </tr>
     <tr>
-      <th>1014</th>
+      <th>1065</th>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -1071,7 +1074,7 @@ document.write(`
       <td>0</td>
     </tr>
     <tr>
-      <th>1015</th>
+      <th>1066</th>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -1095,7 +1098,7 @@ document.write(`
       <td>0</td>
     </tr>
     <tr>
-      <th>1016</th>
+      <th>1067</th>
       <td>0</td>
       <td>0</td>
       <td>1</td>
@@ -1119,7 +1122,7 @@ document.write(`
       <td>0</td>
     </tr>
     <tr>
-      <th>1017</th>
+      <th>1068</th>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -1144,12 +1147,12 @@ document.write(`
     </tr>
   </tbody>
 </table>
-<p>1018 rows × 5534 columns</p>
+<p>1069 rows × 5550 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-6850d83c-915a-492c-a30d-244c3ad61651')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-66e21bd2-2b74-4867-96d6-9739ca36bd12')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1201,12 +1204,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-6850d83c-915a-492c-a30d-244c3ad61651 button.colab-df-convert');
+        document.querySelector('#df-66e21bd2-2b74-4867-96d6-9739ca36bd12 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-6850d83c-915a-492c-a30d-244c3ad61651');
+        const element = document.querySelector('#df-66e21bd2-2b74-4867-96d6-9739ca36bd12');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1239,7 +1242,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-0a4f3200-7a7d-4508-9581-5721786a0389" class="colab-df-container">
+  <div id="df-4a8b08bc-62e0-400b-9f81-9576a2df07fd" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1286,7 +1289,7 @@ document.write(`
       <th>0</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1303,21 +1306,21 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
-      <td>0.058392</td>
+      <td>0.058462</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>1</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.052439</td>
+      <td>0.052374</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1326,7 +1329,7 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.023151</td>
+      <td>0.023117</td>
       <td>0.000000</td>
       <td>0.0</td>
     </tr>
@@ -1334,7 +1337,7 @@ document.write(`
       <th>2</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1350,7 +1353,7 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.022017</td>
+      <td>0.021896</td>
       <td>0.000000</td>
       <td>0.0</td>
     </tr>
@@ -1358,14 +1361,14 @@ document.write(`
       <th>3</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.059104</td>
+      <td>0.058880</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1374,7 +1377,7 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.052188</td>
+      <td>0.051978</td>
       <td>0.000000</td>
       <td>0.0</td>
     </tr>
@@ -1382,14 +1385,14 @@ document.write(`
       <th>4</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.041919</td>
+      <td>0.041704</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1427,34 +1430,10 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>1013</th>
+      <th>1064</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>1014</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1475,34 +1454,10 @@ document.write(`
       <td>0.0</td>
     </tr>
     <tr>
-      <th>1015</th>
+      <th>1065</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>1016</th>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.046232</td>
+      <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1523,10 +1478,58 @@ document.write(`
       <td>0.0</td>
     </tr>
     <tr>
-      <th>1017</th>
+      <th>1066</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1067</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.04618</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1068</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1548,12 +1551,12 @@ document.write(`
     </tr>
   </tbody>
 </table>
-<p>1018 rows × 5534 columns</p>
+<p>1069 rows × 5550 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-0a4f3200-7a7d-4508-9581-5721786a0389')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-4a8b08bc-62e0-400b-9f81-9576a2df07fd')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1605,12 +1608,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-0a4f3200-7a7d-4508-9581-5721786a0389 button.colab-df-convert');
+        document.querySelector('#df-4a8b08bc-62e0-400b-9f81-9576a2df07fd button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-0a4f3200-7a7d-4508-9581-5721786a0389');
+        const element = document.querySelector('#df-4a8b08bc-62e0-400b-9f81-9576a2df07fd');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
