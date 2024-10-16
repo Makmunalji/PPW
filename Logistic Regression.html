@@ -195,6 +195,7 @@
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Klasifikasi Brita</a></li>
 
+
 </ul>
 
     </div>
@@ -391,6 +392,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Klasifikasi Brita</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression">Logistic Regression</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi">Implementasi</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#library-yang-digunakan">Library yang digunakan</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">Dataset</a></li>
@@ -431,6 +433,35 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="klasifikasi-brita">
 <h1>Klasifikasi Brita<a class="headerlink" href="#klasifikasi-brita" title="Link to this heading">#</a></h1>
+<p>Klasifikasi berita adalah proses menggunakan teknik kecerdasan buatan atau pembelajaran mesin (machine learning) untuk mengelompokkan artikel berita ke dalam kategori tertentu secara otomatis. Kategori ini bisa berupa topik seperti “politik”, “ekonomi”, “olahraga”, “teknologi”, dan sebagainya. Dalam konteks machine learning, klasifikasi merupakan salah satu jenis masalah di mana model belajar dari data yang telah diberi label dan kemudian digunakan untuk memprediksi label pada data baru.</p>
+<p>Berikut adalah langkah-langkah umum dalam klasifikasi berita:</p>
+<ol class="arabic simple">
+<li><p>Pengumpulan Data: Langkah pertama adalah mengumpulkan data berita, biasanya berupa teks yang berisi judul, isi berita, dan informasi lainnya. Setiap berita diberi label berdasarkan kategorinya.</p></li>
+<li><p>Pra-pemrosesan Data: Data teks perlu diubah menjadi bentuk yang dapat dimengerti oleh algoritma machine learning. Beberapa langkah pra-pemrosesan yang umum dilakukan adalah:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Tokenisasi: Memecah teks menjadi kata-kata individu atau token.</p></li>
+<li><p>Penghapusan Stop Words: Menghapus kata-kata umum yang tidak memiliki banyak makna seperti “dan”, “di”, “yang”, dsb.</p></li>
+<li><p>Stemming atau Lemmatization: Mengubah kata ke bentuk dasar (misalnya “running” menjadi “run”).</p></li>
+<li><p>Representasi Vektor: Teks diubah menjadi representasi numerik menggunakan metode seperti Bag of Words (BoW) atau Term Frequency-Inverse Document Frequency (TF-IDF).</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>Pemilihan Model: Dalam kasus ini, Anda menggunakan logistic regression, salah satu algoritma klasik yang sederhana namun efektif untuk klasifikasi. Logistic regression bekerja dengan memodelkan hubungan antara fitur input (vektor yang mewakili berita) dan probabilitas suatu berita termasuk ke dalam kategori tertentu.</p></li>
+<li><p>Pelatihan Model: Data yang telah diproses digunakan untuk melatih model logistic regression. Model akan mempelajari pola dari teks berita yang berhubungan dengan setiap kategori.</p></li>
+<li><p>Evaluasi Model: Model yang telah dilatih diuji pada data baru untuk mengukur performanya. Metrik umum yang digunakan dalam klasifikasi termasuk:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Akurasi: Proporsi berita yang diklasifikasikan dengan benar.</p></li>
+<li><p>Precision dan Recall: Digunakan untuk mengevaluasi performa model dalam situasi di mana data tidak seimbang (misalnya, kategori tertentu lebih banyak dibanding yang lain).</p></li>
+<li><p>F1-Score: Gabungan dari precision dan recall.</p></li>
+</ul>
+<ol class="arabic simple" start="6">
+<li><p>Prediksi: Setelah model dilatih dan diuji, ia dapat digunakan untuk memprediksi kategori berita baru yang belum diberi label. Model akan memberikan probabilitas setiap berita berada dalam kategori tertentu, dan kategori dengan probabilitas tertinggi akan dipilih sebagai hasil prediksi.</p></li>
+</ol>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="logistic-regression">
+<h1>Logistic Regression<a class="headerlink" href="#logistic-regression" title="Link to this heading">#</a></h1>
+<p>Logistic regression adalah salah satu algoritma dalam pembelajaran mesin yang digunakan untuk memodelkan hubungan antara variabel input (fitur) dengan variabel output yang bersifat biner atau kategori. Meskipun disebut “regresi”, logistic regression sebenarnya digunakan untuk masalah klasifikasi, bukan regresi. Logistic regression memprediksi probabilitas suatu kejadian masuk dalam salah satu dari dua kategori.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="implementasi">
 <h1>Implementasi<a class="headerlink" href="#implementasi" title="Link to this heading">#</a></h1>
@@ -561,7 +592,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-cf7e9494-c3a6-4616-9efe-0206315b151c" class="colab-df-container">
+  <div id="df-0fc91033-1423-4ad7-9d2d-956b0100e9f5" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -637,7 +668,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
       <td>...</td>
     </tr>
     <tr>
-      <th>758</th>
+      <th>809</th>
       <td>Penurunan Apa Saja yang Terjadi pada Lansia? I...</td>
       <td>- 05/09/2024, 18:00 WIB</td>
       <td>https://health.kompas.com/read/24I05180000468/...</td>
@@ -645,7 +676,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
       <td>Health</td>
     </tr>
     <tr>
-      <th>759</th>
+      <th>810</th>
       <td>Apakah Minum Kopi Pahit Bagus untuk Kesehatan?...</td>
       <td>- 05/09/2024, 16:00 WIB</td>
       <td>https://health.kompas.com/read/24I05160000768/...</td>
@@ -653,7 +684,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
       <td>Health</td>
     </tr>
     <tr>
-      <th>760</th>
+      <th>811</th>
       <td>Sering Digunakan untuk Diet, Ini Manfaat Keseh...</td>
       <td>- 05/09/2024, 13:37 WIB</td>
       <td>https://health.kompas.com/read/24I05133717468/...</td>
@@ -661,7 +692,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
       <td>Health</td>
     </tr>
     <tr>
-      <th>761</th>
+      <th>812</th>
       <td>Kenali "BEACH", Akronim untuk Tanda Peringatan...</td>
       <td>- 05/09/2024, 14:00 WIB</td>
       <td>https://health.kompas.com/read/24I05140000068/...</td>
@@ -669,7 +700,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
       <td>Health</td>
     </tr>
     <tr>
-      <th>762</th>
+      <th>813</th>
       <td>Apakah Bisa Orang Tanpa Diabetes Mengalami Hip...</td>
       <td>- 05/09/2024, 12:00 WIB</td>
       <td>https://health.kompas.com/read/24I05120000068/...</td>
@@ -678,12 +709,12 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
     </tr>
   </tbody>
 </table>
-<p>763 rows × 5 columns</p>
+<p>814 rows × 5 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-cf7e9494-c3a6-4616-9efe-0206315b151c')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-0fc91033-1423-4ad7-9d2d-956b0100e9f5')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -735,12 +766,12 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 
     <script>
       const buttonEl =
-        document.querySelector('#df-cf7e9494-c3a6-4616-9efe-0206315b151c button.colab-df-convert');
+        document.querySelector('#df-0fc91033-1423-4ad7-9d2d-956b0100e9f5 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-cf7e9494-c3a6-4616-9efe-0206315b151c');
+        const element = document.querySelector('#df-0fc91033-1423-4ad7-9d2d-956b0100e9f5');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -784,7 +815,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ffde386dd1aa960f2d36b92026358d950cadb79346383d0d32aa37759f11163b.png" src="_images/ffde386dd1aa960f2d36b92026358d950cadb79346383d0d32aa37759f11163b.png" />
+<img alt="_images/caf515e06cfcd8f80ad6cea5a8ed61a982059de6d0833f1b9bc2a4b967aa1f27.png" src="_images/caf515e06cfcd8f80ad6cea5a8ed61a982059de6d0833f1b9bc2a4b967aa1f27.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -813,7 +844,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-d74e17c9-1131-4d5e-bbcf-2b7358445de6" class="colab-df-container">
+  <div id="df-5685f1d6-ff19-43b8-97f4-80a3bc16144c" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -889,7 +920,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
       <td>...</td>
     </tr>
     <tr>
-      <th>758</th>
+      <th>809</th>
       <td>Penurunan Apa Saja yang Terjadi pada Lansia? I...</td>
       <td>- 05/09/2024, 18:00 WIB</td>
       <td>https://health.kompas.com/read/24I05180000468/...</td>
@@ -897,7 +928,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
       <td>1</td>
     </tr>
     <tr>
-      <th>759</th>
+      <th>810</th>
       <td>Apakah Minum Kopi Pahit Bagus untuk Kesehatan?...</td>
       <td>- 05/09/2024, 16:00 WIB</td>
       <td>https://health.kompas.com/read/24I05160000768/...</td>
@@ -905,7 +936,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
       <td>1</td>
     </tr>
     <tr>
-      <th>760</th>
+      <th>811</th>
       <td>Sering Digunakan untuk Diet, Ini Manfaat Keseh...</td>
       <td>- 05/09/2024, 13:37 WIB</td>
       <td>https://health.kompas.com/read/24I05133717468/...</td>
@@ -913,7 +944,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
       <td>1</td>
     </tr>
     <tr>
-      <th>761</th>
+      <th>812</th>
       <td>Kenali "BEACH", Akronim untuk Tanda Peringatan...</td>
       <td>- 05/09/2024, 14:00 WIB</td>
       <td>https://health.kompas.com/read/24I05140000068/...</td>
@@ -921,7 +952,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
       <td>1</td>
     </tr>
     <tr>
-      <th>762</th>
+      <th>813</th>
       <td>Apakah Bisa Orang Tanpa Diabetes Mengalami Hip...</td>
       <td>- 05/09/2024, 12:00 WIB</td>
       <td>https://health.kompas.com/read/24I05120000068/...</td>
@@ -930,12 +961,12 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
     </tr>
   </tbody>
 </table>
-<p>763 rows × 5 columns</p>
+<p>814 rows × 5 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-d74e17c9-1131-4d5e-bbcf-2b7358445de6')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-5685f1d6-ff19-43b8-97f4-80a3bc16144c')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -987,12 +1018,12 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 
     <script>
       const buttonEl =
-        document.querySelector('#df-d74e17c9-1131-4d5e-bbcf-2b7358445de6 button.colab-df-convert');
+        document.querySelector('#df-5685f1d6-ff19-43b8-97f4-80a3bc16144c button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-d74e17c9-1131-4d5e-bbcf-2b7358445de6');
+        const element = document.querySelector('#df-5685f1d6-ff19-43b8-97f4-80a3bc16144c');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1021,6 +1052,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 <h3>Preprocessing<a class="headerlink" href="#preprocessing" title="Link to this heading">#</a></h3>
 <section id="lower-case">
 <h4>Lower Case<a class="headerlink" href="#lower-case" title="Link to this heading">#</a></h4>
+<p>Tahapan pertama yang biasanya dilakukan adalah tahapan case folding. Tahapan ini hampir selalu disertakan ketika melakukan text preprocessing. Mengapa? Karena data yang kita miliki tidak selalu terstruktur dan konsisten dalam penggunaan huruf kapital. Jadi, peran dari case folding adalah untuk menyamaratakan penggunaan huruf kapital. Misalnya data teks yang kita dapat berupa tulisan “DaTA SCIence” maka dengan case folding artinya kita mengubah semua huruf menjadi huruf kecil (lowercase) semua. Sementara itu, karakter lain yang bukan termasuk huruf dan angka, seperti tanda baca dan spasi dianggap sebagai delimiter. Delimiter ini bisa juga dihapus atau diabaikan dengan menggunakan perintah yang ada di Python.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;lower_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;konten&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
@@ -1031,7 +1063,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-eed0c792-4e8e-4a3a-8b1a-a2627111e9d5" class="colab-df-container">
+  <div id="df-e325db59-3589-49c0-8a67-b8932620e54f" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1086,38 +1118,38 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
       <td>...</td>
     </tr>
     <tr>
-      <th>758</th>
+      <th>809</th>
       <td>KOMPAS.com - Seiring bertambahnya umur, setiap...</td>
       <td>kompas.com - seiring bertambahnya umur, setiap...</td>
     </tr>
     <tr>
-      <th>759</th>
+      <th>810</th>
       <td>KOMPAS.com - Kopi kerap diminum untuk mengatas...</td>
       <td>kompas.com - kopi kerap diminum untuk mengatas...</td>
     </tr>
     <tr>
-      <th>760</th>
+      <th>811</th>
       <td>KOMPAS.com - Dalam beberapa tahun terakhir, cu...</td>
       <td>kompas.com - dalam beberapa tahun terakhir, cu...</td>
     </tr>
     <tr>
-      <th>761</th>
+      <th>812</th>
       <td>KOMPAS.com - Gejala kanker ovarium sering kali...</td>
       <td>kompas.com - gejala kanker ovarium sering kali...</td>
     </tr>
     <tr>
-      <th>762</th>
+      <th>813</th>
       <td>KOMPAS.com - Hipoglikemia umum terjadi pada pe...</td>
       <td>kompas.com - hipoglikemia umum terjadi pada pe...</td>
     </tr>
   </tbody>
 </table>
-<p>763 rows × 2 columns</p>
+<p>814 rows × 2 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-eed0c792-4e8e-4a3a-8b1a-a2627111e9d5')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-e325db59-3589-49c0-8a67-b8932620e54f')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1169,12 +1201,12 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 
     <script>
       const buttonEl =
-        document.querySelector('#df-eed0c792-4e8e-4a3a-8b1a-a2627111e9d5 button.colab-df-convert');
+        document.querySelector('#df-e325db59-3589-49c0-8a67-b8932620e54f button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-eed0c792-4e8e-4a3a-8b1a-a2627111e9d5');
+        const element = document.querySelector('#df-e325db59-3589-49c0-8a67-b8932620e54f');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1200,6 +1232,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 </section>
 <section id="cleansing-text">
 <h4>Cleansing Text<a class="headerlink" href="#cleansing-text" title="Link to this heading">#</a></h4>
+<p>Data cleansing atau data cleaning merupakan suatu proses mendeteksi dan memperbaiki (atau menghapus) suatu record yang ‘corrupt’ atau tidak akurat berdasarkan sebuah record set, tabel, atau database. Selain itu, data cleansing juga berguna untuk mengidentifikasi bagian data mana yang tidak lengkap, tidak tepat, tidak akurat atau tidak relevan, yang selanjutnya untuk data-data “kotor” tersebut akan diganti, dimodifikasi, atau dihapus</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;cleaned_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;lower_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">text</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\W&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">))</span>
@@ -1210,7 +1243,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-1bf0fcaf-aa8e-4699-826f-7243d1d0cb0a" class="colab-df-container">
+  <div id="df-ed8a02a5-646e-402a-a75f-a76b32403c02" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1265,38 +1298,38 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
       <td>...</td>
     </tr>
     <tr>
-      <th>758</th>
+      <th>809</th>
       <td>kompas.com - seiring bertambahnya umur, setiap...</td>
       <td>kompas com   seiring bertambahnya umur  setiap...</td>
     </tr>
     <tr>
-      <th>759</th>
+      <th>810</th>
       <td>kompas.com - kopi kerap diminum untuk mengatas...</td>
       <td>kompas com   kopi kerap diminum untuk mengatas...</td>
     </tr>
     <tr>
-      <th>760</th>
+      <th>811</th>
       <td>kompas.com - dalam beberapa tahun terakhir, cu...</td>
       <td>kompas com   dalam beberapa tahun terakhir  cu...</td>
     </tr>
     <tr>
-      <th>761</th>
+      <th>812</th>
       <td>kompas.com - gejala kanker ovarium sering kali...</td>
       <td>kompas com   gejala kanker ovarium sering kali...</td>
     </tr>
     <tr>
-      <th>762</th>
+      <th>813</th>
       <td>kompas.com - hipoglikemia umum terjadi pada pe...</td>
       <td>kompas com   hipoglikemia umum terjadi pada pe...</td>
     </tr>
   </tbody>
 </table>
-<p>763 rows × 2 columns</p>
+<p>814 rows × 2 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-1bf0fcaf-aa8e-4699-826f-7243d1d0cb0a')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-ed8a02a5-646e-402a-a75f-a76b32403c02')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1348,12 +1381,12 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 
     <script>
       const buttonEl =
-        document.querySelector('#df-1bf0fcaf-aa8e-4699-826f-7243d1d0cb0a button.colab-df-convert');
+        document.querySelector('#df-ed8a02a5-646e-402a-a75f-a76b32403c02 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-1bf0fcaf-aa8e-4699-826f-7243d1d0cb0a');
+        const element = document.querySelector('#df-ed8a02a5-646e-402a-a75f-a76b32403c02');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1379,6 +1412,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 </section>
 <section id="tokenisasi">
 <h4>Tokenisasi<a class="headerlink" href="#tokenisasi" title="Link to this heading">#</a></h4>
+<p>Kita ambil contoh adalah data tweet atau kumpulan dataset pesan spam pasti terdiri dari kalimat. Nah, untuk memudahkan proses analisis data kita harus memecah kalimat-kalimat tersebut menjadi kata atau disebut dengan token. Dengan tokenizing kita dapat membedakan mana antara pemisah kata atau bukan. Jika menggunakan bahasa pemrograman python biasanya tokenizing juga mencakup proses removing number, removing punctuation seperti simbol dan tanda baca yang tidak penting, serta removing whitespace. Selain itu tokenizing juga akan merujuk pada NLTK, tetapi yang sangat disayangkan adalah NLTK belum support bahasa Indonesia. Tapi, jangan khawatir karena kita masih bisa menggunakan modul sastrawi.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;tokenized_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;cleaned_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">text</span><span class="p">:</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
@@ -1389,7 +1423,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-ce816b77-7d27-4bb3-b6f7-ac3855d1b626" class="colab-df-container">
+  <div id="df-4a2fda98-e697-49ca-b72c-1e3e781d86c9" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1444,38 +1478,38 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
       <td>...</td>
     </tr>
     <tr>
-      <th>758</th>
+      <th>809</th>
       <td>kompas com   seiring bertambahnya umur  setiap...</td>
       <td>[kompas, com, seiring, bertambahnya, umur, set...</td>
     </tr>
     <tr>
-      <th>759</th>
+      <th>810</th>
       <td>kompas com   kopi kerap diminum untuk mengatas...</td>
       <td>[kompas, com, kopi, kerap, diminum, untuk, men...</td>
     </tr>
     <tr>
-      <th>760</th>
+      <th>811</th>
       <td>kompas com   dalam beberapa tahun terakhir  cu...</td>
       <td>[kompas, com, dalam, beberapa, tahun, terakhir...</td>
     </tr>
     <tr>
-      <th>761</th>
+      <th>812</th>
       <td>kompas com   gejala kanker ovarium sering kali...</td>
       <td>[kompas, com, gejala, kanker, ovarium, sering,...</td>
     </tr>
     <tr>
-      <th>762</th>
+      <th>813</th>
       <td>kompas com   hipoglikemia umum terjadi pada pe...</td>
       <td>[kompas, com, hipoglikemia, umum, terjadi, pad...</td>
     </tr>
   </tbody>
 </table>
-<p>763 rows × 2 columns</p>
+<p>814 rows × 2 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-ce816b77-7d27-4bb3-b6f7-ac3855d1b626')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-4a2fda98-e697-49ca-b72c-1e3e781d86c9')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1527,12 +1561,12 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 
     <script>
       const buttonEl =
-        document.querySelector('#df-ce816b77-7d27-4bb3-b6f7-ac3855d1b626 button.colab-df-convert');
+        document.querySelector('#df-4a2fda98-e697-49ca-b72c-1e3e781d86c9 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-ce816b77-7d27-4bb3-b6f7-ac3855d1b626');
+        const element = document.querySelector('#df-4a2fda98-e697-49ca-b72c-1e3e781d86c9');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1558,6 +1592,14 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 </section>
 <section id="stopword-removal">
 <h4>Stopword Removal<a class="headerlink" href="#stopword-removal" title="Link to this heading">#</a></h4>
+<p>Stopword adalah kata-kata yang sering muncul dalam suatu bahasa yang sering dihilangkan dari tugas pemrosesan bahasa alami (NLP) karena tidak terlalu penting dalam mengartikan makna tekstual. Daftar stopword tertentu dapat berubah berdasarkan bahasa yang dipelajari dan konteksnya. Berikut ini adalah daftar umum kategori stopword:</p>
+<ul class="simple">
+<li><p>Stopword Umum: Ini adalah kata-kata yang paling sering muncul dalam suatu bahasa dan sering dihilangkan selama praproses teks. Contohnya termasuk “the,” “is,” “in,” “for,” “where,” “when,” “to,” “at,” dll.</p></li>
+<li><p>Stopword Kustom: Bergantung pada tugas atau domain tertentu, kata-kata tambahan dapat dianggap sebagai stopword. Ini bisa berupa istilah khusus domain yang tidak banyak berkontribusi pada makna keseluruhan. Misalnya, dalam konteks medis, kata-kata seperti “pasien” atau “perawatan” dapat dianggap sebagai stopword kustom.</p></li>
+<li><p>Stopword Numerik: Angka dan karakter numerik dapat dianggap sebagai stopword dalam kasus tertentu, khususnya ketika analisis terfokus pada makna teks dan bukan pada nilai numerik tertentu.</p></li>
+<li><p>Stopword Karakter Tunggal: Karakter tunggal, seperti “a,” “I,” “s,” atau “x,” dapat dianggap sebagai stopword, khususnya dalam kasus di mana karakter tersebut tidak menyampaikan banyak makna dengan sendirinya.</p></li>
+<li><p>Kata-kata Penghenti Kontekstual: Kata-kata yang merupakan kata-kata penghenti dalam satu konteks tetapi bermakna dalam konteks lain dapat dianggap sebagai kata-kata penghenti kontekstual. Misalnya, kata “akan” mungkin merupakan kata-kata penghenti dalam konteks menerjemahkan bahasa umum tetapi dapat menjadi penting dalam memprediksi kejadian di masa mendatang.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stop_words</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;indonesian&#39;</span><span class="p">))</span>
@@ -1570,7 +1612,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-f6e10581-a81e-4e7c-90f9-bc98f05e0e76" class="colab-df-container">
+  <div id="df-630011b6-661c-402c-b7e1-1fc437a1ed30" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1625,38 +1667,38 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
       <td>...</td>
     </tr>
     <tr>
-      <th>758</th>
+      <th>809</th>
       <td>[kompas, com, seiring, bertambahnya, umur, set...</td>
       <td>[kompas, com, seiring, bertambahnya, umur, ora...</td>
     </tr>
     <tr>
-      <th>759</th>
+      <th>810</th>
       <td>[kompas, com, kopi, kerap, diminum, untuk, men...</td>
       <td>[kompas, com, kopi, kerap, diminum, mengatasi,...</td>
     </tr>
     <tr>
-      <th>760</th>
+      <th>811</th>
       <td>[kompas, com, dalam, beberapa, tahun, terakhir...</td>
       <td>[kompas, com, cuka, apel, madu, pilihan, popul...</td>
     </tr>
     <tr>
-      <th>761</th>
+      <th>812</th>
       <td>[kompas, com, gejala, kanker, ovarium, sering,...</td>
       <td>[kompas, com, gejala, kanker, ovarium, kali, m...</td>
     </tr>
     <tr>
-      <th>762</th>
+      <th>813</th>
       <td>[kompas, com, hipoglikemia, umum, terjadi, pad...</td>
       <td>[kompas, com, hipoglikemia, penderita, diabete...</td>
     </tr>
   </tbody>
 </table>
-<p>763 rows × 2 columns</p>
+<p>814 rows × 2 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-f6e10581-a81e-4e7c-90f9-bc98f05e0e76')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-630011b6-661c-402c-b7e1-1fc437a1ed30')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1708,12 +1750,12 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 
     <script>
       const buttonEl =
-        document.querySelector('#df-f6e10581-a81e-4e7c-90f9-bc98f05e0e76 button.colab-df-convert');
+        document.querySelector('#df-630011b6-661c-402c-b7e1-1fc437a1ed30 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-f6e10581-a81e-4e7c-90f9-bc98f05e0e76');
+        const element = document.querySelector('#df-630011b6-661c-402c-b7e1-1fc437a1ed30');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1739,6 +1781,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 </section>
 <section id="stemming">
 <h4>Stemming<a class="headerlink" href="#stemming" title="Link to this heading">#</a></h4>
+<p>Tahap stemming adalah tahapan yang juga diperlukan untuk memperkecil jumlah indeks yang berbeda dari satu data sehingga sebuah kata yang memiliki suffix maupun prefix akan kembali ke bentuk dasarnya. Selain itu juga untuk melakukan pengelompokan kata-kata lain yang memiliki kata dasar dan arti yang serupa namun memiliki bentuk yang berbeda karena mendapatkan imbuhan yang berbeda pula. Di library NLTK juga sudah tersedia modul untuk proses stemming antara lain, porter, lancester, wordnet, dan snowball. Tapi, kembali lagi modul-modul tersebut belum support untuk text berbahasa Indonesia.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Membuat objek Stemmer dari Sastrawi</span>
@@ -1850,25 +1893,25 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 <span class="g g-Whitespace">     </span><span class="mi">39</span>         <span class="c1">#step 6</span>
 
 <span class="nn">/usr/local/lib/python3.10/dist-packages/Sastrawi/Stemmer/Context/Context.py</span> in <span class="ni">start_stemming_process</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">     </span><span class="mi">73</span> 
-<span class="g g-Whitespace">     </span><span class="mi">74</span>         <span class="c1">#step 2, 3</span>
-<span class="ne">---&gt; </span><span class="mi">75</span>         <span class="bp">self</span><span class="o">.</span><span class="n">remove_suffixes</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">76</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dictionary</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_word</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">77</span>             <span class="k">return</span>
+<span class="g g-Whitespace">     </span><span class="mi">78</span> 
+<span class="g g-Whitespace">     </span><span class="mi">79</span>         <span class="c1">#step 4, 5</span>
+<span class="ne">---&gt; </span><span class="mi">80</span>         <span class="bp">self</span><span class="o">.</span><span class="n">remove_prefixes</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">81</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dictionary</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_word</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">82</span>             <span class="k">return</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/Sastrawi/Stemmer/Context/Context.py</span> in <span class="ni">remove_suffixes</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">     </span><span class="mi">92</span> 
-<span class="g g-Whitespace">     </span><span class="mi">93</span>     <span class="k">def</span> <span class="nf">remove_suffixes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">94</span>         <span class="bp">self</span><span class="o">.</span><span class="n">accept_visitors</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">suffix_visitors</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">95</span> 
-<span class="g g-Whitespace">     </span><span class="mi">96</span>     <span class="k">def</span> <span class="nf">accept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">visitor</span><span class="p">):</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/Sastrawi/Stemmer/Context/Context.py</span> in <span class="ni">remove_prefixes</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">     </span><span class="mi">87</span>     <span class="k">def</span> <span class="nf">remove_prefixes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">88</span>         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">89</span>             <span class="bp">self</span><span class="o">.</span><span class="n">accept_prefix_visitors</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix_pisitors</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">90</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dictionary</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_word</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">91</span>                 <span class="k">return</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/Sastrawi/Stemmer/Context/Context.py</span> in <span class="ni">accept_visitors</span><span class="nt">(self, visitors)</span>
-<span class="g g-Whitespace">    </span><span class="mi">100</span>         <span class="k">for</span> <span class="n">visitor</span> <span class="ow">in</span> <span class="n">visitors</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">101</span>             <span class="bp">self</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="n">visitor</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">102</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dictionary</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_word</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">103</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_word</span>
-<span class="g g-Whitespace">    </span><span class="mi">104</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_is_stopped</span><span class="p">:</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/Sastrawi/Stemmer/Context/Context.py</span> in <span class="ni">accept_prefix_visitors</span><span class="nt">(self, visitors)</span>
+<span class="g g-Whitespace">    </span><span class="mi">109</span>         <span class="k">for</span> <span class="n">visitor</span> <span class="ow">in</span> <span class="n">visitors</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">110</span>             <span class="bp">self</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="n">visitor</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">111</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dictionary</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_word</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">112</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_word</span>
+<span class="g g-Whitespace">    </span><span class="mi">113</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_is_stopped</span><span class="p">:</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -2100,6 +2143,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Klasifikasi Brita</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression">Logistic Regression</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi">Implementasi</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#library-yang-digunakan">Library yang digunakan</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset">Dataset</a></li>
