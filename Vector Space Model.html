@@ -187,6 +187,13 @@
 
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Vector Space Model</a></li>
+
+
+
+
+
+
+
 <li class="toctree-l1"><a class="reference internal" href="Logistic%20Regression.html">Klasifikasi Brita</a></li>
 
 </ul>
@@ -384,12 +391,26 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Vector Space Model</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dokumen-dan-kueri-sebagai-vektor">1. Dokumen dan Kueri sebagai Vektor</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-representasi-sederhana">Contoh representasi sederhana:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pembobotan-kata-term-weighting">2. Pembobotan Kata (Term Weighting)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-kesamaan-antar-dokumen">3. Menghitung Kesamaan Antar Dokumen</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pengurutan-dokumen">4. Pengurutan Dokumen</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#keuntungan-dan-keterbatasan-vsm">5. Keuntungan dan Keterbatasan VSM</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi">Implementasi</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">1. Import Library</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-dataset">2. Load dataset</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocess-dataset">3. Preprocess Dataset</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemodelan-vector-space">4. Pemodelan Vector Space</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil">5. Hasil</a></li>
 </ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -402,6 +423,65 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="vector-space-model">
 <h1>Vector Space Model<a class="headerlink" href="#vector-space-model" title="Link to this heading">#</a></h1>
+<p>Vector Space Model (VSM) adalah pendekatan yang menggunakan vektor untuk merepresentasikan setiap kata dalam suatu ruang dimensi. Dalam VSM, dokumen dilihat sebagai vektor yang memiliki panjang (magnitudo) dan arah. Setiap kata dalam dokumen diwakili oleh sebuah dimensi dalam ruang vektor. Relevansi dokumen terhadap kueri dihitung berdasarkan kesamaan antara vektor dokumen dan vektor kueri.</p>
+<p>VSM mendukung pencocokan parsial dengan menetapkan bobot non-biner pada kata-kata dalam dokumen dan kueri. Bobot tersebut digunakan untuk mengukur kesamaan antara dokumen yang tersimpan dan kueri pengguna. Dokumen yang ditemukan diurutkan berdasarkan tingkat kemiripannya, sehingga dokumen yang paling relevan ditampilkan lebih akurat sesuai dengan kebutuhan pengguna.</p>
+<p>Berikut secara rinci langkah-langkah dan konsep di balik VSM:</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="dokumen-dan-kueri-sebagai-vektor">
+<h1>1. Dokumen dan Kueri sebagai Vektor<a class="headerlink" href="#dokumen-dan-kueri-sebagai-vektor" title="Link to this heading">#</a></h1>
+<p>Pada dasarnya, setiap dokumen atau kueri direpresentasikan sebagai sebuah vektor. Namun, vektor ini tidak seperti vektor geometris biasa, tetapi memiliki dimensi sebanyak jumlah kata unik (vocabulary) dalam koleksi dokumen. Setiap dimensi dalam vektor mewakili satu kata atau istilah dari koleksi.</p>
+<ul class="simple">
+<li><p>Dimensi Vektor: Jika kita memiliki sebuah kumpulan dokumen yang terdiri dari 1.000 kata unik, maka setiap dokumen dan kueri akan direpresentasikan oleh vektor dengan 1.000 dimensi.</p></li>
+<li><p>Isi Vektor: Setiap elemen dalam vektor merepresentasikan bobot dari sebuah kata dalam dokumen tertentu. Sebagai contoh, jika kata “AI” muncul dalam dokumen, maka elemen yang merepresentasikan kata “AI” akan memiliki nilai lebih besar dari nol, sedangkan kata-kata yang tidak muncul akan bernilai nol.</p></li>
+</ul>
+<section id="contoh-representasi-sederhana">
+<h2>Contoh representasi sederhana:<a class="headerlink" href="#contoh-representasi-sederhana" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Dokumen 1: “Belajar AI adalah masa depan”</p></li>
+<li><p>Dokumen 2: “AI bisa menggantikan manusia”</p></li>
+<li><p>Kueri: “AI dan masa depan”</p></li>
+</ul>
+<p>Vektor untuk Dokumen 1 mungkin tampak seperti: (1, 1, 1, 1, 0) untuk kata-kata (“Belajar”, “AI”, “adalah”, “masa”, “depan”), di mana angka 1 menunjukkan bahwa kata tersebut muncul sekali.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="pembobotan-kata-term-weighting">
+<h1>2. Pembobotan Kata (Term Weighting)<a class="headerlink" href="#pembobotan-kata-term-weighting" title="Link to this heading">#</a></h1>
+<p>Dalam VSM, tidak semua kata memiliki nilai yang sama. Untuk membuat model lebih efisien dalam menangkap kata-kata penting, VSM biasanya menggunakan teknik pembobotan. Teknik yang paling umum adalah TF-IDF (Term Frequency - Inverse Document Frequency). TF-IDF membantu menghitung seberapa penting sebuah kata dalam sebuah dokumen dibandingkan dengan seluruh kumpulan dokumen.</p>
+<ul class="simple">
+<li><p><strong>Term Frequency (TF)</strong>: Ini adalah jumlah kemunculan sebuah kata dalam dokumen. Semakin sering sebuah kata muncul, semakin besar bobot TF-nya. Namun, sering kali kita menggunakan versi termodifikasi seperti TF relatif (jumlah kemunculan kata dibagi total kata dalam dokumen).</p></li>
+<li><p>Inverse Document Frequency (IDF): Kata yang sering muncul di seluruh dokumen (misalnya “adalah” atau “dan”) biasanya kurang informatif, sehingga diberi bobot lebih rendah. IDF membantu mengurangi bobot kata-kata yang terlalu umum dengan menghitung kebalikan dari frekuensi dokumen yang mengandung kata tersebut.</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="menghitung-kesamaan-antar-dokumen">
+<h1>3. Menghitung Kesamaan Antar Dokumen<a class="headerlink" href="#menghitung-kesamaan-antar-dokumen" title="Link to this heading">#</a></h1>
+<p>Setelah setiap dokumen dan kueri direpresentasikan sebagai vektor, kita bisa menghitung kesamaan antar dua vektor (dokumen atau dokumen-kueri). Salah satu metode paling umum adalah Cosine Similarity.</p>
+<ul class="simple">
+<li><p><strong>Cosine Similarity</strong>: Ini adalah ukuran yang menghitung sudut antara dua vektor dalam ruang multidimensi. Semakin kecil sudutnya, semakin dekat atau mirip dua vektor tersebut. Nilai cosine similarity berkisar dari 0 (tidak mirip sama sekali) hingga 1 (sangat mirip).</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="pengurutan-dokumen">
+<h1>4. Pengurutan Dokumen<a class="headerlink" href="#pengurutan-dokumen" title="Link to this heading">#</a></h1>
+<p>Setelah kita menghitung cosine similarity antara kueri dan setiap dokumen dalam koleksi, dokumen-dokumen tersebut bisa diurutkan berdasarkan nilai similarity dari yang tertinggi ke yang terendah. Hasil ini bisa digunakan dalam sistem pencarian untuk menampilkan dokumen yang paling relevan di posisi teratas.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="keuntungan-dan-keterbatasan-vsm">
+<h1>5. Keuntungan dan Keterbatasan VSM<a class="headerlink" href="#keuntungan-dan-keterbatasan-vsm" title="Link to this heading">#</a></h1>
+<p>Keuntungan:</p>
+<ul class="simple">
+<li><p><strong>Sederhana dan Efisien</strong>: VSM mudah diimplementasikan dan cukup efisien dalam menangani koleksi dokumen besar.</p></li>
+<li><p><strong>Penanganan Sinonim dan Polisemik Terbatas</strong>: Meski VSM sederhana, ia tidak menangani masalah sinonim (kata-kata berbeda dengan makna sama) dan polisemik (kata yang sama dengan makna berbeda) dengan baik.</p></li>
+</ul>
+<p>Keterbatasan:</p>
+<ul class="simple">
+<li><p><strong>Kata-Kata Independen</strong>: VSM mengasumsikan bahwa kata-kata dalam dokumen tidak memiliki hubungan satu sama lain, sehingga konteks sering kali hilang. Misalnya, frase “tidak setuju” akan diperlakukan sebagai dua kata terpisah, meskipun maknanya berubah ketika digabungkan.</p></li>
+<li><p><strong>Dimensi yang Tinggi</strong>: Ketika bekerja dengan kumpulan dokumen besar, jumlah kata yang unik bisa sangat banyak, menyebabkan vektor memiliki dimensi yang sangat tinggi, yang dapat menyebabkan masalah performa.</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="kesimpulan">
+<h1>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h1>
+<p>Vector Space Model (VSM) adalah pendekatan sederhana namun sangat efektif untuk merepresentasikan dokumen dan kueri dalam ruang vektor, memungkinkan pencarian dan pengurutan dokumen berdasarkan kesamaan konten. Meskipun ada beberapa keterbatasan, VSM masih digunakan secara luas dalam sistem pencarian informasi, terutama ketika dipadukan dengan teknik pembobotan seperti TF-IDF.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="implementasi">
+<h1>Implementasi<a class="headerlink" href="#implementasi" title="Link to this heading">#</a></h1>
 <section id="import-library">
 <h2>1. Import Library<a class="headerlink" href="#import-library" title="Link to this heading">#</a></h2>
 <ul class="simple">
@@ -480,7 +560,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-77fa53e2-978b-431b-8a6d-5729d3920e35" class="colab-df-container">
+  <div id="df-a730f5f4-4695-415b-9423-8ace8b75e5f8" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -559,7 +639,7 @@ document.write(`
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-77fa53e2-978b-431b-8a6d-5729d3920e35')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-a730f5f4-4695-415b-9423-8ace8b75e5f8')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -611,12 +691,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-77fa53e2-978b-431b-8a6d-5729d3920e35 button.colab-df-convert');
+        document.querySelector('#df-a730f5f4-4695-415b-9423-8ace8b75e5f8 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-77fa53e2-978b-431b-8a6d-5729d3920e35');
+        const element = document.querySelector('#df-a730f5f4-4695-415b-9423-8ace8b75e5f8');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -739,7 +819,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-c77ef30c-0dde-43f5-9b26-24a99fc969bd" class="colab-df-container">
+  <div id="df-4aad9428-4dc4-4a42-80d0-a3672f2b5018" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -927,7 +1007,7 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>707</th>
+      <th>758</th>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -951,7 +1031,7 @@ document.write(`
       <td>0</td>
     </tr>
     <tr>
-      <th>708</th>
+      <th>759</th>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -975,7 +1055,7 @@ document.write(`
       <td>0</td>
     </tr>
     <tr>
-      <th>709</th>
+      <th>760</th>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -999,7 +1079,7 @@ document.write(`
       <td>0</td>
     </tr>
     <tr>
-      <th>710</th>
+      <th>761</th>
       <td>0</td>
       <td>0</td>
       <td>1</td>
@@ -1023,7 +1103,7 @@ document.write(`
       <td>0</td>
     </tr>
     <tr>
-      <th>711</th>
+      <th>762</th>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -1048,12 +1128,12 @@ document.write(`
     </tr>
   </tbody>
 </table>
-<p>712 rows × 5280 columns</p>
+<p>763 rows × 5294 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-c77ef30c-0dde-43f5-9b26-24a99fc969bd')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-4aad9428-4dc4-4a42-80d0-a3672f2b5018')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1105,12 +1185,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-c77ef30c-0dde-43f5-9b26-24a99fc969bd button.colab-df-convert');
+        document.querySelector('#df-4aad9428-4dc4-4a42-80d0-a3672f2b5018 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-c77ef30c-0dde-43f5-9b26-24a99fc969bd');
+        const element = document.querySelector('#df-4aad9428-4dc4-4a42-80d0-a3672f2b5018');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1143,7 +1223,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-b0988715-617f-46ea-b606-44e55ff47eb3" class="colab-df-container">
+  <div id="df-3dd9a3ea-fb89-4862-9d17-ad202144a554" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1190,7 +1270,7 @@ document.write(`
       <th>0</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1207,21 +1287,21 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
-      <td>0.057554</td>
+      <td>0.057713</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>1</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.054431</td>
+      <td>0.053996</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1230,7 +1310,7 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.023076</td>
+      <td>0.023064</td>
       <td>0.000000</td>
       <td>0.0</td>
     </tr>
@@ -1238,7 +1318,7 @@ document.write(`
       <th>2</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1254,7 +1334,7 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.022232</td>
+      <td>0.022123</td>
       <td>0.000000</td>
       <td>0.0</td>
     </tr>
@@ -1262,14 +1342,14 @@ document.write(`
       <th>3</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.062765</td>
+      <td>0.061956</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1278,7 +1358,7 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.053220</td>
+      <td>0.052927</td>
       <td>0.000000</td>
       <td>0.0</td>
     </tr>
@@ -1286,14 +1366,14 @@ document.write(`
       <th>4</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.043898</td>
+      <td>0.043421</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1331,10 +1411,10 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>707</th>
+      <th>758</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1355,10 +1435,10 @@ document.write(`
       <td>0.0</td>
     </tr>
     <tr>
-      <th>708</th>
+      <th>759</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1379,10 +1459,10 @@ document.write(`
       <td>0.0</td>
     </tr>
     <tr>
-      <th>709</th>
+      <th>760</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1403,10 +1483,10 @@ document.write(`
       <td>0.0</td>
     </tr>
     <tr>
-      <th>710</th>
+      <th>761</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.04658</td>
+      <td>0.046517</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1427,10 +1507,10 @@ document.write(`
       <td>0.0</td>
     </tr>
     <tr>
-      <th>711</th>
+      <th>762</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.00000</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1452,12 +1532,12 @@ document.write(`
     </tr>
   </tbody>
 </table>
-<p>712 rows × 5280 columns</p>
+<p>763 rows × 5294 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-b0988715-617f-46ea-b606-44e55ff47eb3')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-3dd9a3ea-fb89-4862-9d17-ad202144a554')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1509,12 +1589,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-b0988715-617f-46ea-b606-44e55ff47eb3 button.colab-df-convert');
+        document.querySelector('#df-3dd9a3ea-fb89-4862-9d17-ad202144a554 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-b0988715-617f-46ea-b606-44e55ff47eb3');
+        const element = document.querySelector('#df-3dd9a3ea-fb89-4862-9d17-ad202144a554');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1604,12 +1684,26 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Vector Space Model</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dokumen-dan-kueri-sebagai-vektor">1. Dokumen dan Kueri sebagai Vektor</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-representasi-sederhana">Contoh representasi sederhana:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pembobotan-kata-term-weighting">2. Pembobotan Kata (Term Weighting)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-kesamaan-antar-dokumen">3. Menghitung Kesamaan Antar Dokumen</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pengurutan-dokumen">4. Pengurutan Dokumen</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#keuntungan-dan-keterbatasan-vsm">5. Keuntungan dan Keterbatasan VSM</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi">Implementasi</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">1. Import Library</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-dataset">2. Load dataset</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocess-dataset">3. Preprocess Dataset</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemodelan-vector-space">4. Pemodelan Vector Space</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil">5. Hasil</a></li>
 </ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>
