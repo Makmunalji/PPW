@@ -1,0 +1,1175 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Singular-Value Decomposition &#8212; Pencarian Penambangan Web</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'SVD(singular value decomposition )';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/amun.png" class="logo__image only-light" alt="Pencarian Penambangan Web - Home"/>
+    <img src="_static/amun.png" class="logo__image only-dark pst-js-only" alt="Pencarian Penambangan Web - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Crawling_Brita.html">Konsep Crawling</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Vector%20Space%20Model.html">Vector Space Model</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Logistic%20Regression.html">Klasifikasi Brita</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="Ringkas_Brita.html">Graph dan Summarization</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Keyword.html">Keyword Extraction</a></li>
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FSVD(singular value decomposition ).html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/SVD(singular value decomposition ).ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Singular-Value Decomposition</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Singular-Value Decomposition</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-dekomposisi-nilai-singular">Hitung Dekomposisi Nilai Singular</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#rekonstruksi-matriks-dari-svd">Rekonstruksi Matriks dari SVD</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-data-tfidf-dengan-matriks-dari-svd">implementasi data TFIDF dengan Matriks dari SVD</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="singular-value-decomposition">
+<h1>Singular-Value Decomposition<a class="headerlink" href="#singular-value-decomposition" title="Link to this heading">#</a></h1>
+<p>Dekomposisi Nilai-Singular, atau disingkat SVD, adalah metode dekomposisi matriks untuk mereduksi matriks menjadi bagian-bagian penyusunnya agar perhitungan matriks berikutnya menjadi lebih sederhana.</p>
+<p>Untuk kasus kesederhanaan kita akan fokus pada SVD untuk matriks bernilai riil dan mengabaikan kasus untuk bilangan kompleks.</p>
+<p>A = U . Sigma . V^T</p>
+<p>Di mana A merupakan matriks mxn riil yang hendak didekomposisi, U merupakan matriks mxm, Sigma (sering dilambangkan dengan huruf Yunani kapital Sigma) merupakan matriks diagonal mxn, dan V^T merupakan transpos matriks nxn di mana T merupakan superskrip.</p>
+<p>Nilai diagonal dalam matriks Sigma dikenal sebagai nilai singular dari matriks asli A. Kolom-kolom matriks U disebut vektor singular kiri dari A, dan kolom-kolom dari V disebut vektor singular kanan dari A.</p>
+<p>SVD dihitung melalui metode numerik iteratif. Kami tidak akan membahas detail metode ini. Setiap matriks persegi panjang memiliki dekomposisi nilai singular, meskipun matriks yang dihasilkan mungkin berisi bilangan kompleks dan keterbatasan aritmatika floating point dapat menyebabkan beberapa matriks gagal terurai dengan rapi.</p>
+<p>SVD digunakan secara luas baik dalam perhitungan operasi matriks lainnya, seperti invers matriks, tetapi juga sebagai metode reduksi data dalam pembelajaran mesin. SVD juga dapat digunakan dalam regresi linier kuadrat terkecil, kompresi gambar, dan penghilangan derau pada data.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="hitung-dekomposisi-nilai-singular">
+<h1>Hitung Dekomposisi Nilai Singular<a class="headerlink" href="#hitung-dekomposisi-nilai-singular" title="Link to this heading">#</a></h1>
+<p>SVD dapat dihitung dengan memanggil fungsi svd()</p>
+<p>Fungsi ini mengambil matriks dan mengembalikan elemen U, Sigma, dan V^T. Matriks diagonal Sigma dikembalikan sebagai vektor nilai singular. Matriks V dikembalikan dalam bentuk transposisi, misalnya VT</p>
+<p>Contoh berikut mendefinisikan matriks 3×2 dan menghitung dekomposisi nilai singular.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Singular-value decomposition</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">array</span>
+<span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">svd</span>
+<span class="c1"># define a matrix</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;matrix awal : &quot;</span><span class="p">,</span><span class="n">A</span><span class="p">)</span>
+<span class="c1"># SVD</span>
+<span class="n">U</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">VT</span> <span class="o">=</span> <span class="n">svd</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;U = :&quot;</span><span class="p">,</span><span class="n">U</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;s = :&quot;</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;VT = :&quot;</span><span class="p">,</span><span class="n">VT</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>matrix awal :  [[1 2]
+ [3 4]
+ [5 6]]
+U = : [[-0.2298477   0.88346102  0.40824829]
+ [-0.52474482  0.24078249 -0.81649658]
+ [-0.81964194 -0.40189603  0.40824829]]
+s = : [9.52551809 0.51430058]
+VT = : [[-0.61962948 -0.78489445]
+ [-0.78489445  0.61962948]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Menjalankan contoh tersebut mula-mula akan mencetak matriks 3x2 yang telah ditentukan, kemudian matriks U 3x3, vektor Sigma 2 elemen, dan elemen matriks V^T 2x2 yang dihitung dari dekomposisi.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="rekonstruksi-matriks-dari-svd">
+<h1>Rekonstruksi Matriks dari SVD<a class="headerlink" href="#rekonstruksi-matriks-dari-svd" title="Link to this heading">#</a></h1>
+<p>Matriks asli dapat direkonstruksi dari elemen U, Sigma, dan V^T.</p>
+<p>Elemen U, s, dan V yang dikembalikan dari svd() tidak dapat dikalikan secara langsung.</p>
+<p>Vektor s harus diubah menjadi matriks diagonal menggunakan fungsi diag(). Secara default, fungsi ini akan membuat matriks persegi berukuran nxn, relatif terhadap matriks asli kita. Hal ini menyebabkan masalah karena ukuran matriks tidak sesuai dengan aturan perkalian matriks, di mana jumlah kolom dalam matriks harus sesuai dengan jumlah baris dalam matriks berikutnya.</p>
+<p>Setelah membuat matriks diagonal Sigma persegi, ukuran matriks tersebut relatif terhadap matriks mxn asli yang sedang kita dekomposisi, sebagai berikut:</p>
+<p>U (m x m) . Sigma (n x n) . V^T (n x n)</p>
+<p>Di mana, pada kenyataannya, kita memerlukan:</p>
+<p>U (m x m) . Sigma (m x n) . V^T (n x n)</p>
+<p>Kita dapat memperolehnya dengan membuat matriks Sigma baru dengan semua nilai nol yang berukuran mxn (misalnya lebih banyak baris) dan mengisi bagian nxn pertama dari matriks tersebut dengan matriks diagonal persegi yang dihitung melalui diag().</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reconstruct SVD</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">array</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">diag</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">dot</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">zeros</span>
+<span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">svd</span>
+<span class="c1"># define a matrix</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="c1"># Singular-value decomposition</span>
+<span class="n">U</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">VT</span> <span class="o">=</span> <span class="n">svd</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="c1"># create m x n Sigma matrix</span>
+<span class="n">Sigma</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="c1"># populate Sigma with n x n diagonal matrix</span>
+<span class="n">Sigma</span><span class="p">[:</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">:</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">diag</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="c1"># reconstruct matrix</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">U</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Sigma</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">VT</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1 2]
+ [3 4]
+ [5 6]]
+[[1. 2.]
+ [3. 4.]
+ [5. 6.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>A adalah sebuah matriks dengan ukuran 3×2, yaitu tiga baris dan dua kolom.
+Matriks A berisi elemen-elemen sebagai berikut:
+𝐴=[[1, 2], [3, 4], [5, 6]]</p>
+<p>svd(A) melakukan dekomposisi nilai singular pada matriks A, menghasilkan tiga komponen:</p>
+<ul class="simple">
+<li><p>U: Matriks vektor singular kiri, berukuran 3×3.</p></li>
+<li><p>s: Vektor nilai singular, dengan panjang 2 (karena SVD menghasilkan nilai singular sebanyak dimensi minimum dari matriks asli, yaitu 2 dalam kasus ini).</p></li>
+<li><p>VT: Matriks transpos dari vektor singular kanan, berukuran 2×2.</p></li>
+</ul>
+<p>Setelah SVD, kita memiliki hubungan:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                A≈U⋅Σ⋅VT
+</pre></div>
+</div>
+<p>Di mana Σ adalah matriks diagonal yang berisi nilai-nilai singular.</p>
+<ul class="simple">
+<li><p>Sigma = zeros((A.shape[0], A.shape[1])) membuat matriks Sigma berukuran 3×2, yang diisi dengan nol.</p></li>
+<li><p>Ukuran ini mengikuti bentuk matriks A, dengan tujuan untuk merekonstruksi A dari dekomposisi nilai singular.</p></li>
+<li><p>diag(s) menghasilkan matriks diagonal dengan elemen-elemen dari vektor s pada diagonal utamanya.</p></li>
+<li><p>Sigma[:A.shape[1], :A.shape[1]] = diag(s) memasukkan nilai-nilai singular dari s pada bagian atas Sigma yang berukuran 2×2, meninggalkan baris ketiga dari Sigma tetap nol.</p></li>
+</ul>
+<p>Hasil akhir Sigma setelah pengisian akan berbentuk:</p>
+<p>Σ=[[s1,0],[0,s2],[0,0]]</p>
+<p>Di mana 𝑠 dan 𝑠 adalah nilai-nilai singular dari s.</p>
+<ul class="simple">
+<li><p>Sigma.dot(VT) mengalikan Sigma dengan VT, menghasilkan matriks perantara berukuran 3×2.</p></li>
+<li><p>U.dot(…) kemudian mengalikan hasil tersebut dengan U, merekonstruksi matriks B yang seharusnya mendekati matriks asli A.</p></li>
+<li><p>Matriks B yang dihasilkan akan berukuran 3×2, sama dengan ukuran matriks asli A.</p></li>
+</ul>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="implementasi-data-tfidf-dengan-matriks-dari-svd">
+<h1>implementasi data TFIDF dengan Matriks dari SVD<a class="headerlink" href="#implementasi-data-tfidf-dengan-matriks-dari-svd" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Singular-value decomposition</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">svd</span>
+
+<span class="c1"># define a matrix</span>
+<span class="n">dfTFIDF</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;VSM dengan Pembobotan.csv&#39;</span><span class="p">)</span>
+<span class="n">dfTFIDF</span> <span class="o">=</span> <span class="n">dfTFIDF</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;Unnamed: 0&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+<span class="n">dfTFIDF</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;matrix awal : &quot;</span><span class="p">,</span><span class="n">dfTFIDF</span><span class="p">)</span>
+<span class="c1"># SVD</span>
+<span class="n">U</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">VT</span> <span class="o">=</span> <span class="n">svd</span><span class="p">(</span><span class="n">dfTFIDF</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;U = :&quot;</span><span class="p">,</span><span class="n">U</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;s = :&quot;</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;VT = :&quot;</span><span class="p">,</span><span class="n">VT</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-3-2ea87749bba8&gt;</span> in <span class="ni">&lt;cell line: 6&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># define a matrix</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">dfTFIDF</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;VSM dengan Pembobotan.csv&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">dfTFIDF</span> <span class="o">=</span> <span class="n">dfTFIDF</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;Unnamed: 0&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">dfTFIDF</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/io/parsers/readers.py</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1024</span>     <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1025</span> 
+<span class="ne">-&gt; </span><span class="mi">1026</span>     <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1027</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1028</span> 
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">618</span> 
+<span class="g g-Whitespace">    </span><span class="mi">619</span>     <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">620</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">621</span> 
+<span class="g g-Whitespace">    </span><span class="mi">622</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/io/parsers/readers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1618</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1619</span>         <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">-&gt; </span><span class="mi">1620</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1621</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1622</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, f, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1878</span>                 <span class="k">if</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1879</span>                     <span class="n">mode</span> <span class="o">+=</span> <span class="s2">&quot;b&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1880</span>             <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1881</span>                 <span class="n">f</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1882</span>                 <span class="n">mode</span><span class="p">,</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/io/common.py</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">871</span>         <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">872</span>             <span class="c1"># Encoding</span>
+<span class="ne">--&gt; </span><span class="mi">873</span>             <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">874</span>                 <span class="n">handle</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">875</span>                 <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;VSM dengan Pembobotan.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">array</span><span class="p">,</span> <span class="n">diag</span><span class="p">,</span> <span class="n">dot</span><span class="p">,</span> <span class="n">zeros</span>
+<span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">svd</span>
+
+<span class="c1"># Memuat matriks</span>
+<span class="n">dfTFIDF</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;VSM dengan Pembobotan.csv&#39;</span><span class="p">)</span>
+<span class="n">dfTFIDF</span> <span class="o">=</span> <span class="n">dfTFIDF</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;Unnamed: 0&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Melakukan Singular Value Decomposition</span>
+<span class="n">U</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">VT</span> <span class="o">=</span> <span class="n">svd</span><span class="p">(</span><span class="n">dfTFIDF</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(100, 100)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(100,)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">VT</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(4600, 4600)
+</pre></div>
+</div>
+</div>
+</div>
+<p>SVD(dfTFIDF) melakukan dekomposisi nilai singular terhadap dfTFIDF.</p>
+<ul class="simple">
+<li><p>Hasilnya:</p>
+<ul>
+<li><p>U adalah matriks berukuran 100×100, yang berisi vektor-vektor singular kiri.</p></li>
+<li><p>s adalah vektor dari nilai-nilai singular, dengan panjang 100 (karena SVD menghasilkan nilai singular sebanyak dimensi minimum dari matriks asli, yaitu 100).</p></li>
+<li><p>VT adalah transpos dari vektor singular kanan, berukuran 100×4600.</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Membuat matriks Sigma dengan dimensi yang sesuai dengan U dan VT</span>
+<span class="n">Sigma</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="n">U</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">VT</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Sigma = zeros((U.shape[1], VT.shape[0])) membuat matriks Sigma dengan ukuran yang sama dengan U dan VT jika digabungkan, yaitu 100×4600.</p></li>
+<li><p>Sigma adalah matriks yang sebagian besar berisi nol, dan kita akan mengisi elemen-elemen diagonalnya dengan nilai singular dari s.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mengisi Sigma dengan nilai-nilai singular</span>
+<span class="n">Sigma</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)]</span> <span class="o">=</span> <span class="n">diag</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>diag(s) membuat matriks diagonal dengan elemen diagonal yang diambil dari vektor s.</p></li>
+<li><p>Sigma[:len(s), :len(s)] = diag(s) menempatkan nilai-nilai singular dari s di sepanjang diagonal utama Sigma, sehingga Sigma sekarang berukuran 100×4600 dan mengandung semua nilai singular pada posisinya.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Merekonstruksi matriks</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">U</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Sigma</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">VT</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Sigma.dot(VT) mengalikan Sigma dengan VT, menghasilkan matriks perantara berukuran 100×4600.</p></li>
+<li><p>U.dot(…) kemudian mengalikan hasil tersebut dengan U, merekonstruksi matriks B yang sama ukurannya dengan matriks awal, yaitu 100×4600.</p></li>
+<li><p>B seharusnya mendekati matriks asli dfTFIDF karena proses SVD dan rekonstruksi matriks ini menghasilkan perkiraan dari matriks asli berdasarkan dekomposisi nilainya.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 6.27183219e-18 -3.62349946e-17 -2.31101304e-17 ... -2.07762978e-18
+  -9.79552339e-17  1.21892790e-17]
+ [ 6.44223249e-18 -1.72858663e-17 -2.29719713e-17 ...  6.78861471e-18
+  -2.18827101e-17 -5.57792679e-18]
+ [ 8.22044636e-18 -1.47968708e-18 -8.93312812e-18 ... -7.66575670e-18
+  -2.32932172e-17  3.19215305e-18]
+ ...
+ [ 3.43813884e-19  2.30378533e-17  2.63609682e-17 ... -4.29508579e-17
+  -1.17051389e-17  3.92833394e-17]
+ [ 4.91520528e-02  3.07652001e-17 -4.71751764e-18 ...  8.16810318e-18
+  -2.60809454e-17  4.30539435e-17]
+ [-4.10341376e-19 -1.30166015e-17 -3.26549955e-17 ... -7.18925791e-18
+  -2.14515113e-17 -7.10901637e-18]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_tfidf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="n">data_tfidf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>...</th>
+      <th>4590</th>
+      <th>4591</th>
+      <th>4592</th>
+      <th>4593</th>
+      <th>4594</th>
+      <th>4595</th>
+      <th>4596</th>
+      <th>4597</th>
+      <th>4598</th>
+      <th>4599</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>6.271832e-18</td>
+      <td>-3.623499e-17</td>
+      <td>-2.311013e-17</td>
+      <td>4.781282e-18</td>
+      <td>6.541158e-18</td>
+      <td>2.115340e-18</td>
+      <td>6.304135e-18</td>
+      <td>7.416964e-18</td>
+      <td>2.061397e-17</td>
+      <td>-3.792391e-19</td>
+      <td>...</td>
+      <td>9.171960e-18</td>
+      <td>1.142808e-17</td>
+      <td>-1.879934e-18</td>
+      <td>6.571753e-18</td>
+      <td>3.942092e-18</td>
+      <td>1.233309e-17</td>
+      <td>2.399539e-18</td>
+      <td>-2.077630e-18</td>
+      <td>-9.795523e-17</td>
+      <td>1.218928e-17</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>6.442232e-18</td>
+      <td>-1.728587e-17</td>
+      <td>-2.297197e-17</td>
+      <td>1.058864e-17</td>
+      <td>1.976234e-17</td>
+      <td>-9.090524e-19</td>
+      <td>-2.499747e-19</td>
+      <td>-4.628347e-17</td>
+      <td>-1.274163e-16</td>
+      <td>-1.144182e-17</td>
+      <td>...</td>
+      <td>-2.569514e-17</td>
+      <td>6.659568e-18</td>
+      <td>-6.446968e-18</td>
+      <td>-6.918230e-18</td>
+      <td>-3.069293e-18</td>
+      <td>1.264645e-18</td>
+      <td>-1.372489e-18</td>
+      <td>6.788615e-18</td>
+      <td>-2.188271e-17</td>
+      <td>-5.577927e-18</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>8.220446e-18</td>
+      <td>-1.479687e-18</td>
+      <td>-8.933128e-18</td>
+      <td>-1.704657e-17</td>
+      <td>-8.220349e-18</td>
+      <td>3.422762e-18</td>
+      <td>6.375897e-18</td>
+      <td>-3.034355e-17</td>
+      <td>-8.014726e-18</td>
+      <td>-5.142372e-18</td>
+      <td>...</td>
+      <td>-6.416188e-18</td>
+      <td>-7.363446e-18</td>
+      <td>-7.881154e-18</td>
+      <td>1.515766e-17</td>
+      <td>-1.831434e-18</td>
+      <td>4.864388e-18</td>
+      <td>3.583436e-18</td>
+      <td>-7.665757e-18</td>
+      <td>-2.329322e-17</td>
+      <td>3.192153e-18</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-1.632632e-17</td>
+      <td>4.921974e-02</td>
+      <td>2.732532e-17</td>
+      <td>1.426208e-17</td>
+      <td>-2.614698e-17</td>
+      <td>4.867503e-18</td>
+      <td>-3.051665e-18</td>
+      <td>-4.263888e-17</td>
+      <td>-1.218371e-16</td>
+      <td>1.285339e-17</td>
+      <td>...</td>
+      <td>-2.605730e-17</td>
+      <td>-1.029050e-19</td>
+      <td>-1.044711e-17</td>
+      <td>-9.906308e-19</td>
+      <td>2.800811e-17</td>
+      <td>-5.002910e-18</td>
+      <td>4.201347e-18</td>
+      <td>7.793935e-18</td>
+      <td>6.538289e-02</td>
+      <td>7.988794e-17</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>8.673594e-18</td>
+      <td>-2.482005e-17</td>
+      <td>-4.261072e-19</td>
+      <td>7.839407e-18</td>
+      <td>2.586649e-17</td>
+      <td>-5.464972e-18</td>
+      <td>2.970715e-17</td>
+      <td>-2.654283e-17</td>
+      <td>-4.253818e-17</td>
+      <td>-1.205427e-17</td>
+      <td>...</td>
+      <td>5.334172e-18</td>
+      <td>5.174695e-18</td>
+      <td>6.163081e-18</td>
+      <td>-1.561699e-17</td>
+      <td>1.728719e-17</td>
+      <td>3.040061e-17</td>
+      <td>-4.660611e-18</td>
+      <td>-6.855387e-20</td>
+      <td>-4.527973e-17</td>
+      <td>5.450255e-17</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>1.413378e-17</td>
+      <td>-3.698927e-17</td>
+      <td>6.810873e-18</td>
+      <td>-1.552399e-17</td>
+      <td>-1.713539e-17</td>
+      <td>-1.018993e-17</td>
+      <td>3.375623e-19</td>
+      <td>2.714341e-17</td>
+      <td>7.507100e-17</td>
+      <td>-1.007036e-17</td>
+      <td>...</td>
+      <td>2.348930e-17</td>
+      <td>4.474879e-02</td>
+      <td>8.286864e-18</td>
+      <td>-7.863636e-18</td>
+      <td>1.156472e-17</td>
+      <td>-1.717429e-17</td>
+      <td>-6.377664e-19</td>
+      <td>-5.993551e-18</td>
+      <td>-5.770746e-17</td>
+      <td>3.578846e-17</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>1.967691e-17</td>
+      <td>6.508652e-18</td>
+      <td>2.286421e-17</td>
+      <td>4.259166e-19</td>
+      <td>1.269441e-17</td>
+      <td>-1.285800e-17</td>
+      <td>-3.610964e-18</td>
+      <td>-4.845600e-17</td>
+      <td>-7.054174e-17</td>
+      <td>2.183387e-17</td>
+      <td>...</td>
+      <td>-1.418652e-17</td>
+      <td>6.535473e-18</td>
+      <td>-2.976463e-18</td>
+      <td>1.719385e-17</td>
+      <td>-1.368267e-17</td>
+      <td>2.004833e-18</td>
+      <td>3.461004e-18</td>
+      <td>1.052619e-17</td>
+      <td>-5.548667e-17</td>
+      <td>-4.389354e-17</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>3.438139e-19</td>
+      <td>2.303785e-17</td>
+      <td>2.636097e-17</td>
+      <td>-2.889484e-17</td>
+      <td>-2.751978e-17</td>
+      <td>9.342486e-18</td>
+      <td>3.572165e-18</td>
+      <td>-8.352505e-17</td>
+      <td>-1.185915e-16</td>
+      <td>8.919849e-18</td>
+      <td>...</td>
+      <td>4.851450e-18</td>
+      <td>9.610202e-18</td>
+      <td>-3.410089e-18</td>
+      <td>5.568054e-17</td>
+      <td>1.185344e-17</td>
+      <td>2.374624e-18</td>
+      <td>5.348665e-18</td>
+      <td>-4.295086e-17</td>
+      <td>-1.170514e-17</td>
+      <td>3.928334e-17</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>4.915205e-02</td>
+      <td>3.076520e-17</td>
+      <td>-4.717518e-18</td>
+      <td>2.982014e-17</td>
+      <td>-5.041803e-17</td>
+      <td>-1.552325e-17</td>
+      <td>-5.821887e-17</td>
+      <td>-5.881327e-17</td>
+      <td>-3.057598e-17</td>
+      <td>-2.634396e-17</td>
+      <td>...</td>
+      <td>-4.503768e-19</td>
+      <td>6.169738e-18</td>
+      <td>-3.257307e-18</td>
+      <td>-2.009778e-18</td>
+      <td>1.518651e-17</td>
+      <td>1.881147e-18</td>
+      <td>9.692244e-19</td>
+      <td>8.168103e-18</td>
+      <td>-2.608095e-17</td>
+      <td>4.305394e-17</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>-4.103414e-19</td>
+      <td>-1.301660e-17</td>
+      <td>-3.265500e-17</td>
+      <td>-7.584472e-18</td>
+      <td>-3.170928e-18</td>
+      <td>5.189283e-18</td>
+      <td>1.229062e-17</td>
+      <td>6.493040e-18</td>
+      <td>6.597171e-17</td>
+      <td>2.384994e-17</td>
+      <td>...</td>
+      <td>2.052016e-17</td>
+      <td>9.405941e-18</td>
+      <td>-8.615816e-18</td>
+      <td>4.879940e-18</td>
+      <td>-2.728969e-18</td>
+      <td>4.213103e-18</td>
+      <td>3.274546e-19</td>
+      <td>-7.189258e-18</td>
+      <td>-2.145151e-17</td>
+      <td>-7.109016e-18</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 4600 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">TruncatedSVD</span>
+<span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">csr_matrix</span>
+
+<span class="n">svd</span> <span class="o">=</span> <span class="n">TruncatedSVD</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2600</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">databaru</span><span class="o">=</span><span class="n">svd</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data_tfidf</span><span class="p">)</span>
+<span class="n">databaru</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(100, 100)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Singular-Value Decomposition</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-dekomposisi-nilai-singular">Hitung Dekomposisi Nilai Singular</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#rekonstruksi-matriks-dari-svd">Rekonstruksi Matriks dari SVD</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-data-tfidf-dengan-matriks-dari-svd">implementasi data TFIDF dengan Matriks dari SVD</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By A. Makmun ALji
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
