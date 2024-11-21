@@ -16,17 +16,19 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
@@ -36,10 +38,11 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -64,6 +67,7 @@
     <link rel="prev" title="Konsep Crawling" href="Crawling_Brita.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -79,19 +83,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -99,7 +92,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -107,8 +99,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -124,7 +116,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -154,21 +147,17 @@
     
     
     <img src="_static/amun.png" class="logo__image only-light" alt="Pencarian Penambangan Web - Home"/>
-    <script>document.write(`<img src="_static/amun.png" class="logo__image only-dark" alt="Pencarian Penambangan Web - Home"/>`);</script>
+    <img src="_static/amun.png" class="logo__image only-dark pst-js-only" alt="Pencarian Penambangan Web - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -371,24 +360,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -534,6 +515,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt_tab&#39;</span><span class="p">)</span>
 <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span>
 <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;wordnet&#39;</span><span class="p">)</span>
 </pre></div>
@@ -542,6 +524,8 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /root/nltk_data...
 [nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package punkt_tab to /root/nltk_data...
+[nltk_data]   Package punkt_tab is already up-to-date!
 [nltk_data] Downloading package stopwords to /root/nltk_data...
 [nltk_data]   Package stopwords is already up-to-date!
 [nltk_data] Downloading package wordnet to /root/nltk_data...
@@ -553,20 +537,93 @@ document.write(`
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-3-d5df0069828e&gt;</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/google/colab/drive.py</span> in <span class="ni">mount</span><span class="nt">(mountpoint, force_remount, timeout_ms, readonly)</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span> <span class="k">def</span> <span class="nf">mount</span><span class="p">(</span><span class="n">mountpoint</span><span class="p">,</span> <span class="n">force_remount</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">timeout_ms</span><span class="o">=</span><span class="mi">120000</span><span class="p">,</span> <span class="n">readonly</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span><span class="w">   </span><span class="sd">&quot;&quot;&quot;Mount your Google Drive at the specified mountpoint path.&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">100</span>   <span class="k">return</span> <span class="n">_mount</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span>       <span class="n">mountpoint</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span>       <span class="n">force_remount</span><span class="o">=</span><span class="n">force_remount</span><span class="p">,</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/google/colab/drive.py</span> in <span class="ni">_mount</span><span class="nt">(mountpoint, force_remount, timeout_ms, ephemeral, readonly)</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span>   <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">136</span>   <span class="k">if</span> <span class="n">ephemeral</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">137</span>     <span class="n">_message</span><span class="o">.</span><span class="n">blocking_request</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">138</span>         <span class="s1">&#39;request_auth&#39;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">139</span>         <span class="n">request</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;authType&#39;</span><span class="p">:</span> <span class="s1">&#39;dfs_ephemeral&#39;</span><span class="p">},</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/google/colab/_message.py</span> in <span class="ni">blocking_request</span><span class="nt">(request_type, request, timeout_sec, parent)</span>
+<span class="g g-Whitespace">    </span><span class="mi">174</span>       <span class="n">request_type</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">expect_reply</span><span class="o">=</span><span class="kc">True</span>
+<span class="g g-Whitespace">    </span><span class="mi">175</span>   <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">176</span>   <span class="k">return</span> <span class="n">read_reply_from_input</span><span class="p">(</span><span class="n">request_id</span><span class="p">,</span> <span class="n">timeout_sec</span><span class="p">)</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/google/colab/_message.py</span> in <span class="ni">read_reply_from_input</span><span class="nt">(message_id, timeout_sec)</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span>     <span class="n">reply</span> <span class="o">=</span> <span class="n">_read_next_input_message</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span>     <span class="k">if</span> <span class="n">reply</span> <span class="o">==</span> <span class="n">_NOT_READY</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">reply</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">96</span>       <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.025</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span>       <span class="k">continue</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>     <span class="k">if</span> <span class="p">(</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menampilkan daftar file dan folder di Google Drive</span>
+<span class="o">!</span>ls<span class="w"> </span><span class="s1">&#39;/content/drive/MyDrive/PPW BARU/report&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> amun.png		   intro.md		        notebooks.ipynb
+ berita.csv		   intro.md.gdoc	        PPW
+ bola.csv		   Keyword.ipynb	        references.bib
+ _build			   kompas.csv		        Ringkas_Brita.ipynb
+ _config.yml		  &#39;Logistic Regression.ipynb&#39;   _toc.yml
+ crawling_2_kategori.csv   logo.png		       &#39;Vector Space Model.ipynb&#39;
+ Crawling_Brita.ipynb	   markdown.md		        VSM.csv
+ health.csv		   markdown-notebooks.md       &#39;VSM dengan Pembobotan.csv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/MyDrive/PPW BARU/report/&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="load-dataset">
 <h2>2. Load dataset<a class="headerlink" href="#load-dataset" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># membaca dataset bola dan health menggunakan modul read_CSV</span>
-<span class="n">bola</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;bola.csv&#39;</span><span class="p">)</span>
-<span class="n">health</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;health.csv&#39;</span><span class="p">)</span>
+<span class="n">bola</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="nb">dir</span><span class="o">+</span><span class="s1">&#39;bola.csv&#39;</span><span class="p">)</span>
+<span class="n">bola</span> <span class="o">=</span> <span class="n">bola</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">]</span>
+<span class="n">health</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="nb">dir</span><span class="o">+</span><span class="s1">&#39;health.csv&#39;</span><span class="p">)</span>
 
 <span class="c1"># menggabungkan kedua dataset menngunakan concat</span>
 <span class="n">berita</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">bola</span><span class="p">,</span> <span class="n">health</span><span class="p">])</span>
 
 <span class="c1"># menyimpan dataset yang digabung menjadi file csv baru</span>
-<span class="n">berita</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;berita.csv&#39;</span><span class="p">)</span>
+<span class="n">berita</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="nb">dir</span><span class="o">+</span><span class="s1">&#39;berita.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -574,16 +631,16 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># data csv sebelumnya disimpan pada variable berita</span>
-<span class="n">berita</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;berita.csv&#39;</span><span class="p">)</span>
+<span class="n">berita</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="nb">dir</span><span class="o">+</span><span class="s1">&#39;berita.csv&#39;</span><span class="p">)</span>
 
 <span class="c1"># menampilkan data brita indeks teratas</span>
-<span class="n">berita</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">berita</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-443c9369-8ff2-415b-bc5d-e9537bd9f709" class="colab-df-container">
+  <div id="df-d12b39ee-3f3a-4bb2-9252-ecc1db2b3662" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -656,21 +713,76 @@ document.write(`
       <td>BANDUNG, KOMPAS.com - Persib Bandung jadi sala...</td>
       <td>Bola</td>
     </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>45</td>
+      <td>Penurunan Apa Saja yang Terjadi pada Lansia? I...</td>
+      <td>- 05/09/2024, 18:00 WIB</td>
+      <td>https://health.kompas.com/read/24I05180000468/...</td>
+      <td>KOMPAS.com - Seiring bertambahnya umur, setiap...</td>
+      <td>Health</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>46</td>
+      <td>Apakah Minum Kopi Pahit Bagus untuk Kesehatan?...</td>
+      <td>- 05/09/2024, 16:00 WIB</td>
+      <td>https://health.kompas.com/read/24I05160000768/...</td>
+      <td>KOMPAS.com - Kopi kerap diminum untuk mengatas...</td>
+      <td>Health</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>47</td>
+      <td>Sering Digunakan untuk Diet, Ini Manfaat Keseh...</td>
+      <td>- 05/09/2024, 13:37 WIB</td>
+      <td>https://health.kompas.com/read/24I05133717468/...</td>
+      <td>KOMPAS.com - Dalam beberapa tahun terakhir, cu...</td>
+      <td>Health</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>48</td>
+      <td>Kenali "BEACH", Akronim untuk Tanda Peringatan...</td>
+      <td>- 05/09/2024, 14:00 WIB</td>
+      <td>https://health.kompas.com/read/24I05140000068/...</td>
+      <td>KOMPAS.com - Gejala kanker ovarium sering kali...</td>
+      <td>Health</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>49</td>
+      <td>Apakah Bisa Orang Tanpa Diabetes Mengalami Hip...</td>
+      <td>- 05/09/2024, 12:00 WIB</td>
+      <td>https://health.kompas.com/read/24I05120000068/...</td>
+      <td>KOMPAS.com - Hipoglikemia umum terjadi pada pe...</td>
+      <td>Health</td>
+    </tr>
   </tbody>
 </table>
+<p>100 rows × 6 columns</p>
 </div>
     <div class="colab-df-buttons">
-      
+
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-443c9369-8ff2-415b-bc5d-e9537bd9f709')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-d12b39ee-3f3a-4bb2-9252-ecc1db2b3662')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
-      
+
   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
     <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
   </svg>
     </button>
-    
+
   <style>
     .colab-df-container {
       display:flex;
@@ -714,12 +826,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-443c9369-8ff2-415b-bc5d-e9537bd9f709 button.colab-df-convert');
+        document.querySelector('#df-d12b39ee-3f3a-4bb2-9252-ecc1db2b3662 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-443c9369-8ff2-415b-bc5d-e9537bd9f709');
+        const element = document.querySelector('#df-d12b39ee-3f3a-4bb2-9252-ecc1db2b3662');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -737,10 +849,193 @@ document.write(`
       }
     </script>
   </div>
-  
+
+
+<div id="df-f186984d-7e7f-4fb1-bcad-a87af777770e">
+  <button class="colab-df-quickchart" onclick="quickchart('df-f186984d-7e7f-4fb1-bcad-a87af777770e')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-f186984d-7e7f-4fb1-bcad-a87af777770e button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+
+  <div id="id_6a2278eb-83b3-450e-919a-0fd113683fdd">
+    <style>
+      .colab-df-generate {
+        background-color: #E8F0FE;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        fill: #1967D2;
+        height: 32px;
+        padding: 0 0 0 0;
+        width: 32px;
+      }
+
+      .colab-df-generate:hover {
+        background-color: #E2EBFA;
+        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+        fill: #174EA6;
+      }
+
+      [theme=dark] .colab-df-generate {
+        background-color: #3B4455;
+        fill: #D2E3FC;
+      }
+
+      [theme=dark] .colab-df-generate:hover {
+        background-color: #434B5C;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+        fill: #FFFFFF;
+      }
+    </style>
+    <button class="colab-df-generate" onclick="generateWithVariable('berita')"
+            title="Generate code using this dataframe."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
+  </svg>
+    </button>
+    <script>
+      (() => {
+      const buttonEl =
+        document.querySelector('#id_6a2278eb-83b3-450e-919a-0fd113683fdd button.colab-df-generate');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      buttonEl.onclick = () => {
+        google.colab.notebook.generateWithVariable('berita');
+      }
+      })();
+    </script>
+  </div>
+
     </div>
   </div>
-  </div></div>
+</div></div>
 </div>
 </section>
 <section id="preprocess-dataset">
@@ -789,7 +1084,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;pelatih timnas spanyol luis de la fuente tetap optimistis akan kedalaman skuad yang dimilikinya meski harus kehilangan satu pemain andalan di lini serang timnas spanyol kehilangan salah satu penyerang kuncinya lamine yamal jelang menghadapi serbia di uefa nation league penyerang la roja yang masih berusia tahun itu mengalami cedera pada bagian hamstring kaki kirinya pemain barcelona tersebut terpaksa meninggalkan timnas spanyol lebih cepat sebagai gantinya rodrigo riquelme dipanggil untuk menggantikan yamal menyoroti banyak pemain inti yang cedera luis de la fuente menyikapi dengan santai dan optimistis baca juga spanyol v denmark hujan tembakan gol debut zubimendi yamal tidak tergantikan namun kami harus bermain dengan pemain dan siapa pun yang menggantikannya akan bermain dengan baik kata la fuente dikutip dari reuters lamine sangat fantastis tetapi anda harus memahami bahwa dalam hidup ini tidak ada yang memberikan sesuatu secara siapa pun yang harus menggantikannya saya yakin mereka akan melakukannya dengan sangat baik katanya jadwal bermain yang padat di klub serta negara membuat beberapa pemain spanyol harus menepi dari lapangan hijau tak hanya yamal beberapa pemain senior turut menjadi korban seperti nico williams dani carvajal rodri unai simon robin le normand dan dani olmo juga mengalami cedera baca juga pujian dan wejangan pelatih timnas spanyol kepada lamine yamal spanyol akan menghadapi serbia di estadio municipal nuevo el arcángel pada selasa atau rabu dini hari wib menghadapi serbia la fuente mewaspadai kecepatan serangan balik yang dimiliki tim lawan ini akan menjadi pertandingan yang sangat sulit karena serbia harus mendapatkan hasil yang baik kata de la fuente semua pemain mereka bermain di besar eropa dan kita bisa melihat bagaimana mereka tampil di sana mereka adalah tim yang banyak berlari melakukan serangan balik ini adalah pertandingan yang akan membutuhkan banyak kedewasaan dan kerja kera kata pelatih berusia tahun itu spanyol masih menempati posisi pertama di grup liga dengan torehan tujuh poin dari tiga laga yang sudah dimainkan serbia tengah menduduki peringkat ketiga dengan empat poin dari satu kemenangan satu imbang dan satu seri simak breaking news dan berita pilihan kami langsung di ponselmu pilih saluran andalanmu ak berita whatsapp channel http pastikan kamu sudah install aplikasi whatsapp ya&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;pelatih timnas spanyol luis de la fuente tetap optimistis akan kedalaman skuad yang dimilikinya meski harus kehilangan satu pemain andalan di lini serang timnas spanyol kehilangan salah satu penyerang kuncinya lamine yamal jelang menghadapi serbia di uefa nation league penyerang la roja yang masih berusia tahun itu mengalami cedera pada bagian hamstring kaki kirinya pemain barcelona tersebut terpaksa meninggalkan timnas spanyol lebih cepat sebagai gantinya rodrigo riquelme dipanggil untuk menggantikan yamal menyoroti banyak pemain inti yang cedera luis de la fuente menyikapi dengan santai dan optimistis baca juga spanyol v denmark hujan tembakan gol debut zubimendi yamal tidak tergantikan namun kami harus bermain dengan pemain dan siapa pun yang menggantikannya akan bermain dengan baik kata la fuente dikutip dari reuters lamine sangat fantastis tetapi anda harus memahami bahwa dalam hidup ini tidak ada yang memberikan sesuatu secara siapa pun yang harus menggantikannya saya yakin mereka akan melakukannya dengan sangat baik katanya jadwal bermain yang padat di klub serta negara membuat beberapa pemain spanyol harus menepi dari lapangan hijau tak hanya yamal beberapa pemain senior turut menjadi korban seperti nico williams dani carvajal rodri unai simon robin le normand dan dani olmo juga mengalami cedera baca juga pujian dan wejangan pelatih timnas spanyol kepada lamine yamal spanyol akan menghadapi serbia di estadio municipal nuevo el arcángel pada selasa atau rabu dini hari wib menghadapi serbia la fuente mewaspadai kecepatan serangan balik yang dimiliki tim lawan ini akan menjadi pertandingan yang sangat sulit karena serbia harus mendapatkan hasil yang baik kata de la fuente semua pemain mereka bermain di besar eropa dan kita bisa melihat bagaimana mereka tampil di sana mereka adalah tim yang banyak berlari melakukan serangan balik ini adalah pertandingan yang akan membutuhkan banyak kedewasaan dan kerja kera kata pelatih berusia tahun itu spanyol masih menempati posisi pertama di grup liga dengan torehan tujuh poin dari tiga laga yang sudah dimainkan serbia tengah menduduki peringkat ketiga dengan empat poin dari satu kemenangan satu imbang dan satu seri simak breaking news dan berita pilihan kami langsung di ponselmu pilih saluran andalanmu akses berita whatsapp channel http pastikan kamu sudah install aplikasi whatsapp ya&#39;
 </pre></div>
 </div>
 </div>
@@ -823,8 +1118,8 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># menyimpan model ke dalam file CSV baru</span>
-<span class="n">df_tf</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;VSM.csv&#39;</span><span class="p">)</span>
-<span class="n">df_tfidf</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;VSM dengan Pembobotan.csv&#39;</span><span class="p">)</span>
+<span class="n">df_tf</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="nb">dir</span><span class="o">+</span><span class="s1">&#39;VSM.csv&#39;</span><span class="p">)</span>
+<span class="n">df_tfidf</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="nb">dir</span><span class="o">+</span><span class="s1">&#39;VSM dengan Pembobotan.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -834,7 +1129,7 @@ document.write(`
 <h2>5. Hasil<a class="headerlink" href="#hasil" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfTF</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;VSM.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfTF</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="nb">dir</span><span class="o">+</span><span class="s1">&#39;VSM.csv&#39;</span><span class="p">)</span>
 <span class="n">dfTF</span> <span class="o">=</span> <span class="n">dfTF</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;Unnamed: 0&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
 <span class="n">dfTF</span>
 </pre></div>
@@ -842,7 +1137,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-a9bf2b12-5883-4600-a56a-de7711c70869" class="colab-df-container">
+  <div id="df-800c3f9e-a116-4266-aefa-4f81a66b2530" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -865,15 +1160,15 @@ document.write(`
       <th>abdomen</th>
       <th>abdominal</th>
       <th>abdullah</th>
-      <th>abdulweli</th>
-      <th>abduweli</th>
       <th>abnormal</th>
       <th>aboard</th>
       <th>abraq</th>
       <th>abroad</th>
+      <th>absen</th>
+      <th>abstrak</th>
       <th>...</th>
+      <th>zheng</th>
       <th>zhi</th>
-      <th>zhunyi</th>
       <th>zi</th>
       <th>ziad</th>
       <th>zii</th>
@@ -919,7 +1214,7 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
+      <td>1</td>
       <td>0</td>
       <td>...</td>
       <td>0</td>
@@ -967,7 +1262,7 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
+      <td>1</td>
       <td>0</td>
       <td>...</td>
       <td>0</td>
@@ -991,7 +1286,7 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
+      <td>1</td>
       <td>0</td>
       <td>...</td>
       <td>0</td>
@@ -1030,7 +1325,7 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>1268</th>
+      <th>95</th>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -1054,7 +1349,7 @@ document.write(`
       <td>0</td>
     </tr>
     <tr>
-      <th>1269</th>
+      <th>96</th>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -1078,7 +1373,7 @@ document.write(`
       <td>0</td>
     </tr>
     <tr>
-      <th>1270</th>
+      <th>97</th>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -1102,7 +1397,7 @@ document.write(`
       <td>0</td>
     </tr>
     <tr>
-      <th>1271</th>
+      <th>98</th>
       <td>0</td>
       <td>0</td>
       <td>1</td>
@@ -1126,7 +1421,7 @@ document.write(`
       <td>0</td>
     </tr>
     <tr>
-      <th>1272</th>
+      <th>99</th>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -1151,20 +1446,20 @@ document.write(`
     </tr>
   </tbody>
 </table>
-<p>1273 rows × 5573 columns</p>
+<p>100 rows × 4657 columns</p>
 </div>
     <div class="colab-df-buttons">
-      
+
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-a9bf2b12-5883-4600-a56a-de7711c70869')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-800c3f9e-a116-4266-aefa-4f81a66b2530')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
-      
+
   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
     <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
   </svg>
     </button>
-    
+
   <style>
     .colab-df-container {
       display:flex;
@@ -1208,12 +1503,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-a9bf2b12-5883-4600-a56a-de7711c70869 button.colab-df-convert');
+        document.querySelector('#df-800c3f9e-a116-4266-aefa-4f81a66b2530 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-a9bf2b12-5883-4600-a56a-de7711c70869');
+        const element = document.querySelector('#df-800c3f9e-a116-4266-aefa-4f81a66b2530');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1231,14 +1526,197 @@ document.write(`
       }
     </script>
   </div>
-  
+
+
+<div id="df-5d89c81a-7a16-45b5-8b4d-535d6d87874a">
+  <button class="colab-df-quickchart" onclick="quickchart('df-5d89c81a-7a16-45b5-8b4d-535d6d87874a')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-5d89c81a-7a16-45b5-8b4d-535d6d87874a button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+
+  <div id="id_401adb39-3c8c-4872-ad50-64e3ed89bd22">
+    <style>
+      .colab-df-generate {
+        background-color: #E8F0FE;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        fill: #1967D2;
+        height: 32px;
+        padding: 0 0 0 0;
+        width: 32px;
+      }
+
+      .colab-df-generate:hover {
+        background-color: #E2EBFA;
+        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+        fill: #174EA6;
+      }
+
+      [theme=dark] .colab-df-generate {
+        background-color: #3B4455;
+        fill: #D2E3FC;
+      }
+
+      [theme=dark] .colab-df-generate:hover {
+        background-color: #434B5C;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+        fill: #FFFFFF;
+      }
+    </style>
+    <button class="colab-df-generate" onclick="generateWithVariable('dfTF')"
+            title="Generate code using this dataframe."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
+  </svg>
+    </button>
+    <script>
+      (() => {
+      const buttonEl =
+        document.querySelector('#id_401adb39-3c8c-4872-ad50-64e3ed89bd22 button.colab-df-generate');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      buttonEl.onclick = () => {
+        google.colab.notebook.generateWithVariable('dfTF');
+      }
+      })();
+    </script>
+  </div>
+
     </div>
   </div>
-  </div></div>
+</div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfTFIDF</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;VSM dengan Pembobotan.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfTFIDF</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="nb">dir</span><span class="o">+</span><span class="s1">&#39;VSM dengan Pembobotan.csv&#39;</span><span class="p">)</span>
 <span class="n">dfTFIDF</span> <span class="o">=</span> <span class="n">dfTFIDF</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;Unnamed: 0&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
 <span class="n">dfTFIDF</span>
 </pre></div>
@@ -1246,7 +1724,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-ad1d8fd4-51b5-43bd-ba18-7f31720e63e9" class="colab-df-container">
+  <div id="df-95634b2b-7948-4c16-a814-7915799617c8" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1269,15 +1747,15 @@ document.write(`
       <th>abdomen</th>
       <th>abdominal</th>
       <th>abdullah</th>
-      <th>abdulweli</th>
-      <th>abduweli</th>
       <th>abnormal</th>
       <th>aboard</th>
       <th>abraq</th>
       <th>abroad</th>
+      <th>absen</th>
+      <th>abstrak</th>
       <th>...</th>
+      <th>zheng</th>
       <th>zhi</th>
-      <th>zhunyi</th>
       <th>zi</th>
       <th>ziad</th>
       <th>zii</th>
@@ -1293,13 +1771,13 @@ document.write(`
       <th>0</th>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.0000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
@@ -1310,20 +1788,20 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
-      <td>0.059211</td>
+      <td>0.053856</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>1</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>0.052745</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
@@ -1333,7 +1811,7 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.023037</td>
+      <td>0.028302</td>
       <td>0.000000</td>
       <td>0.0</td>
     </tr>
@@ -1341,13 +1819,13 @@ document.write(`
       <th>2</th>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.0000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
@@ -1357,7 +1835,7 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.021638</td>
+      <td>0.029801</td>
       <td>0.000000</td>
       <td>0.0</td>
     </tr>
@@ -1365,13 +1843,13 @@ document.write(`
       <th>3</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>0.061245</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
@@ -1381,7 +1859,7 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.051404</td>
+      <td>0.065726</td>
       <td>0.000000</td>
       <td>0.0</td>
     </tr>
@@ -1389,13 +1867,13 @@ document.write(`
       <th>4</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>0.047133</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
@@ -1434,16 +1912,16 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>1268</th>
+      <th>95</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
@@ -1458,16 +1936,16 @@ document.write(`
       <td>0.0</td>
     </tr>
     <tr>
-      <th>1269</th>
+      <th>96</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
@@ -1482,16 +1960,16 @@ document.write(`
       <td>0.0</td>
     </tr>
     <tr>
-      <th>1270</th>
+      <th>97</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
@@ -1506,16 +1984,16 @@ document.write(`
       <td>0.0</td>
     </tr>
     <tr>
-      <th>1271</th>
+      <th>98</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.046004</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.0492</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
@@ -1530,16 +2008,16 @@ document.write(`
       <td>0.0</td>
     </tr>
     <tr>
-      <th>1272</th>
+      <th>99</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
@@ -1555,20 +2033,20 @@ document.write(`
     </tr>
   </tbody>
 </table>
-<p>1273 rows × 5573 columns</p>
+<p>100 rows × 4657 columns</p>
 </div>
     <div class="colab-df-buttons">
-      
+
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-ad1d8fd4-51b5-43bd-ba18-7f31720e63e9')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-95634b2b-7948-4c16-a814-7915799617c8')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
-      
+
   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
     <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
   </svg>
     </button>
-    
+
   <style>
     .colab-df-container {
       display:flex;
@@ -1612,12 +2090,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-ad1d8fd4-51b5-43bd-ba18-7f31720e63e9 button.colab-df-convert');
+        document.querySelector('#df-95634b2b-7948-4c16-a814-7915799617c8 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-ad1d8fd4-51b5-43bd-ba18-7f31720e63e9');
+        const element = document.querySelector('#df-95634b2b-7948-4c16-a814-7915799617c8');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1635,10 +2113,193 @@ document.write(`
       }
     </script>
   </div>
-  
+
+
+<div id="df-bdad96c7-b5f1-4ed6-be43-2e860d2418dc">
+  <button class="colab-df-quickchart" onclick="quickchart('df-bdad96c7-b5f1-4ed6-be43-2e860d2418dc')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-bdad96c7-b5f1-4ed6-be43-2e860d2418dc button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+
+  <div id="id_bf4a1258-4778-4e67-8d5e-49d2592d48ed">
+    <style>
+      .colab-df-generate {
+        background-color: #E8F0FE;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        fill: #1967D2;
+        height: 32px;
+        padding: 0 0 0 0;
+        width: 32px;
+      }
+
+      .colab-df-generate:hover {
+        background-color: #E2EBFA;
+        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+        fill: #174EA6;
+      }
+
+      [theme=dark] .colab-df-generate {
+        background-color: #3B4455;
+        fill: #D2E3FC;
+      }
+
+      [theme=dark] .colab-df-generate:hover {
+        background-color: #434B5C;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+        fill: #FFFFFF;
+      }
+    </style>
+    <button class="colab-df-generate" onclick="generateWithVariable('dfTFIDF')"
+            title="Generate code using this dataframe."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
+  </svg>
+    </button>
+    <script>
+      (() => {
+      const buttonEl =
+        document.querySelector('#id_bf4a1258-4778-4e67-8d5e-49d2592d48ed button.colab-df-generate');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      buttonEl.onclick = () => {
+        google.colab.notebook.generateWithVariable('dfTFIDF');
+      }
+      })();
+    </script>
+  </div>
+
     </div>
   </div>
-  </div></div>
+</div></div>
 </div>
 </section>
 </section>
@@ -1698,7 +2359,8 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1774,8 +2436,8 @@ By A. Makmun ALji
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>
