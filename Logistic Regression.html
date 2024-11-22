@@ -186,6 +186,8 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Klasifikasi Brita</a></li>
 
 
+
+
 <li class="toctree-l1"><a class="reference internal" href="Ringkas_Brita.html">Graph dan Summarization</a></li>
 
 
@@ -415,16 +417,12 @@
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#split-data">Split Data</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf">TF-IDF</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#melatih-model-logistic-regression">Melatih Model Logistic Regression</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-data-baru">Testing Data Baru</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#akurasi">Akurasi</a></li>
 </ul>
 </li>
 </ul>
 </li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membuat-model-logisticregression-untuk-data-training">Membuat Model LogisticRegression untuk Data Training</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mencari-akurasi-dari-data-testing">Mencari Akurasi dari data Testing</a></li>
 </ul>
 
             </nav>
@@ -557,7 +555,59 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;melakukan&#39;, &#39;berada&#39;, &#39;selama&#39;, &#39;menuturkan&#39;, &#39;masing&#39;, &#39;dituturkannya&#39;, &#39;sebaliknya&#39;, &#39;kapankah&#39;, &#39;malah&#39;, &#39;minta&#39;, &#39;berdatangan&#39;, &#39;sepantasnyalah&#39;, &#39;memungkinkan&#39;, &#39;sesekali&#39;, &#39;semata&#39;, &#39;dapat&#39;, &#39;ditunjukkannya&#39;, &#39;menunjuki&#39;, &#39;tandas&#39;, &#39;umum&#39;, &#39;sejak&#39;, &#39;sementara&#39;, &#39;soal&#39;, &#39;mengibaratkannya&#39;, &#39;pada&#39;, &#39;seseorang&#39;, &#39;bilakah&#39;, &#39;ditanyakan&#39;, &#39;memang&#39;, &#39;terdapat&#39;, &#39;sebelumnya&#39;, &#39;kasus&#39;, &#39;usai&#39;, &#39;sebesar&#39;, &#39;menjawab&#39;, &#39;diantaranya&#39;, &#39;mengingat&#39;, &#39;setidaknya&#39;, &#39;dilalui&#39;, &#39;dini&#39;, &#39;sebagai&#39;, &#39;seolah-olah&#39;, &#39;diakhirinya&#39;, &#39;sudahlah&#39;, &#39;melalui&#39;, &#39;amatlah&#39;, &#39;disampaikan&#39;, &#39;biasanya&#39;, &#39;tambah&#39;, &#39;dimaksudkan&#39;, &#39;tersebut&#39;, &#39;belum&#39;, &#39;apa&#39;, &#39;begini&#39;, &#39;khususnya&#39;, &#39;tiap&#39;, &#39;penting&#39;, &#39;jelaslah&#39;, &#39;memberi&#39;, &#39;bersiap-siap&#39;, &#39;menambahkan&#39;, &#39;berarti&#39;, &#39;enggaknya&#39;, &#39;makin&#39;, &#39;beberapa&#39;, &#39;berapakah&#39;, &#39;ucap&#39;, &#39;macam&#39;, &#39;pula&#39;, &#39;berkenaan&#39;, &#39;walau&#39;, &#39;sempat&#39;, &#39;sendirian&#39;, &#39;beginian&#39;, &#39;mendatangkan&#39;, &#39;selalu&#39;, &#39;wah&#39;, &#39;pernah&#39;, &#39;mampukah&#39;, &#39;merekalah&#39;, &#39;adalah&#39;, &#39;berkehendak&#39;, &#39;mungkinkah&#39;, &#39;tinggi&#39;, &#39;harus&#39;, &#39;siapakah&#39;, &#39;memberikan&#39;, &#39;demikian&#39;, &#39;dialah&#39;, &#39;hendaklah&#39;, &#39;mengira&#39;, &#39;meski&#39;, &#39;seusai&#39;, &#39;menjadi&#39;, &#39;berlalu&#39;, &#39;mendatangi&#39;, &#39;belumlah&#39;, &#39;kitalah&#39;, &#39;rata&#39;, &#39;atas&#39;, &#39;jawaban&#39;, &#39;mengibaratkan&#39;, &#39;bersiap&#39;, &#39;menunjuknya&#39;, &#39;jelaskan&#39;, &#39;tiba-tiba&#39;, &#39;meyakini&#39;, &#39;kepada&#39;, &#39;menurut&#39;, &#39;sedangkan&#39;, &#39;diperbuatnya&#39;, &#39;berlangsung&#39;, &#39;diperlihatkan&#39;, &#39;lalu&#39;, &#39;tentu&#39;, &#39;lagian&#39;, &#39;kata&#39;, &#39;ibu&#39;, &#39;pertama&#39;, &#39;menyatakan&#39;, &#39;semakin&#39;, &#39;soalnya&#39;, &#39;tanpa&#39;, &#39;sebuah&#39;, &#39;mana&#39;, &#39;apatah&#39;, &#39;terakhir&#39;, &#39;tanya&#39;, &#39;padanya&#39;, &#39;jumlah&#39;, &#39;mempertanyakan&#39;, &#39;olehnya&#39;, &#39;beginikah&#39;, &#39;bermacam&#39;, &#39;sebegitu&#39;, &#39;percuma&#39;, &#39;selain&#39;, &#39;makanya&#39;, &#39;kemungkinan&#39;, &#39;keadaan&#39;, &#39;hendak&#39;, &#39;mampu&#39;, &#39;balik&#39;, &#39;berlainan&#39;, &#39;menunjuk&#39;, &#39;segera&#39;, &#39;ditandaskan&#39;, &#39;lagi&#39;, &#39;bekerja&#39;, &#39;diperkirakan&#39;, &#39;keluar&#39;, &#39;menyangkut&#39;, &#39;berikut&#39;, &#39;sekecil&#39;, &#39;menanyakan&#39;, &#39;masihkah&#39;, &#39;panjang&#39;, &#39;manakala&#39;, &#39;berapapun&#39;, &#39;jadi&#39;, &#39;cukup&#39;, &#39;kira-kira&#39;, &#39;diingat&#39;, &#39;berakhirnya&#39;, &#39;dijelaskannya&#39;, &#39;ialah&#39;, &#39;mempergunakan&#39;, &#39;siapapun&#39;, &#39;selanjutnya&#39;, &#39;terasa&#39;, &#39;lain&#39;, &#39;rasa&#39;, &#39;dahulu&#39;, &#39;pantas&#39;, &#39;paling&#39;, &#39;mempersoalkan&#39;, &#39;seolah&#39;, &#39;bermula&#39;, &#39;teringat&#39;, &#39;entah&#39;, &#39;sebab&#39;, &#39;waktu&#39;, &#39;diperlukan&#39;, &#39;katakan&#39;, &#39;masalahnya&#39;, &#39;mula&#39;, &#39;sajalah&#39;, &#39;andalah&#39;, &#39;keseluruhannya&#39;, &#39;seperti&#39;, &#39;sudah&#39;, &#39;sudahkah&#39;, &#39;bersama&#39;, &#39;seketika&#39;, &#39;dilakukan&#39;, &#39;ingat-ingat&#39;, &#39;akan&#39;, &#39;betul&#39;, &#39;berkata&#39;, &#39;kalaulah&#39;, &#39;lah&#39;, &#39;jawab&#39;, &#39;meskipun&#39;, &#39;tetapi&#39;, &#39;memintakan&#39;, &#39;sebagian&#39;, &#39;sepanjang&#39;, &#39;benarlah&#39;, &#39;yaitu&#39;, &#39;ucapnya&#39;, &#39;pihaknya&#39;, &#39;hendaknya&#39;, &#39;sesuatu&#39;, &#39;bagian&#39;, &#39;dilihat&#39;, &#39;setelah&#39;, &#39;berturut-turut&#39;, &#39;menyiapkan&#39;, &#39;misalnya&#39;, &#39;segalanya&#39;, &#39;melihatnya&#39;, &#39;sejauh&#39;, &#39;baru&#39;, &#39;kurang&#39;, &#39;siap&#39;, &#39;mengapa&#39;, &#39;mengerjakan&#39;, &#39;bagaikan&#39;, &#39;sebut&#39;, &#39;pertanyaan&#39;, &#39;semampunya&#39;, &#39;hal&#39;, &#39;tempat&#39;, &#39;cukuplah&#39;, &#39;kira&#39;, &#39;saya&#39;, &#39;maka&#39;, &#39;menaiki&#39;, &#39;sampaikan&#39;, &#39;adapun&#39;, &#39;secara&#39;, &#39;punya&#39;, &#39;dimaksudnya&#39;, &#39;kinilah&#39;, &#39;se&#39;, &#39;begitulah&#39;, &#39;diketahuinya&#39;, &#39;berkali-kali&#39;, &#39;diberi&#39;, &#39;pentingnya&#39;, &#39;bagi&#39;, &#39;tapi&#39;, &#39;menjelaskan&#39;, &#39;kelamaan&#39;, &#39;jangankan&#39;, &#39;masing-masing&#39;, &#39;beri&#39;, &#39;jadinya&#39;, &#39;bulan&#39;, &#39;dan&#39;, &#39;nah&#39;, &#39;kini&#39;, &#39;kamulah&#39;, &#39;sebutlah&#39;, &#39;berakhirlah&#39;, &#39;tentang&#39;, &#39;ditambahkan&#39;, &#39;semisalnya&#39;, &#39;kemungkinannya&#39;, &#39;berjumlah&#39;, &#39;dirinya&#39;, &#39;didapat&#39;, &#39;bertanya&#39;, &#39;semisal&#39;, &#39;diminta&#39;, &#39;ikut&#39;, &#39;dimaksudkannya&#39;, &#39;keinginan&#39;, &#39;oleh&#39;, &#39;agar&#39;, &#39;ungkapnya&#39;, &#39;padahal&#39;, &#39;mengingatkan&#39;, &#39;sehingga&#39;, &#39;seringnya&#39;, &#39;sela&#39;, &#39;ibaratnya&#39;, &#39;sebaiknya&#39;, &#39;sebegini&#39;, &#39;tidakkah&#39;, &#39;toh&#39;, &#39;bertutur&#39;, &#39;dibuat&#39;, &#39;bila&#39;, &#39;apalagi&#39;, &#39;secukupnya&#39;, &#39;umumnya&#39;, &#39;yakni&#39;, &#39;bermaksud&#39;, &#39;akulah&#39;, &#39;sampai&#39;, &#39;akankah&#39;, &#39;apakah&#39;, &#39;dimulailah&#39;, &#39;harusnya&#39;, &#39;sendiri&#39;, &#39;bersama-sama&#39;, &#39;disebut&#39;, &#39;sedemikian&#39;, &#39;tak&#39;, &#39;diketahui&#39;, &#39;seluruh&#39;, &#39;caranya&#39;, &#39;kita&#39;, &#39;terlebih&#39;, &#39;setinggi&#39;, &#39;lima&#39;, &#39;dengan&#39;, &#39;walaupun&#39;, &#39;apaan&#39;, &#39;berkeinginan&#39;, &#39;semua&#39;, &#39;demikianlah&#39;, &#39;luar&#39;, &#39;sekurangnya&#39;, &#39;sesuatunya&#39;, &#39;tunjuk&#39;, &#39;terjadinya&#39;, &#39;sepihak&#39;, &#39;dipergunakan&#39;, &#39;ia&#39;, &#39;para&#39;, &#39;dalam&#39;, &#39;kapanpun&#39;, &#39;begitupun&#39;, &#39;dipersoalkan&#39;, &#39;sini&#39;, &#39;memperbuat&#39;, &#39;dimaksud&#39;, &#39;kecil&#39;, &#39;teringat-ingat&#39;, &#39;berikutnya&#39;, &#39;seperlunya&#39;, &#39;saling&#39;, &#39;dia&#39;, &#39;bolehkah&#39;, &#39;tanyanya&#39;, &#39;hampir&#39;, &#39;perlukah&#39;, &#39;dimintai&#39;, &#39;sesudah&#39;, &#39;bermacam-macam&#39;, &#39;ditanyai&#39;, &#39;sangat&#39;, &#39;menegaskan&#39;, &#39;mirip&#39;, &#39;seenaknya&#39;, &#39;disinilah&#39;, &#39;tanyakan&#39;, &#39;ada&#39;, &#39;terutama&#39;, &#39;ditunjuknya&#39;, &#39;sebagaimana&#39;, &#39;yakin&#39;, &#39;dimungkinkan&#39;, &#39;bagaimana&#39;, &#39;bukanlah&#39;, &#39;merupakan&#39;, &#39;bisakah&#39;, &#39;kesampaian&#39;, &#39;lanjut&#39;, &#39;termasuk&#39;, &#39;mendapatkan&#39;, &#39;diberikannya&#39;, &#39;sama&#39;, &#39;lainnya&#39;, &#39;menginginkan&#39;, &#39;jikalau&#39;, &#39;bisa&#39;, &#39;kelima&#39;, &#39;sekali-kali&#39;, &#39;kalaupun&#39;, &#39;mempunyai&#39;, &#39;setempat&#39;, &#39;berbagai&#39;, &#39;memperlihatkan&#39;, &#39;artinya&#39;, &#39;maupun&#39;, &#39;nyaris&#39;, &#39;wahai&#39;, &#39;saatnya&#39;, &#39;inilah&#39;, &#39;keduanya&#39;, &#39;menyebutkan&#39;, &#39;naik&#39;, &#39;sekitarnya&#39;, &#39;tiga&#39;, &#39;terhadapnya&#39;, &#39;asalkan&#39;, &#39;disini&#39;, &#39;mendapat&#39;, &#39;dipertanyakan&#39;, &#39;kepadanya&#39;, &#39;kiranya&#39;, &#39;cuma&#39;, &#39;sekitar&#39;, &#39;tegas&#39;, &#39;ternyata&#39;, &#39;jawabnya&#39;, &#39;terjadilah&#39;, &#39;beginilah&#39;, &#39;semacam&#39;, &#39;hari&#39;, &#39;tiba&#39;, &#39;dipunyai&#39;, &#39;gunakan&#39;, &#39;pak&#39;, &#39;ini&#39;, &#39;ditegaskan&#39;, &#39;akhir&#39;, &#39;sekaligus&#39;, &#39;antaranya&#39;, &#39;semasih&#39;, &#39;itu&#39;, &#39;rupanya&#39;, &#39;sedang&#39;, &#39;kenapa&#39;, &#39;terlihat&#39;, &#39;serta&#39;, &#39;sebabnya&#39;, &#39;sebetulnya&#39;, &#39;setengah&#39;, &#39;supaya&#39;, &#39;misalkan&#39;, &#39;belakang&#39;, &#39;sesampai&#39;, &#39;turut&#39;, &#39;bukannya&#39;, &#39;membuat&#39;, &#39;seharusnya&#39;, &#39;katanya&#39;, &#39;per&#39;, &#39;semasa&#39;, &#39;demi&#39;, &#39;enggak&#39;, &#39;sangatlah&#39;, &#39;tuturnya&#39;, &#39;berapa&#39;, &#39;inginkan&#39;, &#39;terlalu&#39;, &#39;perlu&#39;, &#39;seluruhnya&#39;, &#39;tutur&#39;, &#39;aku&#39;, &#39;menghendaki&#39;, &#39;memisalkan&#39;, &#39;bagai&#39;, &#39;ujar&#39;, &#39;hingga&#39;, &#39;yang&#39;, &#39;mulailah&#39;, &#39;merasa&#39;, &#39;setidak-tidaknya&#39;, &#39;sampai-sampai&#39;, &#39;selaku&#39;, &#39;tepat&#39;, &#39;setiap&#39;, &#39;pasti&#39;, &#39;agak&#39;, &#39;sesama&#39;, &#39;mengenai&#39;, &#39;tentulah&#39;, &#39;kemudian&#39;, &#39;perlunya&#39;, &#39;tegasnya&#39;, &#39;ingin&#39;, &#39;tahu&#39;, &#39;begitukah&#39;, &#39;memihak&#39;, &#39;saja&#39;, &#39;pastilah&#39;, &#39;sekadar&#39;, &#39;nantinya&#39;, &#39;ibaratkan&#39;, &#39;memulai&#39;, &#39;dikira&#39;, &#39;menanyai&#39;, &#39;dekat&#39;, &#39;diucapkannya&#39;, &#39;pihak&#39;, &#39;agaknya&#39;, &#39;benar&#39;, &#39;sering&#39;, &#39;memperkirakan&#39;, &#39;diperlukannya&#39;, &#39;meyakinkan&#39;, &#39;jangan&#39;, &#39;apabila&#39;, &#39;bapak&#39;, &#39;lama&#39;, &#39;disebutkannya&#39;, &#39;guna&#39;, &#39;lewat&#39;, &#39;mengetahui&#39;, &#39;awal&#39;, &#39;persoalan&#39;, &#39;mengakhiri&#39;, &#39;menuju&#39;, &#39;ditujukan&#39;, &#39;dipastikan&#39;, &#39;dituturkan&#39;, &#39;ibarat&#39;, &#39;diantara&#39;, &#39;menanya&#39;, &#39;dimisalkan&#39;, &#39;mungkin&#39;, &#39;jumlahnya&#39;, &#39;berujar&#39;, &#39;sedikitnya&#39;, &#39;tertentu&#39;, &#39;benarkah&#39;, &#39;menantikan&#39;, &#39;usah&#39;, &#39;menyeluruh&#39;, &#39;lamanya&#39;, &#39;amat&#39;, &#39;diinginkan&#39;, &#39;dari&#39;, &#39;boleh&#39;, &#39;entahlah&#39;, &#39;belakangan&#39;, &#39;sedikit&#39;, &#39;dimulainya&#39;, &#39;seingat&#39;, &#39;ditanya&#39;, &#39;semata-mata&#39;, &#39;diingatkan&#39;, &#39;kelihatannya&#39;, &#39;memastikan&#39;, &#39;mengucapkannya&#39;, &#39;diakhiri&#39;, &#39;kapan&#39;, &#39;selama-lamanya&#39;, &#39;menanti&#39;, &#39;sama-sama&#39;, &#39;sebaik-baiknya&#39;, &#39;ataukah&#39;, &#39;berikan&#39;, &#39;masih&#39;, &#39;menunjukkan&#39;, &#39;dijawab&#39;, &#39;awalnya&#39;, &#39;berlebihan&#39;, &#39;dulu&#39;, &#39;sejenak&#39;, &#39;seorang&#39;, &#39;terhadap&#39;, &#39;akhiri&#39;, &#39;jauh&#39;, &#39;kala&#39;, &#39;menandaskan&#39;, &#39;kembali&#39;, &#39;bakal&#39;, &#39;nyatanya&#39;, &#39;juga&#39;, &#39;di&#39;, &#39;sayalah&#39;, &#39;diperbuat&#39;, &#39;serupa&#39;, &#39;terdahulu&#39;, &#39;ujarnya&#39;, &#39;tidak&#39;, &#39;mulai&#39;, &#39;ditunjukkan&#39;, &#39;sekali&#39;, &#39;tidaklah&#39;, &#39;bolehlah&#39;, &#39;sekalian&#39;, &#39;sekiranya&#39;, &#39;ditunjuki&#39;, &#39;biasa&#39;, &#39;jelasnya&#39;, &#39;keterlaluan&#39;, &#39;tentunya&#39;, &#39;tetap&#39;, &#39;namun&#39;, &#39;sekurang-kurangnya&#39;, &#39;memerlukan&#39;, &#39;pertama-tama&#39;, &#39;sewaktu&#39;, &#39;kami&#39;, &#39;anda&#39;, &#39;melainkan&#39;, &#39;menyampaikan&#39;, &#39;bukan&#39;, &#39;kelihatan&#39;, &#39;mengatakannya&#39;, &#39;ketika&#39;, &#39;mulanya&#39;, &#39;bagaimanapun&#39;, &#39;kebetulan&#39;, &#39;sesudahnya&#39;, &#39;adanya&#39;, &#39;antara&#39;, &#39;dikatakan&#39;, &#39;tampaknya&#39;, &#39;digunakan&#39;, &#39;kamilah&#39;, &#39;daripada&#39;, &#39;lebih&#39;, &#39;misal&#39;, &#39;dikerjakan&#39;, &#39;suatu&#39;, &#39;terdiri&#39;, &#39;ke&#39;, &#39;justru&#39;, &#39;sepertinya&#39;, &#39;itukah&#39;, &#39;inginkah&#39;, &#39;sekalipun&#39;, &#39;selamanya&#39;, &#39;karenanya&#39;, &#39;kan&#39;, &#39;sesegera&#39;, &#39;mengungkapkan&#39;, &#39;berturut&#39;, &#39;jelas&#39;, &#39;meminta&#39;, &#39;semuanya&#39;, &#39;janganlah&#39;, &#39;menggunakan&#39;, &#39;seterusnya&#39;, &#39;datang&#39;, &#39;dikatakannya&#39;, &#39;antar&#39;, &#39;pukul&#39;, &#39;baik&#39;, &#39;dibuatnya&#39;, &#39;terkira&#39;, &#39;kalau&#39;, &#39;haruslah&#39;, &#39;sinilah&#39;, &#39;malahan&#39;, &#39;jadilah&#39;, &#39;mereka&#39;, &#39;sebisanya&#39;, &#39;bukankah&#39;, &#39;sebutnya&#39;, &#39;sebelum&#39;, &#39;tadinya&#39;, &#39;diibaratkannya&#39;, &#39;dong&#39;, &#39;sebaik&#39;, &#39;diungkapkan&#39;, &#39;pun&#39;, &#39;tadi&#39;, &#39;wong&#39;, &#39;berapalah&#39;, &#39;setibanya&#39;, &#39;hanyalah&#39;, &#39;sendirinya&#39;, &#39;disebutkan&#39;, &#39;banyak&#39;, &#39;tersampaikan&#39;, &#39;sejumlah&#39;, &#39;inikah&#39;, &#39;masalah&#39;, &#39;mendatang&#39;, &#39;ungkap&#39;, &#39;bakalan&#39;, &#39;diberikan&#39;, &#39;rasanya&#39;, &#39;segala&#39;, &#39;lanjutnya&#39;, &#39;tandasnya&#39;, &#39;tertuju&#39;, &#39;sesaat&#39;, &#39;katakanlah&#39;, &#39;akhirnya&#39;, &#39;dua&#39;, &#39;telah&#39;, &#39;keseluruhan&#39;, &#39;sebenarnya&#39;, &#39;itulah&#39;, &#39;untuk&#39;, &#39;sekarang&#39;, &#39;bawah&#39;, &#39;dimulai&#39;, &#39;sebanyak&#39;, &#39;ataupun&#39;, &#39;dijelaskan&#39;, &#39;didatangkan&#39;, &#39;kok&#39;, &#39;diibaratkan&#39;, &#39;tersebutlah&#39;, &#39;cara&#39;, &#39;kamu&#39;, &#39;satu&#39;, &#39;berupa&#39;, &#39;waktunya&#39;, &#39;saat&#39;, &#39;melihat&#39;, &#39;semula&#39;, &#39;mempersiapkan&#39;, &#39;bung&#39;, &#39;siapa&#39;, &#39;cukupkah&#39;, &#39;kalian&#39;, &#39;terjadi&#39;, &#39;waduh&#39;, &#39;karena&#39;, &#39;kedua&#39;, &#39;hanya&#39;, &#39;sambil&#39;, &#39;tampak&#39;, &#39;semaunya&#39;, &#39;manalagi&#39;, &#39;sebagainya&#39;, &#39;pertanyakan&#39;, &#39;dikarenakan&#39;, &#39;bahwa&#39;, &#39;tengah&#39;, &#39;bahwasanya&#39;, &#39;bertanya-tanya&#39;, &#39;mengatakan&#39;, &#39;buat&#39;, &#39;terbanyak&#39;, &#39;setiba&#39;, &#39;semampu&#39;, &#39;tambahnya&#39;, &#39;berakhir&#39;, &#39;diri&#39;, &#39;ditunjuk&#39;, &#39;empat&#39;, &#39;betulkah&#39;, &#39;ingat&#39;, &#39;tahun&#39;, &#39;sana&#39;, &#39;diucapkan&#39;, &#39;masa&#39;, &#39;mau&#39;, &#39;asal&#39;, &#39;bagaimanakah&#39;, &#39;nanti&#39;, &#39;sekadarnya&#39;, &#39;depan&#39;, &#39;besar&#39;, &#39;jika&#39;, &#39;sepantasnya&#39;, &#39;terus&#39;, &#39;atau&#39;, &#39;bahkan&#39;, &#39;begitu&#39;, &#39;mengucapkan&#39;, &#39;menanti-nanti&#39;, &#39;seberapa&#39;, &#39;berawal&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;paling&#39;, &#39;makin&#39;, &#39;berapalah&#39;, &#39;sekalipun&#39;, &#39;sebaiknya&#39;, &#39;setiap&#39;, &#39;ungkap&#39;, &#39;memberi&#39;, &#39;bakal&#39;, &#39;segalanya&#39;, &#39;terjadinya&#39;, &#39;mengingatkan&#39;, &#39;mengira&#39;, &#39;akhiri&#39;, &#39;namun&#39;, &#39;antaranya&#39;, &#39;dirinya&#39;, &#39;bersama&#39;, &#39;bakalan&#39;, &#39;agaknya&#39;, &#39;ia&#39;, &#39;mempertanyakan&#39;, &#39;disebut&#39;, &#39;karena&#39;, &#39;waktunya&#39;, &#39;bilakah&#39;, &#39;kamulah&#39;, &#39;dimintai&#39;, &#39;padanya&#39;, &#39;kami&#39;, &#39;menandaskan&#39;, &#39;sebagaimana&#39;, &#39;masing&#39;, &#39;demikianlah&#39;, &#39;bisakah&#39;, &#39;tampak&#39;, &#39;diantaranya&#39;, &#39;cuma&#39;, &#39;selamanya&#39;, &#39;tutur&#39;, &#39;selama-lamanya&#39;, &#39;bermaksud&#39;, &#39;lagian&#39;, &#39;sebut&#39;, &#39;terkira&#39;, &#39;saatnya&#39;, &#39;terlalu&#39;, &#39;hendaknya&#39;, &#39;bertanya-tanya&#39;, &#39;itulah&#39;, &#39;kelamaan&#39;, &#39;akulah&#39;, &#39;diucapkannya&#39;, &#39;kemungkinan&#39;, &#39;ujar&#39;, &#39;kembali&#39;, &#39;mengatakan&#39;, &#39;saja&#39;, &#39;semampunya&#39;, &#39;mengungkapkan&#39;, &#39;tunjuk&#39;, &#39;ataukah&#39;, &#39;jumlah&#39;, &#39;padahal&#39;, &#39;ingat&#39;, &#39;tidakkah&#39;, &#39;rasa&#39;, &#39;sebaik-baiknya&#39;, &#39;dimulai&#39;, &#39;menyampaikan&#39;, &#39;setinggi&#39;, &#39;supaya&#39;, &#39;beberapa&#39;, &#39;dimaksudkannya&#39;, &#39;nyaris&#39;, &#39;tambah&#39;, &#39;sepihak&#39;, &#39;rata&#39;, &#39;sekalian&#39;, &#39;memisalkan&#39;, &#39;mungkinkah&#39;, &#39;daripada&#39;, &#39;mempergunakan&#39;, &#39;disinilah&#39;, &#39;waduh&#39;, &#39;maupun&#39;, &#39;secara&#39;, &#39;ternyata&#39;, &#39;dekat&#39;, &#39;katakan&#39;, &#39;nanti&#39;, &#39;tetap&#39;, &#39;segala&#39;, &#39;umum&#39;, &#39;sebagian&#39;, &#39;setiba&#39;, &#39;pula&#39;, &#39;hingga&#39;, &#39;tandas&#39;, &#39;tanyakan&#39;, &#39;sama&#39;, &#39;seolah&#39;, &#39;lamanya&#39;, &#39;bahwa&#39;, &#39;tiba&#39;, &#39;diantara&#39;, &#39;menambahkan&#39;, &#39;seluruhnya&#39;, &#39;dipunyai&#39;, &#39;jangan&#39;, &#39;lain&#39;, &#39;tentu&#39;, &#39;memastikan&#39;, &#39;segera&#39;, &#39;berlebihan&#39;, &#39;bila&#39;, &#39;ditunjuknya&#39;, &#39;tahu&#39;, &#39;sekaligus&#39;, &#39;bertutur&#39;, &#39;sudahkah&#39;, &#39;digunakan&#39;, &#39;mendapatkan&#39;, &#39;satu&#39;, &#39;tahun&#39;, &#39;diperlukan&#39;, &#39;dikira&#39;, &#39;kapanpun&#39;, &#39;mendatangkan&#39;, &#39;antara&#39;, &#39;dengan&#39;, &#39;janganlah&#39;, &#39;ada&#39;, &#39;mirip&#39;, &#39;mulai&#39;, &#39;belumlah&#39;, &#39;semaunya&#39;, &#39;khususnya&#39;, &#39;apatah&#39;, &#39;keinginan&#39;, &#39;merekalah&#39;, &#39;sebagai&#39;, &#39;sebaik&#39;, &#39;toh&#39;, &#39;berakhirnya&#39;, &#39;diucapkan&#39;, &#39;bawah&#39;, &#39;belakang&#39;, &#39;terasa&#39;, &#39;bukanlah&#39;, &#39;dan&#39;, &#39;ini&#39;, &#39;adapun&#39;, &#39;lagi&#39;, &#39;sejak&#39;, &#39;enggak&#39;, &#39;kasus&#39;, &#39;dimungkinkan&#39;, &#39;sesama&#39;, &#39;sepertinya&#39;, &#39;bagaimanakah&#39;, &#39;diperlihatkan&#39;, &#39;dalam&#39;, &#39;seorang&#39;, &#39;terlebih&#39;, &#39;jadilah&#39;, &#39;mengucapkannya&#39;, &#39;ialah&#39;, &#39;bahwasanya&#39;, &#39;mengingat&#39;, &#39;kalaulah&#39;, &#39;beri&#39;, &#39;diberi&#39;, &#39;harus&#39;, &#39;seseorang&#39;, &#39;tambahnya&#39;, &#39;beginilah&#39;, &#39;menginginkan&#39;, &#39;keluar&#39;, &#39;wong&#39;, &#39;diminta&#39;, &#39;olehnya&#39;, &#39;kita&#39;, &#39;sama-sama&#39;, &#39;bolehlah&#39;, &#39;begitulah&#39;, &#39;lewat&#39;, &#39;dilihat&#39;, &#39;ketika&#39;, &#39;kinilah&#39;, &#39;merasa&#39;, &#39;dimaksud&#39;, &#39;sebetulnya&#39;, &#39;kamu&#39;, &#39;pasti&#39;, &#39;disini&#39;, &#39;bapak&#39;, &#39;mengerjakan&#39;, &#39;hampir&#39;, &#39;jauh&#39;, &#39;kini&#39;, &#39;berturut-turut&#39;, &#39;didatangkan&#39;, &#39;sementara&#39;, &#39;sinilah&#39;, &#39;ditujukan&#39;, &#39;melihatnya&#39;, &#39;sempat&#39;, &#39;boleh&#39;, &#39;malah&#39;, &#39;belakangan&#39;, &#39;lebih&#39;, &#39;ditandaskan&#39;, &#39;begini&#39;, &#39;dilalui&#39;, &#39;ditegaskan&#39;, &#39;entah&#39;, &#39;tampaknya&#39;, &#39;begitukah&#39;, &#39;terjadilah&#39;, &#39;lah&#39;, &#39;apalagi&#39;, &#39;untuk&#39;, &#39;sendiri&#39;, &#39;luar&#39;, &#39;hendak&#39;, &#39;selain&#39;, &#39;punya&#39;, &#39;pihaknya&#39;, &#39;selaku&#39;, &#39;jelaskan&#39;, &#39;ibaratkan&#39;, &#39;manakala&#39;, &#39;sesampai&#39;, &#39;andalah&#39;, &#39;minta&#39;, &#39;kalaupun&#39;, &#39;ditunjuki&#39;, &#39;telah&#39;, &#39;aku&#39;, &#39;berupa&#39;, &#39;ujarnya&#39;, &#39;sedangkan&#39;, &#39;bolehkah&#39;, &#39;berapa&#39;, &#39;biasa&#39;, &#39;keadaan&#39;, &#39;bekerja&#39;, &#39;akankah&#39;, &#39;berjumlah&#39;, &#39;apakah&#39;, &#39;diingat&#39;, &#39;juga&#39;, &#39;penting&#39;, &#39;tandasnya&#39;, &#39;katakanlah&#39;, &#39;kira-kira&#39;, &#39;begitu&#39;, &#39;mendatang&#39;, &#39;memperkirakan&#39;, &#39;diibaratkan&#39;, &#39;sesudahnya&#39;, &#39;asal&#39;, &#39;sekurang-kurangnya&#39;, &#39;ataupun&#39;, &#39;terlihat&#39;, &#39;tertentu&#39;, &#39;rupanya&#39;, &#39;serta&#39;, &#39;jadi&#39;, &#39;mengenai&#39;, &#39;antar&#39;, &#39;diri&#39;, &#39;sambil&#39;, &#39;siapakah&#39;, &#39;bersiap-siap&#39;, &#39;dibuatnya&#39;, &#39;mula&#39;, &#39;sekarang&#39;, &#39;menaiki&#39;, &#39;wahai&#39;, &#39;berkehendak&#39;, &#39;dia&#39;, &#39;diperbuat&#39;, &#39;pernah&#39;, &#39;dikerjakan&#39;, &#39;berapapun&#39;, &#39;ingin&#39;, &#39;kebetulan&#39;, &#39;hari&#39;, &#39;lanjutnya&#39;, &#39;sesegera&#39;, &#39;sewaktu&#39;, &#39;katanya&#39;, &#39;dibuat&#39;, &#39;perlunya&#39;, &#39;sajalah&#39;, &#39;sebaliknya&#39;, &#39;tinggi&#39;, &#39;dulu&#39;, &#39;seenaknya&#39;, &#39;walaupun&#39;, &#39;bermula&#39;, &#39;hanyalah&#39;, &#39;berada&#39;, &#39;yakni&#39;, &#39;merupakan&#39;, &#39;dipertanyakan&#39;, &#39;ditambahkan&#39;, &#39;dipastikan&#39;, &#39;berlangsung&#39;, &#39;meyakini&#39;, &#39;se&#39;, &#39;mana&#39;, &#39;sudah&#39;, &#39;artinya&#39;, &#39;jadinya&#39;, &#39;mempunyai&#39;, &#39;kapan&#39;, &#39;bagaimanapun&#39;, &#39;sering&#39;, &#39;membuat&#39;, &#39;pastilah&#39;, &#39;kelihatannya&#39;, &#39;demi&#39;, &#39;usah&#39;, &#39;bung&#39;, &#39;didapat&#39;, &#39;semata-mata&#39;, &#39;menurut&#39;, &#39;yang&#39;, &#39;semuanya&#39;, &#39;agar&#39;, &#39;justru&#39;, &#39;pantas&#39;, &#39;kan&#39;, &#39;keseluruhan&#39;, &#39;malahan&#39;, &#39;memberikan&#39;, &#39;menghendaki&#39;, &#39;bagai&#39;, &#39;mulanya&#39;, &#39;berlainan&#39;, &#39;sepanjang&#39;, &#39;setengah&#39;, &#39;sudahlah&#39;, &#39;benarkah&#39;, &#39;mampukah&#39;, &#39;menanyai&#39;, &#39;pukul&#39;, &#39;kala&#39;, &#39;mempersoalkan&#39;, &#39;bagaimana&#39;, &#39;tadi&#39;, &#39;inikah&#39;, &#39;tentulah&#39;, &#39;sekitarnya&#39;, &#39;bagi&#39;, &#39;tiga&#39;, &#39;semata&#39;, &#39;sesaat&#39;, &#39;terdahulu&#39;, &#39;akhir&#39;, &#39;setidaknya&#39;, &#39;menunjukkan&#39;, &#39;pun&#39;, &#39;waktu&#39;, &#39;masalah&#39;, &#39;balik&#39;, &#39;menyeluruh&#39;, &#39;sangatlah&#39;, &#39;tiap&#39;, &#39;cara&#39;, &#39;nah&#39;, &#39;sekadarnya&#39;, &#39;sampai-sampai&#39;, &#39;besar&#39;, &#39;selama&#39;, &#39;soalnya&#39;, &#39;per&#39;, &#39;sebabnya&#39;, &#39;ke&#39;, &#39;diungkapkan&#39;, &#39;berbagai&#39;, &#39;menyangkut&#39;, &#39;pada&#39;, &#39;betul&#39;, &#39;ibaratnya&#39;, &#39;bukan&#39;, &#39;tepat&#39;, &#39;diperkirakan&#39;, &#39;mengapa&#39;, &#39;masing-masing&#39;, &#39;menanya&#39;, &#39;berkata&#39;, &#39;seluruh&#39;, &#39;empat&#39;, &#39;sela&#39;, &#39;lalu&#39;, &#39;dini&#39;, &#39;beginian&#39;, &#39;tersebut&#39;, &#39;seusai&#39;, &#39;beginikah&#39;, &#39;amat&#39;, &#39;benarlah&#39;, &#39;ditunjukkannya&#39;, &#39;sesekali&#39;, &#39;tetapi&#39;, &#39;mempersiapkan&#39;, &#39;terdapat&#39;, &#39;tengah&#39;, &#39;berakhirlah&#39;, &#39;meminta&#39;, &#39;bagian&#39;, &#39;cukupkah&#39;, &#39;apaan&#39;, &#39;sebenarnya&#39;, &#39;bertanya&#39;, &#39;tadinya&#39;, &#39;sangat&#39;, &#39;ucap&#39;, &#39;sekali-kali&#39;, &#39;hal&#39;, &#39;setempat&#39;, &#39;yakin&#39;, &#39;baru&#39;, &#39;kenapa&#39;, &#39;siapa&#39;, &#39;memungkinkan&#39;, &#39;menanti&#39;, &#39;bersiap&#39;, &#39;sebesar&#39;, &#39;melihat&#39;, &#39;panjang&#39;, &#39;menunjuknya&#39;, &#39;dapat&#39;, &#39;menunjuki&#39;, &#39;diibaratkannya&#39;, &#39;kepada&#39;, &#39;dimulainya&#39;, &#39;kemudian&#39;, &#39;setidak-tidaknya&#39;, &#39;saling&#39;, &#39;amatlah&#39;, &#39;mereka&#39;, &#39;sebelumnya&#39;, &#39;gunakan&#39;, &#39;haruslah&#39;, &#39;berkeinginan&#39;, &#39;masih&#39;, &#39;semua&#39;, &#39;serupa&#39;, &#39;memulai&#39;, &#39;kapankah&#39;, &#39;para&#39;, &#39;ditanyakan&#39;, &#39;sebuah&#39;, &#39;pertama&#39;, &#39;tersebutlah&#39;, &#39;walau&#39;, &#39;mengibaratkan&#39;, &#39;diingatkan&#39;, &#39;tidaklah&#39;, &#39;sekali&#39;, &#39;bukankah&#39;, &#39;disebutkannya&#39;, &#39;apabila&#39;, &#39;tak&#39;, &#39;berawal&#39;, &#39;semacam&#39;, &#39;sesuatu&#39;, &#39;bukannya&#39;, &#39;tuturnya&#39;, &#39;saat&#39;, &#39;seperti&#39;, &#39;berakhir&#39;, &#39;teringat-ingat&#39;, &#39;kurang&#39;, &#39;seketika&#39;, &#39;seterusnya&#39;, &#39;menuturkan&#39;, &#39;menanyakan&#39;, &#39;buat&#39;, &#39;sana&#39;, &#39;teringat&#39;, &#39;tapi&#39;, &#39;nantinya&#39;, &#39;termasuk&#39;, &#39;berkali-kali&#39;, &#39;depan&#39;, &#39;menuju&#39;, &#39;diketahui&#39;, &#39;dikarenakan&#39;, &#39;lima&#39;, &#39;berikan&#39;, &#39;awal&#39;, &#39;berikut&#39;, &#39;bulan&#39;, &#39;semisalnya&#39;, &#39;terus&#39;, &#39;maka&#39;, &#39;pak&#39;, &#39;umumnya&#39;, &#39;rasanya&#39;, &#39;di&#39;, &#39;tentunya&#39;, &#39;sebisanya&#39;, &#39;kamilah&#39;, &#39;tidak&#39;, &#39;sebelum&#39;, &#39;masa&#39;, &#39;keseluruhannya&#39;, &#39;guna&#39;, &#39;mengatakannya&#39;, &#39;diberikannya&#39;, &#39;setibanya&#39;, &#39;sendirinya&#39;, &#39;akhirnya&#39;, &#39;berturut&#39;, &#39;usai&#39;, &#39;cukup&#39;, &#39;apa&#39;, &#39;berarti&#39;, &#39;adanya&#39;, &#39;atas&#39;, &#39;ditanya&#39;, &#39;seharusnya&#39;, &#39;semasih&#39;, &#39;adalah&#39;, &#39;terdiri&#39;, &#39;begitupun&#39;, &#39;jumlahnya&#39;, &#39;melalui&#39;, &#39;suatu&#39;, &#39;sekurangnya&#39;, &#39;setelah&#39;, &#39;pentingnya&#39;, &#39;bagaikan&#39;, &#39;asalkan&#39;, &#39;soal&#39;, &#39;mengetahui&#39;, &#39;awalnya&#39;, &#39;benar&#39;, &#39;kalau&#39;, &#39;dimisalkan&#39;, &#39;dipersoalkan&#39;, &#39;kelihatan&#39;, &#39;meski&#39;, &#39;sebagainya&#39;, &#39;dipergunakan&#39;, &#39;ikut&#39;, &#39;sebanyak&#39;, &#39;ucapnya&#39;, &#39;dimaksudnya&#39;, &#39;menyebutkan&#39;, &#39;diperlukannya&#39;, &#39;mengucapkan&#39;, &#39;betulkah&#39;, &#39;harusnya&#39;, &#39;banyak&#39;, &#39;itukah&#39;, &#39;enggaknya&#39;, &#39;dikatakan&#39;, &#39;jikalau&#39;, &#39;ungkapnya&#39;, &#39;keduanya&#39;, &#39;ibarat&#39;, &#39;dimaksudkan&#39;, &#39;biasanya&#39;, &#39;dijelaskan&#39;, &#39;sebutlah&#39;, &#39;caranya&#39;, &#39;memperbuat&#39;, &#39;terbanyak&#39;, &#39;jawaban&#39;, &#39;melakukan&#39;, &#39;tegasnya&#39;, &#39;berlalu&#39;, &#39;hanya&#39;, &#39;naik&#39;, &#39;keterlaluan&#39;, &#39;oleh&#39;, &#39;sepantasnya&#39;, &#39;memihak&#39;, &#39;semisal&#39;, &#39;inginkan&#39;, &#39;agak&#39;, &#39;menyatakan&#39;, &#39;dari&#39;, &#39;sedikit&#39;, &#39;jawab&#39;, &#39;sesudah&#39;, &#39;sepantasnyalah&#39;, &#39;percuma&#39;, &#39;sendirian&#39;, &#39;sebegitu&#39;, &#39;berdatangan&#39;, &#39;perlukah&#39;, &#39;mungkin&#39;, &#39;kesampaian&#39;, &#39;siap&#39;, &#39;secukupnya&#39;, &#39;sini&#39;, &#39;demikian&#39;, &#39;mampu&#39;, &#39;kedua&#39;, &#39;sekiranya&#39;, &#39;diberikan&#39;, &#39;jawabnya&#39;, &#39;kira&#39;, &#39;ingat-ingat&#39;, &#39;dahulu&#39;, &#39;lainnya&#39;, &#39;menantikan&#39;, &#39;sekecil&#39;, &#39;memperlihatkan&#39;, &#39;baik&#39;, &#39;terakhir&#39;, &#39;sekitar&#39;, &#39;meyakinkan&#39;, &#39;diperbuatnya&#39;, &#39;seringnya&#39;, &#39;menjawab&#39;, &#39;kata&#39;, &#39;terhadap&#39;, &#39;seperlunya&#39;, &#39;sampaikan&#39;, &#39;terutama&#39;, &#39;cukuplah&#39;, &#39;tegas&#39;, &#39;terjadi&#39;, &#39;bermacam-macam&#39;, &#39;dijawab&#39;, &#39;berujar&#39;, &#39;sejumlah&#39;, &#39;semakin&#39;, &#39;mengakhiri&#39;, &#39;mengibaratkannya&#39;, &#39;kepadanya&#39;, &#39;jelas&#39;, &#39;yaitu&#39;, &#39;kok&#39;, &#39;tempat&#39;, &#39;masihkah&#39;, &#39;pertanyakan&#39;, &#39;kelima&#39;, &#39;ditunjuk&#39;, &#39;diinginkan&#39;, &#39;karenanya&#39;, &#39;berapakah&#39;, &#39;berikutnya&#39;, &#39;menegaskan&#39;, &#39;sayalah&#39;, &#39;dituturkan&#39;, &#39;pertanyaan&#39;, &#39;seingat&#39;, &#39;tersampaikan&#39;, &#39;selanjutnya&#39;, &#39;belum&#39;, &#39;menunjuk&#39;, &#39;tanpa&#39;, &#39;sesuatunya&#39;, &#39;misalkan&#39;, &#39;selalu&#39;, &#39;bahkan&#39;, &#39;hendaklah&#39;, &#39;diketahuinya&#39;, &#39;jika&#39;, &#39;kemungkinannya&#39;, &#39;berkenaan&#39;, &#39;dong&#39;, &#39;bisa&#39;, &#39;menggunakan&#39;, &#39;menanti-nanti&#39;, &#39;kalian&#39;, &#39;seolah-olah&#39;, &#39;ditanyai&#39;, &#39;ibu&#39;, &#39;tanya&#39;, &#39;dituturkannya&#39;, &#39;sedang&#39;, &#39;jelasnya&#39;, &#39;disampaikan&#39;, &#39;meskipun&#39;, &#39;bermacam&#39;, &#39;dikatakannya&#39;, &#39;jangankan&#39;, &#39;wah&#39;, &#39;pertama-tama&#39;, &#39;akan&#39;, &#39;dilakukan&#39;, &#39;tiba-tiba&#39;, &#39;misalnya&#39;, &#39;kiranya&#39;, &#39;makanya&#39;, &#39;dijelaskannya&#39;, &#39;perlu&#39;, &#39;mau&#39;, &#39;dialah&#39;, &#39;diakhiri&#39;, &#39;memintakan&#39;, &#39;terhadapnya&#39;, &#39;masalahnya&#39;, &#39;kitalah&#39;, &#39;sedemikian&#39;, &#39;entahlah&#39;, &#39;siapapun&#39;, &#39;semula&#39;, &#39;sedikitnya&#39;, &#39;itu&#39;, &#39;misal&#39;, &#39;sebegini&#39;, &#39;jelaslah&#39;, &#39;pihak&#39;, &#39;lanjut&#39;, &#39;saya&#39;, &#39;kecil&#39;, &#39;sejauh&#39;, &#39;disebutkan&#39;, &#39;datang&#39;, &#39;atau&#39;, &#39;mulailah&#39;, &#39;nyatanya&#39;, &#39;sampai&#39;, &#39;sebab&#39;, &#39;seberapa&#39;, &#39;diakhirinya&#39;, &#39;anda&#39;, &#39;ditunjukkan&#39;, &#39;memerlukan&#39;, &#39;sebutnya&#39;, &#39;menjelaskan&#39;, &#39;tertuju&#39;, &#39;sehingga&#39;, &#39;lama&#39;, &#39;inginkah&#39;, &#39;persoalan&#39;, &#39;macam&#39;, &#39;inilah&#39;, &#39;menyiapkan&#39;, &#39;semampu&#39;, &#39;dimulailah&#39;, &#39;manalagi&#39;, &#39;menjadi&#39;, &#39;memang&#39;, &#39;dua&#39;, &#39;sejenak&#39;, &#39;semasa&#39;, &#39;tanyanya&#39;, &#39;tentang&#39;, &#39;turut&#39;, &#39;mendatangi&#39;, &#39;sekadar&#39;, &#39;melainkan&#39;, &#39;mendapat&#39;, &#39;bersama-sama&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-6-d5df0069828e&gt;</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/google/colab/drive.py</span> in <span class="ni">mount</span><span class="nt">(mountpoint, force_remount, timeout_ms, readonly)</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span> <span class="k">def</span> <span class="nf">mount</span><span class="p">(</span><span class="n">mountpoint</span><span class="p">,</span> <span class="n">force_remount</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">timeout_ms</span><span class="o">=</span><span class="mi">120000</span><span class="p">,</span> <span class="n">readonly</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span><span class="w">   </span><span class="sd">&quot;&quot;&quot;Mount your Google Drive at the specified mountpoint path.&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">100</span>   <span class="k">return</span> <span class="n">_mount</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span>       <span class="n">mountpoint</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span>       <span class="n">force_remount</span><span class="o">=</span><span class="n">force_remount</span><span class="p">,</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/google/colab/drive.py</span> in <span class="ni">_mount</span><span class="nt">(mountpoint, force_remount, timeout_ms, ephemeral, readonly)</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span>   <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">136</span>   <span class="k">if</span> <span class="n">ephemeral</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">137</span>     <span class="n">_message</span><span class="o">.</span><span class="n">blocking_request</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">138</span>         <span class="s1">&#39;request_auth&#39;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">139</span>         <span class="n">request</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;authType&#39;</span><span class="p">:</span> <span class="s1">&#39;dfs_ephemeral&#39;</span><span class="p">},</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/google/colab/_message.py</span> in <span class="ni">blocking_request</span><span class="nt">(request_type, request, timeout_sec, parent)</span>
+<span class="g g-Whitespace">    </span><span class="mi">174</span>       <span class="n">request_type</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">expect_reply</span><span class="o">=</span><span class="kc">True</span>
+<span class="g g-Whitespace">    </span><span class="mi">175</span>   <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">176</span>   <span class="k">return</span> <span class="n">read_reply_from_input</span><span class="p">(</span><span class="n">request_id</span><span class="p">,</span> <span class="n">timeout_sec</span><span class="p">)</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/google/colab/_message.py</span> in <span class="ni">read_reply_from_input</span><span class="nt">(message_id, timeout_sec)</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span>     <span class="n">reply</span> <span class="o">=</span> <span class="n">_read_next_input_message</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span>     <span class="k">if</span> <span class="n">reply</span> <span class="o">==</span> <span class="n">_NOT_READY</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">reply</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">96</span>       <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.025</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span>       <span class="k">continue</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>     <span class="k">if</span> <span class="p">(</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/MyDrive/PPW BARU/report/&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -565,7 +615,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nama file yang akan dibaca</span>
-<span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;/kompas.csv&#39;</span>
+<span class="n">file_name</span> <span class="o">=</span> <span class="nb">dir</span><span class="o">+</span><span class="s1">&#39;/kompas (1).csv&#39;</span>
 
 <span class="c1"># Membaca file CSV dari folder lokal</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
@@ -576,51 +626,33 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-6-5bf02d424a9e&gt;</span> in <span class="ni">&lt;cell line: 5&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Membaca file CSV dari folder lokal</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> 
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># Tampilkan beberapa baris pertama dari file CSV</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                               judul  \
+0  MotoGP San Marino 2024: Ketika Marquez Menang ...   
+1  Klasemen PON XXI 2024: Futsal Gagal Emas, Jati...   
+2  Hasil One Pride MMA 82: Frans Sormin Bekuk Jak...   
+3  Indonesia Vs Australia, Kata Manajer Timnas so...   
+4  Dampak Kehadiran Marteen Paes untuk Persaingan...   
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/io/parsers/readers.py</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1024</span>     <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1025</span> 
-<span class="ne">-&gt; </span><span class="mi">1026</span>     <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1027</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1028</span> 
+                      waktu  \
+0   - 09/09/2024, 05:00 WIB   
+1   - 09/09/2024, 07:59 WIB   
+2   - 09/09/2024, 14:31 WIB   
+3   - 09/09/2024, 10:29 WIB   
+4   - 09/09/2024, 11:30 WIB   
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">618</span> 
-<span class="g g-Whitespace">    </span><span class="mi">619</span>     <span class="c1"># Create the parser.</span>
-<span class="ne">--&gt; </span><span class="mi">620</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">621</span> 
-<span class="g g-Whitespace">    </span><span class="mi">622</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+                                                 url  \
+0  https://www.kompas.com/motogp/read/2024/09/09/...   
+1  https://www.kompas.com/sports/read/2024/09/09/...   
+2  https://www.kompas.com/sports/read/2024/09/09/...   
+3  https://bola.kompas.com/read/2024/09/09/102929...   
+4  https://bola.kompas.com/read/2024/09/09/113000...   
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/io/parsers/readers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1618</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1619</span>         <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="ne">-&gt; </span><span class="mi">1620</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1621</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1622</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, f, engine)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1878</span>                 <span class="k">if</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1879</span>                     <span class="n">mode</span> <span class="o">+=</span> <span class="s2">&quot;b&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1880</span>             <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1881</span>                 <span class="n">f</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1882</span>                 <span class="n">mode</span><span class="p">,</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/io/common.py</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">871</span>         <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">872</span>             <span class="c1"># Encoding</span>
-<span class="ne">--&gt; </span><span class="mi">873</span>             <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">874</span>                 <span class="n">handle</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">875</span>                 <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/kompas.csv&#39;
+                                              konten kategori  
+0  KOMPAS.com - Marc Marquez sukses memenangi Mot...     Bola  
+1  KOMPAS.com - Tim futsal Jawa Timur (Jatim) gag...     Bola  
+2  KOMPAS.com - Frans Lincol Sormin mengalahkan J...     Bola  
+3  KOMPAS.com - Timnas Indonesia belum menentukan...     Bola  
+4  KOMPAS.com - Penampilan penjaga gawang timnas ...     Bola  
 </pre></div>
 </div>
 </div>
@@ -635,7 +667,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-fd020c41-fe01-4c72-b0c9-7e4e4b8a6bef" class="colab-df-container">
+  <div id="df-73721a46-c9c4-4c6f-a0b8-5d84703e90b1" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -757,7 +789,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-fd020c41-fe01-4c72-b0c9-7e4e4b8a6bef')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-73721a46-c9c4-4c6f-a0b8-5d84703e90b1')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -809,12 +841,12 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 
     <script>
       const buttonEl =
-        document.querySelector('#df-fd020c41-fe01-4c72-b0c9-7e4e4b8a6bef button.colab-df-convert');
+        document.querySelector('#df-73721a46-c9c4-4c6f-a0b8-5d84703e90b1 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-fd020c41-fe01-4c72-b0c9-7e4e4b8a6bef');
+        const element = document.querySelector('#df-73721a46-c9c4-4c6f-a0b8-5d84703e90b1');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -834,8 +866,8 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
   </div>
 
 
-<div id="df-df000a86-6bd4-488a-b171-b66d29ecc2c3">
-  <button class="colab-df-quickchart" onclick="quickchart('df-df000a86-6bd4-488a-b171-b66d29ecc2c3')"
+<div id="df-ea856002-31fe-418a-9254-4dfd0b7e20e6">
+  <button class="colab-df-quickchart" onclick="quickchart('df-ea856002-31fe-418a-9254-4dfd0b7e20e6')"
             title="Suggest charts"
             style="display:none;">
 
@@ -954,14 +986,14 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-df000a86-6bd4-488a-b171-b66d29ecc2c3 button');
+        document.querySelector('#df-ea856002-31fe-418a-9254-4dfd0b7e20e6 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
   </script>
 </div>
 
-  <div id="id_507b8c4e-c8c4-4102-b236-8f3792b7b250">
+  <div id="id_f611e315-562b-434d-b409-34cf88483604">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -1005,7 +1037,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_507b8c4e-c8c4-4102-b236-8f3792b7b250 button.colab-df-generate');
+        document.querySelector('#id_f611e315-562b-434d-b409-34cf88483604 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -1041,7 +1073,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/05c5664b2ceaa074358667890ae0d2fb2deaa71d828ba60b96c1b66792ad4a77.png" src="_images/05c5664b2ceaa074358667890ae0d2fb2deaa71d828ba60b96c1b66792ad4a77.png" />
+<img alt="_images/b1272cfddca0d37fe454cf41047576e9c3ca7725494c4d2c03a33366aa2680f9.png" src="_images/b1272cfddca0d37fe454cf41047576e9c3ca7725494c4d2c03a33366aa2680f9.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1070,7 +1102,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-bbbf03dc-fa6b-416f-bd5c-bee9f194dfda" class="colab-df-container">
+  <div id="df-506cc16b-d81a-476a-aec2-b1effd790006" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1192,7 +1224,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-bbbf03dc-fa6b-416f-bd5c-bee9f194dfda')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-506cc16b-d81a-476a-aec2-b1effd790006')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -1244,12 +1276,12 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 
     <script>
       const buttonEl =
-        document.querySelector('#df-bbbf03dc-fa6b-416f-bd5c-bee9f194dfda button.colab-df-convert');
+        document.querySelector('#df-506cc16b-d81a-476a-aec2-b1effd790006 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-bbbf03dc-fa6b-416f-bd5c-bee9f194dfda');
+        const element = document.querySelector('#df-506cc16b-d81a-476a-aec2-b1effd790006');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1269,8 +1301,8 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
   </div>
 
 
-<div id="df-8a57db8d-31c1-4602-8f02-f8c42edec0e4">
-  <button class="colab-df-quickchart" onclick="quickchart('df-8a57db8d-31c1-4602-8f02-f8c42edec0e4')"
+<div id="df-8e4ac8a1-f48a-4829-9f64-51fbe18a6d69">
+  <button class="colab-df-quickchart" onclick="quickchart('df-8e4ac8a1-f48a-4829-9f64-51fbe18a6d69')"
             title="Suggest charts"
             style="display:none;">
 
@@ -1389,14 +1421,14 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-8a57db8d-31c1-4602-8f02-f8c42edec0e4 button');
+        document.querySelector('#df-8e4ac8a1-f48a-4829-9f64-51fbe18a6d69 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
   </script>
 </div>
 
-  <div id="id_b3e8322d-5297-419d-95d3-b16d73a20c42">
+  <div id="id_944689b5-c586-4f37-aacd-884ad0145377">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -1440,7 +1472,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_b3e8322d-5297-419d-95d3-b16d73a20c42 button.colab-df-generate');
+        document.querySelector('#id_944689b5-c586-4f37-aacd-884ad0145377 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -1472,7 +1504,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-b1c16c8a-f22a-4c92-bade-9ad6c2282b8d" class="colab-df-container">
+  <div id="df-6a9dc3af-573e-4a9c-a481-28391e95ca48" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1558,7 +1590,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-b1c16c8a-f22a-4c92-bade-9ad6c2282b8d')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-6a9dc3af-573e-4a9c-a481-28391e95ca48')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -1610,12 +1642,12 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 
     <script>
       const buttonEl =
-        document.querySelector('#df-b1c16c8a-f22a-4c92-bade-9ad6c2282b8d button.colab-df-convert');
+        document.querySelector('#df-6a9dc3af-573e-4a9c-a481-28391e95ca48 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-b1c16c8a-f22a-4c92-bade-9ad6c2282b8d');
+        const element = document.querySelector('#df-6a9dc3af-573e-4a9c-a481-28391e95ca48');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1635,8 +1667,8 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
   </div>
 
 
-<div id="df-273c7e7d-ac3c-4dda-92bf-9b533f113823">
-  <button class="colab-df-quickchart" onclick="quickchart('df-273c7e7d-ac3c-4dda-92bf-9b533f113823')"
+<div id="df-f67340e3-082d-4851-83a8-e840f712f168">
+  <button class="colab-df-quickchart" onclick="quickchart('df-f67340e3-082d-4851-83a8-e840f712f168')"
             title="Suggest charts"
             style="display:none;">
 
@@ -1755,7 +1787,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-273c7e7d-ac3c-4dda-92bf-9b533f113823 button');
+        document.querySelector('#df-f67340e3-082d-4851-83a8-e840f712f168 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -1773,306 +1805,19 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;cleaned_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;lower_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">text</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\W&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">))</span>
+<span class="c1"># Membersihkan whitespace</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;cleaned_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;cleaned_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">text</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;cleaned_text&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;cleaned_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">text</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^kompas\s*com\s*&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">))</span>
 
-<span class="n">df</span><span class="p">[[</span><span class="s1">&#39;lower_text&#39;</span><span class="p">,</span> <span class="s1">&#39;cleaned_text&#39;</span><span class="p">]]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;cleaned_text&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">
-  <div id="df-68f94965-d761-409e-a639-418d85b2eadb" class="colab-df-container">
-    <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>lower_text</th>
-      <th>cleaned_text</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>kompas.com - marc marquez sukses memenangi mot...</td>
-      <td>kompas com   marc marquez sukses memenangi mot...</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>kompas.com - tim futsal jawa timur (jatim) gag...</td>
-      <td>kompas com   tim futsal jawa timur  jatim  gag...</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>kompas.com - frans lincol sormin mengalahkan j...</td>
-      <td>kompas com   frans lincol sormin mengalahkan j...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>kompas.com - timnas indonesia belum menentukan...</td>
-      <td>kompas com   timnas indonesia belum menentukan...</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>kompas.com - penampilan penjaga gawang timnas ...</td>
-      <td>kompas com   penampilan penjaga gawang timnas ...</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>146</th>
-      <td>kompas.com - seiring bertambahnya umur, setiap...</td>
-      <td>kompas com   seiring bertambahnya umur  setiap...</td>
-    </tr>
-    <tr>
-      <th>147</th>
-      <td>kompas.com - kopi kerap diminum untuk mengatas...</td>
-      <td>kompas com   kopi kerap diminum untuk mengatas...</td>
-    </tr>
-    <tr>
-      <th>148</th>
-      <td>kompas.com - dalam beberapa tahun terakhir, cu...</td>
-      <td>kompas com   dalam beberapa tahun terakhir  cu...</td>
-    </tr>
-    <tr>
-      <th>149</th>
-      <td>kompas.com - gejala kanker ovarium sering kali...</td>
-      <td>kompas com   gejala kanker ovarium sering kali...</td>
-    </tr>
-    <tr>
-      <th>150</th>
-      <td>kompas.com - hipoglikemia umum terjadi pada pe...</td>
-      <td>kompas com   hipoglikemia umum terjadi pada pe...</td>
-    </tr>
-  </tbody>
-</table>
-<p>151 rows × 2 columns</p>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;marc marquez sukses memenangi motogp san marino 2024 pebalap beralias the baby alien itu mengakui adanya bantuan hujan rentang sepekan ini terasa begitu indah bagi pebalap gresini racing marc marquez bagaimana tidak setelah sempat melalui tiga tahun tanpa kemenangan pada balapan motogp marquez langsung berjaya dan finis pertama dalam dua seri beruntun yakni di aragon dan san marino kemenangannya di motogp aragon 2024 pekan lalu mengakhiri penantian marquez selama 1 043 hari untuk berdiri di podium pertama selang sepekan marquez kembali naik podium tertinggi di balapan motogp san marino 2024 yang digelar di sirkuit misano minggu 8 9 2024 baca juga klasemen motogp 2024 usai gp san marino 2024 marquez ke 3 bagnaia tempel martin di puncak marquez finis lebih dari tiga detik di depan francesco bagnaia ducati lenovo team yang memulai balapan dari posisi terdepan pebalap asal cervera itu melesat dari posisi sembilan di grid dan memimpin balapan saat lintasan basah sesaat akibat guyuran hujan ringan bantuan hujan ini diakui oleh marquez pemilik enam gelar juara dunia di kelas motogp ketika mulai turun hujan di layar saat itulah saya memutuskan untuk maju menyerang atau mengambil lebih banyak risiko dalam satu putaran saya berhasil melewati lima pebalap dan memimpin balapan kata marquez kepada para wartawan ketika turun hujan marquez tak gegabah untuk mengganti ban seperti jorge martin pramac racing keputusan jorge martin untuk mengganti ban ternyata memang berharga mahal lantaran masuk pit untuk mengganti ban jorge martin yang tadinya berada di urutan kedua harus melihat posisinya melorot jauh ia pada akhirnya harus masuk pit lagi untuk kembali memakai ban kering pada akhirnya jorge martin hanya mampu menuai satu poin karena finis di posisi 15 baca juga hasil motogp san marino 2024 marc marquez menang back to back marquez mengatakan bahwa dirinya mengikuti bocah lokal asal italia bagnaia untuk tidak mengganti ban seperti diketahui san marino terletak hanya sepelemparan batu dari italia negara bagnaia berasal pebalap lokal memutuskan untuk tetap di luar tak masuk pit jadi mereka pasti lebih tahu dari saya tutur marquez menambahkan sementara itu martin mengakui bahwa dirinya telah membuat kesalahan besar ketika memutuskan untuk masuk pit dengan 20 lap tersisa&#39;
+</pre></div>
 </div>
-    <div class="colab-df-buttons">
-
-  <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-68f94965-d761-409e-a639-418d85b2eadb')"
-            title="Convert this dataframe to an interactive table."
-            style="display:none;">
-
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
-    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
-  </svg>
-    </button>
-
-  <style>
-    .colab-df-container {
-      display:flex;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    .colab-df-buttons div {
-      margin-bottom: 4px;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-    <script>
-      const buttonEl =
-        document.querySelector('#df-68f94965-d761-409e-a639-418d85b2eadb button.colab-df-convert');
-      buttonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-
-      async function convertToInteractive(key) {
-        const element = document.querySelector('#df-68f94965-d761-409e-a639-418d85b2eadb');
-        const dataTable =
-          await google.colab.kernel.invokeFunction('convertToInteractive',
-                                                    [key], {});
-        if (!dataTable) return;
-
-        const docLinkHtml = 'Like what you see? Visit the ' +
-          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
-          + ' to learn more about interactive tables.';
-        element.innerHTML = '';
-        dataTable['output_type'] = 'display_data';
-        await google.colab.output.renderOutput(dataTable, element);
-        const docLink = document.createElement('div');
-        docLink.innerHTML = docLinkHtml;
-        element.appendChild(docLink);
-      }
-    </script>
-  </div>
-
-
-<div id="df-cdb0f126-ca19-402e-82ee-fa4d079c585a">
-  <button class="colab-df-quickchart" onclick="quickchart('df-cdb0f126-ca19-402e-82ee-fa4d079c585a')"
-            title="Suggest charts"
-            style="display:none;">
-
-<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-     width="24px">
-    <g>
-        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-    </g>
-</svg>
-  </button>
-
-<style>
-  .colab-df-quickchart {
-      --bg-color: #E8F0FE;
-      --fill-color: #1967D2;
-      --hover-bg-color: #E2EBFA;
-      --hover-fill-color: #174EA6;
-      --disabled-fill-color: #AAA;
-      --disabled-bg-color: #DDD;
-  }
-
-  [theme=dark] .colab-df-quickchart {
-      --bg-color: #3B4455;
-      --fill-color: #D2E3FC;
-      --hover-bg-color: #434B5C;
-      --hover-fill-color: #FFFFFF;
-      --disabled-bg-color: #3B4455;
-      --disabled-fill-color: #666;
-  }
-
-  .colab-df-quickchart {
-    background-color: var(--bg-color);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    fill: var(--fill-color);
-    height: 32px;
-    padding: 0;
-    width: 32px;
-  }
-
-  .colab-df-quickchart:hover {
-    background-color: var(--hover-bg-color);
-    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
-    fill: var(--button-hover-fill-color);
-  }
-
-  .colab-df-quickchart-complete:disabled,
-  .colab-df-quickchart-complete:disabled:hover {
-    background-color: var(--disabled-bg-color);
-    fill: var(--disabled-fill-color);
-    box-shadow: none;
-  }
-
-  .colab-df-spinner {
-    border: 2px solid var(--fill-color);
-    border-color: transparent;
-    border-bottom-color: var(--fill-color);
-    animation:
-      spin 1s steps(1) infinite;
-  }
-
-  @keyframes spin {
-    0% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-      border-left-color: var(--fill-color);
-    }
-    20% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    30% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-      border-right-color: var(--fill-color);
-    }
-    40% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    60% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-    }
-    80% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-bottom-color: var(--fill-color);
-    }
-    90% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-    }
-  }
-</style>
-
-  <script>
-    async function quickchart(key) {
-      const quickchartButtonEl =
-        document.querySelector('#' + key + ' button');
-      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
-      quickchartButtonEl.classList.add('colab-df-spinner');
-      try {
-        const charts = await google.colab.kernel.invokeFunction(
-            'suggestCharts', [key], {});
-      } catch (error) {
-        console.error('Error during call to suggestCharts:', error);
-      }
-      quickchartButtonEl.classList.remove('colab-df-spinner');
-      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
-    }
-    (() => {
-      let quickchartButtonEl =
-        document.querySelector('#df-cdb0f126-ca19-402e-82ee-fa4d079c585a button');
-      quickchartButtonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-    })();
-  </script>
 </div>
-
-    </div>
-  </div>
-</div></div>
 </div>
 </section>
 <section id="tokenisasi">
@@ -2088,7 +1833,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-8e031f97-0a5d-4072-9b9b-59445debf491" class="colab-df-container">
+  <div id="df-18fa45ce-0d5d-4031-afea-5bceb7452f96" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2114,28 +1859,28 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
   <tbody>
     <tr>
       <th>0</th>
-      <td>kompas com   marc marquez sukses memenangi mot...</td>
-      <td>[kompas, com, marc, marquez, sukses, memenangi...</td>
+      <td>marc marquez sukses memenangi motogp san marin...</td>
+      <td>[marc, marquez, sukses, memenangi, motogp, san...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>kompas com   tim futsal jawa timur  jatim  gag...</td>
-      <td>[kompas, com, tim, futsal, jawa, timur, jatim,...</td>
+      <td>tim futsal jawa timur jatim gagal meraih medal...</td>
+      <td>[tim, futsal, jawa, timur, jatim, gagal, merai...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>kompas com   frans lincol sormin mengalahkan j...</td>
-      <td>[kompas, com, frans, lincol, sormin, mengalahk...</td>
+      <td>frans lincol sormin mengalahkan jaka naibaho d...</td>
+      <td>[frans, lincol, sormin, mengalahkan, jaka, nai...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>kompas com   timnas indonesia belum menentukan...</td>
-      <td>[kompas, com, timnas, indonesia, belum, menent...</td>
+      <td>timnas indonesia belum menentukan warna jersey...</td>
+      <td>[timnas, indonesia, belum, menentukan, warna, ...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>kompas com   penampilan penjaga gawang timnas ...</td>
-      <td>[kompas, com, penampilan, penjaga, gawang, tim...</td>
+      <td>penampilan penjaga gawang timnas indonesia maa...</td>
+      <td>[penampilan, penjaga, gawang, timnas, indonesi...</td>
     </tr>
     <tr>
       <th>...</th>
@@ -2144,28 +1889,28 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
     </tr>
     <tr>
       <th>146</th>
-      <td>kompas com   seiring bertambahnya umur  setiap...</td>
-      <td>[kompas, com, seiring, bertambahnya, umur, set...</td>
+      <td>seiring bertambahnya umur setiap orang akan me...</td>
+      <td>[seiring, bertambahnya, umur, setiap, orang, a...</td>
     </tr>
     <tr>
       <th>147</th>
-      <td>kompas com   kopi kerap diminum untuk mengatas...</td>
-      <td>[kompas, com, kopi, kerap, diminum, untuk, men...</td>
+      <td>kopi kerap diminum untuk mengatasi rasa kantuk...</td>
+      <td>[kopi, kerap, diminum, untuk, mengatasi, rasa,...</td>
     </tr>
     <tr>
       <th>148</th>
-      <td>kompas com   dalam beberapa tahun terakhir  cu...</td>
-      <td>[kompas, com, dalam, beberapa, tahun, terakhir...</td>
+      <td>dalam beberapa tahun terakhir cuka apel dan ma...</td>
+      <td>[dalam, beberapa, tahun, terakhir, cuka, apel,...</td>
     </tr>
     <tr>
       <th>149</th>
-      <td>kompas com   gejala kanker ovarium sering kali...</td>
-      <td>[kompas, com, gejala, kanker, ovarium, sering,...</td>
+      <td>gejala kanker ovarium sering kali tidak muncul...</td>
+      <td>[gejala, kanker, ovarium, sering, kali, tidak,...</td>
     </tr>
     <tr>
       <th>150</th>
-      <td>kompas com   hipoglikemia umum terjadi pada pe...</td>
-      <td>[kompas, com, hipoglikemia, umum, terjadi, pad...</td>
+      <td>hipoglikemia umum terjadi pada penderita diabe...</td>
+      <td>[hipoglikemia, umum, terjadi, pada, penderita,...</td>
     </tr>
   </tbody>
 </table>
@@ -2174,7 +1919,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-8e031f97-0a5d-4072-9b9b-59445debf491')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-18fa45ce-0d5d-4031-afea-5bceb7452f96')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -2226,12 +1971,12 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 
     <script>
       const buttonEl =
-        document.querySelector('#df-8e031f97-0a5d-4072-9b9b-59445debf491 button.colab-df-convert');
+        document.querySelector('#df-18fa45ce-0d5d-4031-afea-5bceb7452f96 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-8e031f97-0a5d-4072-9b9b-59445debf491');
+        const element = document.querySelector('#df-18fa45ce-0d5d-4031-afea-5bceb7452f96');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -2251,8 +1996,8 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
   </div>
 
 
-<div id="df-b5e26811-8a64-4fa4-9882-e00fc5711a8b">
-  <button class="colab-df-quickchart" onclick="quickchart('df-b5e26811-8a64-4fa4-9882-e00fc5711a8b')"
+<div id="df-4357fd7a-8824-4647-86d9-9bdc1cd38a55">
+  <button class="colab-df-quickchart" onclick="quickchart('df-4357fd7a-8824-4647-86d9-9bdc1cd38a55')"
             title="Suggest charts"
             style="display:none;">
 
@@ -2371,7 +2116,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-b5e26811-8a64-4fa4-9882-e00fc5711a8b button');
+        document.querySelector('#df-4357fd7a-8824-4647-86d9-9bdc1cd38a55 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -2405,7 +2150,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-d8453a8c-49c9-4a28-9474-9af8f82dfae4" class="colab-df-container">
+  <div id="df-dc64bff8-cb60-43db-aafa-df00713b95bc" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2431,28 +2176,28 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
   <tbody>
     <tr>
       <th>0</th>
-      <td>[kompas, com, marc, marquez, sukses, memenangi...</td>
-      <td>[kompas, com, marc, marquez, sukses, memenangi...</td>
+      <td>[marc, marquez, sukses, memenangi, motogp, san...</td>
+      <td>[marc, marquez, sukses, memenangi, motogp, san...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>[kompas, com, tim, futsal, jawa, timur, jatim,...</td>
-      <td>[kompas, com, tim, futsal, jawa, timur, jatim,...</td>
+      <td>[tim, futsal, jawa, timur, jatim, gagal, merai...</td>
+      <td>[tim, futsal, jawa, timur, jatim, gagal, merai...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>[kompas, com, frans, lincol, sormin, mengalahk...</td>
-      <td>[kompas, com, frans, lincol, sormin, mengalahk...</td>
+      <td>[frans, lincol, sormin, mengalahkan, jaka, nai...</td>
+      <td>[frans, lincol, sormin, mengalahkan, jaka, nai...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>[kompas, com, timnas, indonesia, belum, menent...</td>
-      <td>[kompas, com, timnas, indonesia, menentukan, w...</td>
+      <td>[timnas, indonesia, belum, menentukan, warna, ...</td>
+      <td>[timnas, indonesia, menentukan, warna, jersey,...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>[kompas, com, penampilan, penjaga, gawang, tim...</td>
-      <td>[kompas, com, penampilan, penjaga, gawang, tim...</td>
+      <td>[penampilan, penjaga, gawang, timnas, indonesi...</td>
+      <td>[penampilan, penjaga, gawang, timnas, indonesi...</td>
     </tr>
     <tr>
       <th>...</th>
@@ -2461,28 +2206,28 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
     </tr>
     <tr>
       <th>146</th>
-      <td>[kompas, com, seiring, bertambahnya, umur, set...</td>
-      <td>[kompas, com, seiring, bertambahnya, umur, ora...</td>
+      <td>[seiring, bertambahnya, umur, setiap, orang, a...</td>
+      <td>[seiring, bertambahnya, umur, orang, mengalami...</td>
     </tr>
     <tr>
       <th>147</th>
-      <td>[kompas, com, kopi, kerap, diminum, untuk, men...</td>
-      <td>[kompas, com, kopi, kerap, diminum, mengatasi,...</td>
+      <td>[kopi, kerap, diminum, untuk, mengatasi, rasa,...</td>
+      <td>[kopi, kerap, diminum, mengatasi, kantuk, minu...</td>
     </tr>
     <tr>
       <th>148</th>
-      <td>[kompas, com, dalam, beberapa, tahun, terakhir...</td>
-      <td>[kompas, com, cuka, apel, madu, pilihan, popul...</td>
+      <td>[dalam, beberapa, tahun, terakhir, cuka, apel,...</td>
+      <td>[cuka, apel, madu, pilihan, populer, kalangan,...</td>
     </tr>
     <tr>
       <th>149</th>
-      <td>[kompas, com, gejala, kanker, ovarium, sering,...</td>
-      <td>[kompas, com, gejala, kanker, ovarium, kali, m...</td>
+      <td>[gejala, kanker, ovarium, sering, kali, tidak,...</td>
+      <td>[gejala, kanker, ovarium, kali, muncul, stadiu...</td>
     </tr>
     <tr>
       <th>150</th>
-      <td>[kompas, com, hipoglikemia, umum, terjadi, pad...</td>
-      <td>[kompas, com, hipoglikemia, penderita, diabete...</td>
+      <td>[hipoglikemia, umum, terjadi, pada, penderita,...</td>
+      <td>[hipoglikemia, penderita, diabetes, terkait, p...</td>
     </tr>
   </tbody>
 </table>
@@ -2491,7 +2236,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-d8453a8c-49c9-4a28-9474-9af8f82dfae4')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-dc64bff8-cb60-43db-aafa-df00713b95bc')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -2543,12 +2288,12 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 
     <script>
       const buttonEl =
-        document.querySelector('#df-d8453a8c-49c9-4a28-9474-9af8f82dfae4 button.colab-df-convert');
+        document.querySelector('#df-dc64bff8-cb60-43db-aafa-df00713b95bc button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-d8453a8c-49c9-4a28-9474-9af8f82dfae4');
+        const element = document.querySelector('#df-dc64bff8-cb60-43db-aafa-df00713b95bc');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -2568,8 +2313,8 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
   </div>
 
 
-<div id="df-5ad17752-39e4-4b69-ac80-51c3385b8729">
-  <button class="colab-df-quickchart" onclick="quickchart('df-5ad17752-39e4-4b69-ac80-51c3385b8729')"
+<div id="df-9aea254b-1307-4a94-9bf6-bddde387d8cd">
+  <button class="colab-df-quickchart" onclick="quickchart('df-9aea254b-1307-4a94-9bf6-bddde387d8cd')"
             title="Suggest charts"
             style="display:none;">
 
@@ -2688,7 +2433,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-5ad17752-39e4-4b69-ac80-51c3385b8729 button');
+        document.querySelector('#df-9aea254b-1307-4a94-9bf6-bddde387d8cd button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -2719,7 +2464,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-4ae4f11c-3c60-4751-a4e5-71326b5972ac" class="colab-df-container">
+  <div id="df-1382830b-991a-4af4-97ff-c60865077c73" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2745,28 +2490,28 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
   <tbody>
     <tr>
       <th>0</th>
-      <td>[kompas, com, marc, marquez, sukses, memenangi...</td>
-      <td>kompas com marc marquez sukses tang motogp san...</td>
+      <td>[marc, marquez, sukses, memenangi, motogp, san...</td>
+      <td>marc marquez sukses tang motogp san marino 202...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>[kompas, com, tim, futsal, jawa, timur, jatim,...</td>
-      <td>kompas com tim futsal jawa timur jatim gagal r...</td>
+      <td>[tim, futsal, jawa, timur, jatim, gagal, merai...</td>
+      <td>tim futsal jawa timur jatim gagal raih medali ...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>[kompas, com, frans, lincol, sormin, mengalahk...</td>
-      <td>kompas com frans lincol sormin kalah jaka naib...</td>
+      <td>[frans, lincol, sormin, mengalahkan, jaka, nai...</td>
+      <td>frans lincol sormin kalah jaka naibaho duel de...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>[kompas, com, timnas, indonesia, menentukan, w...</td>
-      <td>kompas com timnas indonesia tentu warna jersey...</td>
+      <td>[timnas, indonesia, menentukan, warna, jersey,...</td>
+      <td>timnas indonesia tentu warna jersey jamu austr...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>[kompas, com, penampilan, penjaga, gawang, tim...</td>
-      <td>kompas com tampil jaga gawang timnas indonesia...</td>
+      <td>[penampilan, penjaga, gawang, timnas, indonesi...</td>
+      <td>tampil jaga gawang timnas indonesia maarten pa...</td>
     </tr>
     <tr>
       <th>...</th>
@@ -2775,28 +2520,28 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
     </tr>
     <tr>
       <th>146</th>
-      <td>[kompas, com, seiring, bertambahnya, umur, ora...</td>
-      <td>kompas com iring tambah umur orang alami turun...</td>
+      <td>[seiring, bertambahnya, umur, orang, mengalami...</td>
+      <td>iring tambah umur orang alami turun fungsi org...</td>
     </tr>
     <tr>
       <th>147</th>
-      <td>[kompas, com, kopi, kerap, diminum, mengatasi,...</td>
-      <td>kompas com kopi kerap minum atas kantuk minum ...</td>
+      <td>[kopi, kerap, diminum, mengatasi, kantuk, minu...</td>
+      <td>kopi kerap minum atas kantuk minum kopi pahit ...</td>
     </tr>
     <tr>
       <th>148</th>
-      <td>[kompas, com, cuka, apel, madu, pilihan, popul...</td>
-      <td>kompas com cuka apel madu pilih populer kalang...</td>
+      <td>[cuka, apel, madu, pilihan, populer, kalangan,...</td>
+      <td>cuka apel madu pilih populer kalang orang turu...</td>
     </tr>
     <tr>
       <th>149</th>
-      <td>[kompas, com, gejala, kanker, ovarium, kali, m...</td>
-      <td>kompas com gejala kanker ovarium kali muncul s...</td>
+      <td>[gejala, kanker, ovarium, kali, muncul, stadiu...</td>
+      <td>gejala kanker ovarium kali muncul stadium timb...</td>
     </tr>
     <tr>
       <th>150</th>
-      <td>[kompas, com, hipoglikemia, penderita, diabete...</td>
-      <td>kompas com hipoglikemia derita diabetes kait g...</td>
+      <td>[hipoglikemia, penderita, diabetes, terkait, p...</td>
+      <td>hipoglikemia derita diabetes kait guna obat im...</td>
     </tr>
   </tbody>
 </table>
@@ -2805,7 +2550,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-4ae4f11c-3c60-4751-a4e5-71326b5972ac')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-1382830b-991a-4af4-97ff-c60865077c73')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -2857,12 +2602,12 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 
     <script>
       const buttonEl =
-        document.querySelector('#df-4ae4f11c-3c60-4751-a4e5-71326b5972ac button.colab-df-convert');
+        document.querySelector('#df-1382830b-991a-4af4-97ff-c60865077c73 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-4ae4f11c-3c60-4751-a4e5-71326b5972ac');
+        const element = document.querySelector('#df-1382830b-991a-4af4-97ff-c60865077c73');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -2882,8 +2627,8 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
   </div>
 
 
-<div id="df-5da4af25-332b-4d23-86f4-a80d7ee3456b">
-  <button class="colab-df-quickchart" onclick="quickchart('df-5da4af25-332b-4d23-86f4-a80d7ee3456b')"
+<div id="df-47ff72d6-e063-4409-aef6-25daa47ff261">
+  <button class="colab-df-quickchart" onclick="quickchart('df-47ff72d6-e063-4409-aef6-25daa47ff261')"
             title="Suggest charts"
             style="display:none;">
 
@@ -3002,7 +2747,7 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-5da4af25-332b-4d23-86f4-a80d7ee3456b button');
+        document.querySelector('#df-47ff72d6-e063-4409-aef6-25daa47ff261 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -3015,8 +2760,14 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;konten&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;final_text&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;kategori&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
 </pre></div>
 </div>
 </div>
@@ -3026,564 +2777,92 @@ Requirement already satisfied: PySocks!=1.5.7,&gt;=1.5.6 in /usr/local/lib/pytho
 <h4>Split Data<a class="headerlink" href="#split-data" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">Xtest</span><span class="p">,</span><span class="n">Ytrain</span><span class="p">,</span><span class="n">Ytest</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="tf-idf">
-<h3>TF-IDF<a class="headerlink" href="#tf-idf" title="Link to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vect</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">()</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">vect</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">Xtest</span><span class="p">,</span><span class="n">Ytrain</span><span class="p">,</span><span class="n">Ytest</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
-<span class="n">X_array</span> <span class="o">=</span> <span class="n">vect</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_array</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.        , 0.        , 0.01719503, ..., 0.        , 0.        ,
-        0.        ],
-       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
-        0.        ],
-       [0.        , 0.        , 0.0155655 , ..., 0.        , 0.        ,
-        0.        ],
-       ...,
-       [0.        , 0.        , 0.01550865, ..., 0.        , 0.        ,
-        0.        ],
-       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
-        0.        ],
-       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
-        0.        ]])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fitur_kata</span> <span class="o">=</span> <span class="n">vect</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()</span>
+<span class="c1"># Filter hanya kategori 0 dan 1</span>
+<span class="n">filtered_indices</span> <span class="o">=</span> <span class="n">Ytrain</span> <span class="o">!=</span> <span class="mi">2</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlah fitur kata dari hasil TF-IDF:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">fitur_kata</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah fitur kata dari hasil TF-IDF: 5672
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;tfidf_vectorizer.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">vect</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>  <span class="c1"># Menyimpan vectorizer</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;tfidf_matrix.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>  <span class="c1"># Menyimpan hasil transformasi (TF-IDF matrix)</span>
+<span class="n">Xtrain</span> <span class="o">=</span> <span class="n">Xtrain</span><span class="p">[</span><span class="n">filtered_indices</span><span class="p">]</span>
+<span class="n">Ytrain</span> <span class="o">=</span> <span class="n">Ytrain</span><span class="p">[</span><span class="n">filtered_indices</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="melatih-model-logistic-regression">
-<h3>Melatih Model Logistic Regression<a class="headerlink" href="#melatih-model-logistic-regression" title="Link to this heading">#</a></h3>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="membuat-model-logisticregression-untuk-data-training">
+<h1>Membuat Model LogisticRegression untuk Data Training<a class="headerlink" href="#membuat-model-logisticregression-untuk-data-training" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Membuat model Logistic Regression</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">make_pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">TruncatedSVD</span>
+
+<span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">()</span>  <span class="c1"># Gunakan jumlah fitur yang konsisten</span>
+<span class="n">X_tfidf</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">)</span>
+
+<span class="c1"># SVD untuk reduksi dimensi</span>
+<span class="n">svd</span> <span class="o">=</span> <span class="n">TruncatedSVD</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>  <span class="c1"># Jumlah komponen yang diinginkan</span>
+<span class="n">X_svd</span> <span class="o">=</span> <span class="n">svd</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_tfidf</span><span class="p">)</span>
+
+<span class="c1"># Logistic Regression Model</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_svd</span><span class="p">,</span> <span class="n">Ytrain</span><span class="p">)</span>
 
-<span class="c1"># Melatih model dengan data pelatihan</span>
-<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Ytrain</span><span class="p">)</span>
+<span class="c1"># Buat pipeline</span>
+<span class="n">pipeline</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">vectorizer</span><span class="p">,</span> <span class="n">svd</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+
+<span class="c1"># Simpan pipeline</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="nb">dir</span><span class="o">+</span><span class="s1">&#39;pipeline.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="mencari-akurasi-dari-data-testing">
+<h1>Mencari Akurasi dari data Testing<a class="headerlink" href="#mencari-akurasi-dari-data-testing" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">accuracy_score</span>
+
+<span class="c1"># Load pipeline</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="nb">dir</span><span class="o">+</span><span class="s1">&#39;pipeline.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">pipeline</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># Prediksi pada data testing</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">Xtest</span><span class="p">)</span>
+
+<span class="c1"># Prediksi pada data testing</span>
+<span class="n">Y_pred</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">Xtest</span><span class="p">)</span>
+
+<span class="c1"># Evaluasi dengan classification report</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Classification Report:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">Ytest</span><span class="p">,</span> <span class="n">Y_pred</span><span class="p">,</span> <span class="n">target_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Bola News&quot;</span><span class="p">,</span> <span class="s2">&quot;Health News&quot;</span><span class="p">]))</span>
+
+<span class="c1"># Evaluasi dengan akurasi</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">Ytest</span><span class="p">,</span> <span class="n">Y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Akurasi: </span><span class="si">{</span><span class="n">accuracy</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>#sk-container-id-1 {
-  /* Definition of color scheme common for light and dark mode */
-  --sklearn-color-text: black;
-  --sklearn-color-line: gray;
-  /* Definition of color scheme for unfitted estimators */
-  --sklearn-color-unfitted-level-0: #fff5e6;
-  --sklearn-color-unfitted-level-1: #f6e4d2;
-  --sklearn-color-unfitted-level-2: #ffe0b3;
-  --sklearn-color-unfitted-level-3: chocolate;
-  /* Definition of color scheme for fitted estimators */
-  --sklearn-color-fitted-level-0: #f0f8ff;
-  --sklearn-color-fitted-level-1: #d4ebff;
-  --sklearn-color-fitted-level-2: #b3dbfd;
-  --sklearn-color-fitted-level-3: cornflowerblue;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Classification Report:
+              precision    recall  f1-score   support
 
-  /* Specific color for light theme */
-  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
-  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
-  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
-  --sklearn-color-icon: #696969;
+   Bola News       0.96      1.00      0.98        22
+ Health News       1.00      0.89      0.94         9
 
-  @media (prefers-color-scheme: dark) {
-    /* Redefinition of color scheme for dark theme */
-    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
-    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
-    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
-    --sklearn-color-icon: #878787;
-  }
-}
+    accuracy                           0.97        31
+   macro avg       0.98      0.94      0.96        31
+weighted avg       0.97      0.97      0.97        31
 
-#sk-container-id-1 {
-  color: var(--sklearn-color-text);
-}
-
-#sk-container-id-1 pre {
-  padding: 0;
-}
-
-#sk-container-id-1 input.sk-hidden--visually {
-  border: 0;
-  clip: rect(1px 1px 1px 1px);
-  clip: rect(1px, 1px, 1px, 1px);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-#sk-container-id-1 div.sk-dashed-wrapped {
-  border: 1px dashed var(--sklearn-color-line);
-  margin: 0 0.4em 0.5em 0.4em;
-  box-sizing: border-box;
-  padding-bottom: 0.4em;
-  background-color: var(--sklearn-color-background);
-}
-
-#sk-container-id-1 div.sk-container {
-  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
-     but bootstrap.min.css set `[hidden] { display: none !important; }`
-     so we also need the `!important` here to be able to override the
-     default hidden behavior on the sphinx rendered scikit-learn.org.
-     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */
-  display: inline-block !important;
-  position: relative;
-}
-
-#sk-container-id-1 div.sk-text-repr-fallback {
-  display: none;
-}
-
-div.sk-parallel-item,
-div.sk-serial,
-div.sk-item {
-  /* draw centered vertical line to link estimators */
-  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));
-  background-size: 2px 100%;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-/* Parallel-specific style estimator block */
-
-#sk-container-id-1 div.sk-parallel-item::after {
-  content: "";
-  width: 100%;
-  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
-  flex-grow: 1;
-}
-
-#sk-container-id-1 div.sk-parallel {
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  background-color: var(--sklearn-color-background);
-  position: relative;
-}
-
-#sk-container-id-1 div.sk-parallel-item {
-  display: flex;
-  flex-direction: column;
-}
-
-#sk-container-id-1 div.sk-parallel-item:first-child::after {
-  align-self: flex-end;
-  width: 50%;
-}
-
-#sk-container-id-1 div.sk-parallel-item:last-child::after {
-  align-self: flex-start;
-  width: 50%;
-}
-
-#sk-container-id-1 div.sk-parallel-item:only-child::after {
-  width: 0;
-}
-
-/* Serial-specific style estimator block */
-
-#sk-container-id-1 div.sk-serial {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: var(--sklearn-color-background);
-  padding-right: 1em;
-  padding-left: 1em;
-}
-
-
-/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is
-clickable and can be expanded/collapsed.
-- Pipeline and ColumnTransformer use this feature and define the default style
-- Estimators will overwrite some part of the style using the `sk-estimator` class
-*/
-
-/* Pipeline and ColumnTransformer style (default) */
-
-#sk-container-id-1 div.sk-toggleable {
-  /* Default theme specific background. It is overwritten whether we have a
-  specific estimator or a Pipeline/ColumnTransformer */
-  background-color: var(--sklearn-color-background);
-}
-
-/* Toggleable label */
-#sk-container-id-1 label.sk-toggleable__label {
-  cursor: pointer;
-  display: block;
-  width: 100%;
-  margin-bottom: 0;
-  padding: 0.5em;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-#sk-container-id-1 label.sk-toggleable__label-arrow:before {
-  /* Arrow on the left of the label */
-  content: "▸";
-  float: left;
-  margin-right: 0.25em;
-  color: var(--sklearn-color-icon);
-}
-
-#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {
-  color: var(--sklearn-color-text);
-}
-
-/* Toggleable content - dropdown */
-
-#sk-container-id-1 div.sk-toggleable__content {
-  max-height: 0;
-  max-width: 0;
-  overflow: hidden;
-  text-align: left;
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-0);
-}
-
-#sk-container-id-1 div.sk-toggleable__content.fitted {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-0);
-}
-
-#sk-container-id-1 div.sk-toggleable__content pre {
-  margin: 0.2em;
-  border-radius: 0.25em;
-  color: var(--sklearn-color-text);
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-0);
-}
-
-#sk-container-id-1 div.sk-toggleable__content.fitted pre {
-  /* unfitted */
-  background-color: var(--sklearn-color-fitted-level-0);
-}
-
-#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {
-  /* Expand drop-down */
-  max-height: 200px;
-  max-width: 100%;
-  overflow: auto;
-}
-
-#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
-  content: "▾";
-}
-
-/* Pipeline/ColumnTransformer-specific style */
-
-#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
-  color: var(--sklearn-color-text);
-  background-color: var(--sklearn-color-unfitted-level-2);
-}
-
-#sk-container-id-1 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
-  background-color: var(--sklearn-color-fitted-level-2);
-}
-
-/* Estimator-specific style */
-
-/* Colorize estimator box */
-#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-2);
-}
-
-#sk-container-id-1 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-2);
-}
-
-#sk-container-id-1 div.sk-label label.sk-toggleable__label,
-#sk-container-id-1 div.sk-label label {
-  /* The background is the default theme color */
-  color: var(--sklearn-color-text-on-default-background);
-}
-
-/* On hover, darken the color of the background */
-#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {
-  color: var(--sklearn-color-text);
-  background-color: var(--sklearn-color-unfitted-level-2);
-}
-
-/* Label box, darken color on hover, fitted */
-#sk-container-id-1 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
-  color: var(--sklearn-color-text);
-  background-color: var(--sklearn-color-fitted-level-2);
-}
-
-/* Estimator label */
-
-#sk-container-id-1 div.sk-label label {
-  font-family: monospace;
-  font-weight: bold;
-  display: inline-block;
-  line-height: 1.2em;
-}
-
-#sk-container-id-1 div.sk-label-container {
-  text-align: center;
-}
-
-/* Estimator-specific */
-#sk-container-id-1 div.sk-estimator {
-  font-family: monospace;
-  border: 1px dotted var(--sklearn-color-border-box);
-  border-radius: 0.25em;
-  box-sizing: border-box;
-  margin-bottom: 0.5em;
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-0);
-}
-
-#sk-container-id-1 div.sk-estimator.fitted {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-0);
-}
-
-/* on hover */
-#sk-container-id-1 div.sk-estimator:hover {
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-2);
-}
-
-#sk-container-id-1 div.sk-estimator.fitted:hover {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-2);
-}
-
-/* Specification for estimator info (e.g. "i" and "?") */
-
-/* Common style for "i" and "?" */
-
-.sk-estimator-doc-link,
-a:link.sk-estimator-doc-link,
-a:visited.sk-estimator-doc-link {
-  float: right;
-  font-size: smaller;
-  line-height: 1em;
-  font-family: monospace;
-  background-color: var(--sklearn-color-background);
-  border-radius: 1em;
-  height: 1em;
-  width: 1em;
-  text-decoration: none !important;
-  margin-left: 1ex;
-  /* unfitted */
-  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
-  color: var(--sklearn-color-unfitted-level-1);
-}
-
-.sk-estimator-doc-link.fitted,
-a:link.sk-estimator-doc-link.fitted,
-a:visited.sk-estimator-doc-link.fitted {
-  /* fitted */
-  border: var(--sklearn-color-fitted-level-1) 1pt solid;
-  color: var(--sklearn-color-fitted-level-1);
-}
-
-/* On hover */
-div.sk-estimator:hover .sk-estimator-doc-link:hover,
-.sk-estimator-doc-link:hover,
-div.sk-label-container:hover .sk-estimator-doc-link:hover,
-.sk-estimator-doc-link:hover {
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-3);
-  color: var(--sklearn-color-background);
-  text-decoration: none;
-}
-
-div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,
-.sk-estimator-doc-link.fitted:hover,
-div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
-.sk-estimator-doc-link.fitted:hover {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-3);
-  color: var(--sklearn-color-background);
-  text-decoration: none;
-}
-
-/* Span, style for the box shown on hovering the info icon */
-.sk-estimator-doc-link span {
-  display: none;
-  z-index: 9999;
-  position: relative;
-  font-weight: normal;
-  right: .2ex;
-  padding: .5ex;
-  margin: .5ex;
-  width: min-content;
-  min-width: 20ex;
-  max-width: 50ex;
-  color: var(--sklearn-color-text);
-  box-shadow: 2pt 2pt 4pt #999;
-  /* unfitted */
-  background: var(--sklearn-color-unfitted-level-0);
-  border: .5pt solid var(--sklearn-color-unfitted-level-3);
-}
-
-.sk-estimator-doc-link.fitted span {
-  /* fitted */
-  background: var(--sklearn-color-fitted-level-0);
-  border: var(--sklearn-color-fitted-level-3);
-}
-
-.sk-estimator-doc-link:hover span {
-  display: block;
-}
-
-/* "?"-specific style due to the `<a>` HTML tag */
-
-#sk-container-id-1 a.estimator_doc_link {
-  float: right;
-  font-size: 1rem;
-  line-height: 1em;
-  font-family: monospace;
-  background-color: var(--sklearn-color-background);
-  border-radius: 1rem;
-  height: 1rem;
-  width: 1rem;
-  text-decoration: none;
-  /* unfitted */
-  color: var(--sklearn-color-unfitted-level-1);
-  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
-}
-
-#sk-container-id-1 a.estimator_doc_link.fitted {
-  /* fitted */
-  border: var(--sklearn-color-fitted-level-1) 1pt solid;
-  color: var(--sklearn-color-fitted-level-1);
-}
-
-/* On hover */
-#sk-container-id-1 a.estimator_doc_link:hover {
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-3);
-  color: var(--sklearn-color-background);
-  text-decoration: none;
-}
-
-#sk-container-id-1 a.estimator_doc_link.fitted:hover {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-3);
-}
-</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;LogisticRegression<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.linear_model.LogisticRegression.html">?<span>Documentation for LogisticRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>LogisticRegression()</pre></div> </div></div></div></div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save the model to a file using pickle</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;logistic_model&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+Akurasi: 0.97
 </pre></div>
 </div>
 </div>
 </div>
-<section id="testing-data-baru">
-<h4>Testing Data Baru<a class="headerlink" href="#testing-data-baru" title="Link to this heading">#</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load TF-IDF dan model logistic regression dari file pickle</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;tfidf_vectorizer.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">tfidf_vectorizer</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;logistic_model&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Transformasi data baru dengan TF-IDF yang sudah dilatih</span>
-<span class="n">X_baru</span> <span class="o">=</span> <span class="n">tfidf_vectorizer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">Xtest</span><span class="p">)</span>
-
-<span class="c1"># Lakukan prediksi dengan model logistic regression</span>
-<span class="n">prediksi</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_baru</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="akurasi">
-<h4>Akurasi<a class="headerlink" href="#akurasi" title="Link to this heading">#</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tampilkan hasil prediksi</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prediksi:&quot;</span><span class="p">,</span> <span class="n">prediksi</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prediksi: [0 1 0 1 0 0 1 0 0 0 0 0 0 0 1 0 0 0 1 0 0 0 0 0 0 1 1 0 0 0 0]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">Ytest</span><span class="p">,</span> <span class="n">prediksi</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Akurasi: </span><span class="si">{</span><span class="n">accuracy</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi: 96.77%
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -3669,16 +2948,12 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#split-data">Split Data</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf">TF-IDF</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#melatih-model-logistic-regression">Melatih Model Logistic Regression</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-data-baru">Testing Data Baru</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#akurasi">Akurasi</a></li>
 </ul>
 </li>
 </ul>
 </li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#membuat-model-logisticregression-untuk-data-training">Membuat Model LogisticRegression untuk Data Training</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mencari-akurasi-dari-data-testing">Mencari Akurasi dari data Testing</a></li>
 </ul>
 
   </nav></div>
