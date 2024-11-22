@@ -620,6 +620,7 @@ D &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
 <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
 <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt_tab&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -628,9 +629,63 @@ D &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
 [nltk_data]   Package punkt is already up-to-date!
 [nltk_data] Downloading package stopwords to /root/nltk_data...
 [nltk_data]   Package stopwords is already up-to-date!
+[nltk_data] Downloading package punkt_tab to /root/nltk_data...
+[nltk_data]   Package punkt_tab is already up-to-date!
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-4-d5df0069828e&gt;</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/google/colab/drive.py</span> in <span class="ni">mount</span><span class="nt">(mountpoint, force_remount, timeout_ms, readonly)</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span> <span class="k">def</span> <span class="nf">mount</span><span class="p">(</span><span class="n">mountpoint</span><span class="p">,</span> <span class="n">force_remount</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">timeout_ms</span><span class="o">=</span><span class="mi">120000</span><span class="p">,</span> <span class="n">readonly</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span><span class="w">   </span><span class="sd">&quot;&quot;&quot;Mount your Google Drive at the specified mountpoint path.&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">100</span>   <span class="k">return</span> <span class="n">_mount</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span>       <span class="n">mountpoint</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span>       <span class="n">force_remount</span><span class="o">=</span><span class="n">force_remount</span><span class="p">,</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/google/colab/drive.py</span> in <span class="ni">_mount</span><span class="nt">(mountpoint, force_remount, timeout_ms, ephemeral, readonly)</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span>   <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">136</span>   <span class="k">if</span> <span class="n">ephemeral</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">137</span>     <span class="n">_message</span><span class="o">.</span><span class="n">blocking_request</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">138</span>         <span class="s1">&#39;request_auth&#39;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">139</span>         <span class="n">request</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;authType&#39;</span><span class="p">:</span> <span class="s1">&#39;dfs_ephemeral&#39;</span><span class="p">},</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/google/colab/_message.py</span> in <span class="ni">blocking_request</span><span class="nt">(request_type, request, timeout_sec, parent)</span>
+<span class="g g-Whitespace">    </span><span class="mi">174</span>       <span class="n">request_type</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">expect_reply</span><span class="o">=</span><span class="kc">True</span>
+<span class="g g-Whitespace">    </span><span class="mi">175</span>   <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">176</span>   <span class="k">return</span> <span class="n">read_reply_from_input</span><span class="p">(</span><span class="n">request_id</span><span class="p">,</span> <span class="n">timeout_sec</span><span class="p">)</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/google/colab/_message.py</span> in <span class="ni">read_reply_from_input</span><span class="nt">(message_id, timeout_sec)</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span>     <span class="n">reply</span> <span class="o">=</span> <span class="n">_read_next_input_message</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span>     <span class="k">if</span> <span class="n">reply</span> <span class="o">==</span> <span class="n">_NOT_READY</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">reply</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">96</span>       <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.025</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span>       <span class="k">continue</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>     <span class="k">if</span> <span class="p">(</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/MyDrive/PPW BARU/report/&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -641,7 +696,7 @@ D &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Nama file yang akan dibaca</span>
-<span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;kompas.csv&#39;</span>
+<span class="n">file_name</span> <span class="o">=</span> <span class="nb">dir</span><span class="o">+</span><span class="s1">&#39;kompas.csv&#39;</span>
 
 <span class="c1"># Membaca file CSV dari folder lokal</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
@@ -691,7 +746,7 @@ D &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-05974ebb-93fa-43cf-b57f-3c905dbd3769" class="colab-df-container">
+  <div id="df-71c91081-cc89-47cf-bd40-c6506a8c281c" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -811,17 +866,17 @@ D &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
 <p>1477 rows × 5 columns</p>
 </div>
     <div class="colab-df-buttons">
-      
+
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-05974ebb-93fa-43cf-b57f-3c905dbd3769')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-71c91081-cc89-47cf-bd40-c6506a8c281c')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
-      
+
   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
     <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
   </svg>
     </button>
-    
+
   <style>
     .colab-df-container {
       display:flex;
@@ -865,12 +920,12 @@ D &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
 
     <script>
       const buttonEl =
-        document.querySelector('#df-05974ebb-93fa-43cf-b57f-3c905dbd3769 button.colab-df-convert');
+        document.querySelector('#df-71c91081-cc89-47cf-bd40-c6506a8c281c button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-05974ebb-93fa-43cf-b57f-3c905dbd3769');
+        const element = document.querySelector('#df-71c91081-cc89-47cf-bd40-c6506a8c281c');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -888,40 +943,225 @@ D &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
       }
     </script>
   </div>
-  
+
+
+<div id="df-9e298eb7-cc32-40d7-9c2d-9662371351ad">
+  <button class="colab-df-quickchart" onclick="quickchart('df-9e298eb7-cc32-40d7-9c2d-9662371351ad')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-9e298eb7-cc32-40d7-9c2d-9662371351ad button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+
+  <div id="id_a80901c6-54b9-4121-b9c6-3b81059d9035">
+    <style>
+      .colab-df-generate {
+        background-color: #E8F0FE;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        fill: #1967D2;
+        height: 32px;
+        padding: 0 0 0 0;
+        width: 32px;
+      }
+
+      .colab-df-generate:hover {
+        background-color: #E2EBFA;
+        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+        fill: #174EA6;
+      }
+
+      [theme=dark] .colab-df-generate {
+        background-color: #3B4455;
+        fill: #D2E3FC;
+      }
+
+      [theme=dark] .colab-df-generate:hover {
+        background-color: #434B5C;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+        fill: #FFFFFF;
+      }
+    </style>
+    <button class="colab-df-generate" onclick="generateWithVariable('df')"
+            title="Generate code using this dataframe."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
+  </svg>
+    </button>
+    <script>
+      (() => {
+      const buttonEl =
+        document.querySelector('#id_a80901c6-54b9-4121-b9c6-3b81059d9035 button.colab-df-generate');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      buttonEl.onclick = () => {
+        google.colab.notebook.generateWithVariable('df');
+      }
+      })();
+    </script>
+  </div>
+
     </div>
   </div>
-  </div></div>
+</div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">berita</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;konten&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">berita</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;konten&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">berita</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KOMPAS.com – Susunan pemain timnas Indonesia melawan China dalam matchday keempat Grup C Kualifikasi Piala Dunia 2026 zona Asia telah keluar.
-China akan bersua dengan Indonesia dalam laga yang berlangsung di Stadion Qingdao Youth Football pada Selasa (15/10/2024).
-Dalam pertandingan hari ini, Asnawi Mangkualam dipercaya sebagai kapten, menggantikan peran Jay Idzes.
-Menghadapi tim Dragon, juru taktik skuad Garuda, Shin Tae-yong, masih memberikan kepercayaan kepada Maarten Paes sebagai kiper.
-Baca juga: Kans Garuda, Beda Kualitas Timnas China dan Kompetisi Domestik di Mata RD
-Di depan Paes, STY melakukan satu perubahan pemain, tetapi tetap menggunakan skema tiga bek. Pelatih asal Korea Selatan itu memainkan Mees Hilgers, Jay Idzes, dan Calvin Verdonk.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KOMPAS.com - Timnas Indonesia akan berhadapan dengan China dalam matchday keempat Grup C Kualifikasi Piala Dunia 2026 zona Asia.
+Pertandingan China melawan Indonesia akan berlangsung di Stadion di Stadion Qingdao Youth Football pada Selasa (15/10/2024), kickoff 19.00 WIB.
+Link live streaming tertera di akhir artikel ini. 
+Skuad Garuda memiliki tekad untuk meraih kemenangan pertama di putaran ketiga Kualifikasi Piala Dunia 2026, setelah memainkan tiga laga dengan hasil imbang. 
+Tim asuhan Shin Tae-yong (STY) bermain imbang di tiga laga Grup C dengan Arab Saudi (1-1), Australia (0-0), dan Bahrain (2-2). 
+Baca juga: Pengamat Sepak Bola Minta Timnas Indonesia Harus Fokus Kalahkan China
 
 
 
 
-Verdonk diturunkan menggantikan Jordi Amat yang absen sebab fokus dalam pemulihan cedera. Ia digeser ke kiri dalam, Jay kembali ke bek tengah.
-Memperkuat lini tengah, empat pemain diturunkan, yakni Asnawi Mangkualam, Ivar Jenner, Nathan Tjoe-A-On, dan Shayne Pattynama. 
-Asnawi menggantikan Sandy Walsh, sementara Pattynama mengisi posisi Verdonk yang digeser ke dalam. 
-Baca juga: Komentar Paul Munster Soal Debut Malik Risaldi Bersama Timnas Indonesia
-Nantinya Asnawi dan Pattynama akan berperan sebagai wingback, di mana akan membantu menyerang serta bertahan.
-Lini serang Indonesia dihuni oleh Witan Sulaeman, Rafael Struick, dan Ragnar Oratmangoen. Witan bakal menggantikan Malik Risaldi. 
-Jelang laga ini, STY menyebut kedua tim memliliki kans yang sama untuk memenangkan laga ini. Indonesia dan China memiliki peluang 50-50 untuk meraih tiga poin.
+Bersua dengan Indonesia, China akan memanfaatkan momentum laga kandang ini. Terlebih momentum untuk bangkit dari keterpurukan di tiga laga awal.
+Dari tiga awal yang telah dirampungkan Negeri Tirai Bambu, mereka harus menelan kenyataan pahit. Di mana Tiongkok kalah secara beruntun tiga kali beruntun.
+Tim besutan, Branko Ivankovic, takluk dari Jepang (0-7), Arab Saudi (1-2), dan Australia (1-3). 
+Pelatih asal Kroasia itu mewaspadai kualitas skuad Indonesia, terutama pemain-pemain yang bermain di luar negeri.
+“Sebagian besar pemain mereka adalah pemain naturalisasi, dan mereka memainkan gaya sepak bola Eropa,” ujar Ivankovic, dikutip dari Global Times, saat sesi jumpa pers jelang laga Senin (14/10/2024).
+“Kami telah melakukan latihan yang ditargetkan untuk menanggapi hal ini, memastikan para pemain kami akan memberikan yang terbaik, menekan dengan keras, dan menjalankan rencana permainan yang kami butuhkan untuk menang,&quot; lanjut pelatih berusia 70 tahun itu.
+Baca juga: China Vs Indonesia, Saran Band Metal agar Timnas Indonesia Petik Kemenangan
+Jelang laga ini, STY menyebut kedua tim memliliki kans yang sama untuk memenangkan pertandingan. Indonesia dan China memiliki peluang 50-50 untuk meraih tiga poin.
 “Kedua tim memiliki peluang yang seimbang, 50-50. Hasil pertandingan besok akan sangat tergantung pada siapa yang mampu memaksimalkan peluang dan mencetak gol lebih banyak,” kata STY dalam sesi jumpa pers jelang laga China vs Indonesia, Senin (14/10/2024).
-Susunan Pemain:
-Indonesia: Maarten Paes, Mees Hilgers, Jay Idzes, Calvin Verdonk, Asnawi Mangkualam, Ivar Jenner, Nathan Tjoe-A-On, Shayne Pattynama, Witan Sulaeman, Rafael Struick, Ragnar Oratmangoen
+Timnas Indonesia dipastikan tidak akan diperkuat salah satu pemain belakang, yakni Jordi Amat. Jordi pulang lebih cepat sebab harus menjalani pemulihan cedera. 
+“Dengan berat hati, saya harus meninggalkan tim lebih cepat. Karena saya akan berfokus ke pemulihan lagi. Artinya, saya tidak bisa bermain untuk tim melawan Tiongkok nanti,” ujar Jordi, dikutip dari laman PSSI.
+Link live streaming China vs Indonesia
+Pertandingan China vs Indonesia dalam matchday keempat Grup C bisa disaksikan lewat tautan berikut &gt;&gt;&gt; LINK. 
     Simak breaking news dan berita pilihan kami langsung di ponselmu. Pilih saluran andalanmu akses berita Kompas.com WhatsApp Channel : https://www.whatsapp.com/channel/0029VaFPbedBPzjZrk13HO3D. Pastikan kamu sudah install aplikasi WhatsApp ya.
 </pre></div>
 </div>
@@ -937,26 +1177,42 @@ Indonesia: Maarten Paes, Mees Hilgers, Jay Idzes, Calvin Verdonk, Asnawi Mangku
     <span class="c1"># 1. Ubah teks menjadi lowercase</span>
     <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 
-    <span class="c1"># 2. Memebarsihkan karakter yang bukan huruf atau angka (non-word characters)</span>
-    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[\W]&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;kompas.com - &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;kompas.com &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;simak breaking news&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 
-    <span class="c1"># 3. Tokenisasi teks menjadi kata</span>
-    <span class="n">words</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="c1"># 2. Bersihkan karakter yang bukan huruf atau angka (non-word characters)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^a-zA-Z\s.]&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+    <span class="c1"># text = re.sub(r&quot;[^\w\s]&quot;, &quot; &quot;, text)</span>
 
-    <span class="c1"># 4. Mengambil stopwords bahasa Indonesia</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
+
+    <span class="c1"># 3. Tokenisasi teks menjadi kalimat</span>
+    <span class="n">sentences</span> <span class="o">=</span> <span class="n">sent_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>  <span class="c1"># Memecah teks menjadi kalimat</span>
+
+    <span class="c1"># 4. Ambil stopwords bahasa Indonesia</span>
     <span class="n">stop_words</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;indonesian&#39;</span><span class="p">))</span>
 
-    <span class="c1"># 5. Menambahkan stopwords khusus seperti &#39;kompas.com&#39;</span>
+    <span class="c1"># 5. Tambahkan stopwords khusus seperti &#39;kompas.com&#39;</span>
     <span class="n">custom_stopwords</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;kompas&#39;</span><span class="p">,</span> <span class="s1">&#39;com&#39;</span><span class="p">}</span>
     <span class="n">stop_words</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">custom_stopwords</span><span class="p">)</span>
 
-    <span class="c1"># 6. Hapus stopwords dari daftar kata</span>
-    <span class="n">words_no_stop</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">]</span>
+    <span class="c1"># 6. Proses tiap kalimat: tokenisasi kata, hapus stopwords, lalu gabungkan kembali</span>
+    <span class="n">cleaned_sentences</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">:</span>
+        <span class="c1"># Tokenisasi kata dalam kalimat</span>
+        <span class="n">words</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
 
-    <span class="c1"># 7. Gabungkan kembali kata-kata yang sudah dibersihkan menjadi satu teks</span>
-    <span class="n">final_text</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">words_no_stop</span><span class="p">)</span>
+        <span class="c1"># Hapus stopwords</span>
+        <span class="n">words_no_stop</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">]</span>
 
-    <span class="k">return</span> <span class="n">final_text</span>
+        <span class="c1"># Gabungkan kembali kata-kata yang sudah dibersihkan menjadi kalimat</span>
+        <span class="n">cleaned_sentence</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">words_no_stop</span><span class="p">)</span>
+
+        <span class="c1"># Tambahkan kalimat yang sudah dibersihkan ke daftar cleaned_sentences</span>
+        <span class="n">cleaned_sentences</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cleaned_sentence</span><span class="p">)</span>
+
+    <span class="c1"># final_text = &#39; &#39;.join(cleaned_sentences)</span>
+    <span class="k">return</span> <span class="n">cleaned_sentences</span>
 </pre></div>
 </div>
 </div>
@@ -965,12 +1221,35 @@ Indonesia: Maarten Paes, Mees Hilgers, Jay Idzes, Calvin Verdonk, Asnawi Mangku
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cleaned_berita</span> <span class="o">=</span> <span class="n">preprocess_text</span><span class="p">(</span><span class="n">berita</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">cleaned_berita</span><span class="p">)</span>
+<span class="n">cleaned_berita</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>susunan pemain timnas indonesia melawan china matchday keempat grup c kualifikasi piala dunia 2026 zona asia china bersua indonesia laga stadion qingdao youth football selasa 15 10 2024 pertandingan asnawi mangkualam dipercaya kapten menggantikan peran jay idzes menghadapi tim dragon juru taktik skuad garuda shin tae yong kepercayaan maarten paes kiper baca kans garuda beda kualitas timnas china kompetisi domestik mata rd paes sty perubahan pemain skema bek pelatih korea selatan memainkan mees hilgers jay idzes calvin verdonk verdonk diturunkan menggantikan jordi absen fokus pemulihan cedera digeser kiri jay bek memperkuat lini pemain diturunkan asnawi mangkualam ivar jenner nathan tjoe a on shayne pattynama asnawi menggantikan sandy walsh pattynama mengisi posisi verdonk digeser baca komentar paul munster debut malik risaldi timnas indonesia asnawi pattynama berperan wingback membantu menyerang bertahan lini serang indonesia dihuni witan sulaeman rafael struick ragnar oratmangoen witan menggantikan malik risaldi jelang laga sty menyebut tim memliliki kans memenangkan laga indonesia china memiliki peluang 50 50 meraih poin tim memiliki peluang seimbang 50 50 hasil pertandingan besok tergantung memaksimalkan peluang mencetak gol sty sesi jumpa pers jelang laga china vs indonesia senin 14 10 2024 susunan pemain indonesia maarten paes mees hilgers jay idzes calvin verdonk asnawi mangkualam ivar jenner nathan tjoe a on shayne pattynama witan sulaeman rafael struick ragnar oratmangoen simak breaking news berita pilihan langsung ponselmu pilih saluran andalanmu akses berita whatsapp channel https www whatsapp channel 0029vafpbedbpzjzrk13ho3d pastikan install aplikasi whatsapp ya
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;timnas indonesia berhadapan china matchday keempat grup c kualifikasi piala dunia zona asia .&#39;,
+ &#39;pertandingan china melawan indonesia stadion stadion qingdao youth football selasa kickoff .&#39;,
+ &#39;wib .&#39;,
+ &#39;link live streaming tertera artikel .&#39;,
+ &#39;skuad garuda memiliki tekad meraih kemenangan putaran ketiga kualifikasi piala dunia memainkan laga hasil imbang .&#39;,
+ &#39;tim asuhan shin tae yong sty bermain imbang laga grup c arab saudi australia bahrain .&#39;,
+ &#39;baca pengamat sepak bola timnas indonesia fokus kalahkan china bersua indonesia china memanfaatkan momentum laga kandang .&#39;,
+ &#39;momentum bangkit keterpurukan laga .&#39;,
+ &#39;dirampungkan negeri tirai bambu menelan kenyataan pahit .&#39;,
+ &#39;tiongkok kalah beruntun kali beruntun .&#39;,
+ &#39;tim besutan branko ivankovic takluk jepang arab saudi australia .&#39;,
+ &#39;pelatih kroasia mewaspadai kualitas skuad indonesia pemain pemain bermain negeri .&#39;,
+ &#39;pemain pemain naturalisasi memainkan gaya sepak bola eropa ivankovic dikutip global times sesi jumpa pers jelang laga senin .&#39;,
+ &#39;latihan ditargetkan menanggapi pemain terbaik menekan keras menjalankan rencana permainan butuhkan menang pelatih berusia .&#39;,
+ &#39;baca china vs indonesia saran band metal timnas indonesia petik kemenangan jelang laga sty menyebut tim memliliki kans memenangkan pertandingan .&#39;,
+ &#39;indonesia china memiliki peluang meraih poin .&#39;,
+ &#39;tim memiliki peluang seimbang .&#39;,
+ &#39;hasil pertandingan besok tergantung memaksimalkan peluang mencetak gol sty sesi jumpa pers jelang laga china vs indonesia senin .&#39;,
+ &#39;timnas indonesia diperkuat salah pemain jordi .&#39;,
+ &#39;jordi pulang cepat menjalani pemulihan cedera .&#39;,
+ &#39;berat hati meninggalkan tim cepat .&#39;,
+ &#39;berfokus pemulihan .&#39;,
+ &#39;bermain tim melawan tiongkok jordi dikutip laman pssi .&#39;,
+ &#39;link live streaming china vs indonesia pertandingan china vs indonesia matchday keempat grup c disaksikan tautan link .&#39;]
 </pre></div>
 </div>
 </div>
@@ -983,7 +1262,7 @@ Indonesia: Maarten Paes, Mees Hilgers, Jay Idzes, Calvin Verdonk, Asnawi Mangku
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menghitung TF-IDF</span>
 <span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">()</span>
-<span class="n">tfidf_matrix</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">([</span><span class="n">cleaned_berita</span><span class="p">])</span>
+<span class="n">tfidf_matrix</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">cleaned_berita</span><span class="p">)</span>
 
 <span class="c1"># Mengambil nama fitur (kata-kata)</span>
 <span class="n">terms</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()</span>
@@ -995,7 +1274,7 @@ Indonesia: Maarten Paes, Mees Hilgers, Jay Idzes, Calvin Verdonk, Asnawi Mangku
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-9c101fcd-c69e-4694-a050-2a33c36d730d" class="colab-df-container">
+  <div id="df-3b7ec769-6e73-427b-876d-0a62b5b4e16f" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1014,24 +1293,24 @@ Indonesia: Maarten Paes, Mees Hilgers, Jay Idzes, Calvin Verdonk, Asnawi Mangku
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>0029vafpbedbpzjzrk13ho3d</th>
-      <th>10</th>
-      <th>14</th>
-      <th>15</th>
-      <th>2024</th>
-      <th>2026</th>
-      <th>50</th>
-      <th>absen</th>
-      <th>akses</th>
-      <th>andalanmu</th>
+      <th>arab</th>
+      <th>artikel</th>
+      <th>asia</th>
+      <th>asuhan</th>
+      <th>australia</th>
+      <th>baca</th>
+      <th>bahrain</th>
+      <th>bambu</th>
+      <th>band</th>
+      <th>bangkit</th>
       <th>...</th>
+      <th>tim</th>
+      <th>times</th>
+      <th>timnas</th>
+      <th>tiongkok</th>
+      <th>tirai</th>
       <th>vs</th>
-      <th>walsh</th>
-      <th>whatsapp</th>
-      <th>wingback</th>
-      <th>witan</th>
-      <th>www</th>
-      <th>ya</th>
+      <th>wib</th>
       <th>yong</th>
       <th>youth</th>
       <th>zona</th>
@@ -1040,44 +1319,596 @@ Indonesia: Maarten Paes, Mees Hilgers, Jay Idzes, Calvin Verdonk, Asnawi Mangku
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.043895</td>
-      <td>0.08779</td>
-      <td>0.043895</td>
-      <td>0.043895</td>
-      <td>0.08779</td>
-      <td>0.043895</td>
-      <td>0.175581</td>
-      <td>0.043895</td>
-      <td>0.043895</td>
-      <td>0.043895</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.337619</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>...</td>
-      <td>0.043895</td>
-      <td>0.043895</td>
-      <td>0.131685</td>
-      <td>0.043895</td>
-      <td>0.131685</td>
-      <td>0.043895</td>
-      <td>0.043895</td>
-      <td>0.043895</td>
-      <td>0.043895</td>
-      <td>0.043895</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.249876</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.337619</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.301585</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.000000</td>
+      <td>0.479482</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.268637</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.303545</td>
+      <td>0.268637</td>
+      <td>0.000000</td>
+      <td>0.303545</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.195689</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.303545</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.248304</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.207653</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.563308</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.383956</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.383956</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.339801</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0.322116</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.322116</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.234646</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.256042</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.229025</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.258786</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.166834</td>
+      <td>0.000000</td>
+      <td>0.191531</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.207909</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.391866</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.222162</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.368384</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.314615</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.261966</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.359619</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.419154</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
   </tbody>
 </table>
-<p>1 rows × 150 columns</p>
+<p>24 rows × 138 columns</p>
 </div>
     <div class="colab-df-buttons">
-      
+
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-9c101fcd-c69e-4694-a050-2a33c36d730d')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-3b7ec769-6e73-427b-876d-0a62b5b4e16f')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
-      
+
   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
     <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
   </svg>
     </button>
-    
+
   <style>
     .colab-df-container {
       display:flex;
@@ -1121,12 +1952,12 @@ Indonesia: Maarten Paes, Mees Hilgers, Jay Idzes, Calvin Verdonk, Asnawi Mangku
 
     <script>
       const buttonEl =
-        document.querySelector('#df-9c101fcd-c69e-4694-a050-2a33c36d730d button.colab-df-convert');
+        document.querySelector('#df-3b7ec769-6e73-427b-876d-0a62b5b4e16f button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-9c101fcd-c69e-4694-a050-2a33c36d730d');
+        const element = document.querySelector('#df-3b7ec769-6e73-427b-876d-0a62b5b4e16f');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1144,10 +1975,193 @@ Indonesia: Maarten Paes, Mees Hilgers, Jay Idzes, Calvin Verdonk, Asnawi Mangku
       }
     </script>
   </div>
-  
+
+
+<div id="df-74054319-1c8f-4050-b812-afa88e5478e3">
+  <button class="colab-df-quickchart" onclick="quickchart('df-74054319-1c8f-4050-b812-afa88e5478e3')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-74054319-1c8f-4050-b812-afa88e5478e3 button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+
+  <div id="id_8fdb52d3-1781-4577-bca2-09fb4bb24c7d">
+    <style>
+      .colab-df-generate {
+        background-color: #E8F0FE;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        fill: #1967D2;
+        height: 32px;
+        padding: 0 0 0 0;
+        width: 32px;
+      }
+
+      .colab-df-generate:hover {
+        background-color: #E2EBFA;
+        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+        fill: #174EA6;
+      }
+
+      [theme=dark] .colab-df-generate {
+        background-color: #3B4455;
+        fill: #D2E3FC;
+      }
+
+      [theme=dark] .colab-df-generate:hover {
+        background-color: #434B5C;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+        fill: #FFFFFF;
+      }
+    </style>
+    <button class="colab-df-generate" onclick="generateWithVariable('tfidf_df')"
+            title="Generate code using this dataframe."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
+  </svg>
+    </button>
+    <script>
+      (() => {
+      const buttonEl =
+        document.querySelector('#id_8fdb52d3-1781-4577-bca2-09fb4bb24c7d button.colab-df-generate');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      buttonEl.onclick = () => {
+        google.colab.notebook.generateWithVariable('tfidf_df');
+      }
+      })();
+    </script>
+  </div>
+
     </div>
   </div>
-  </div></div>
+</div></div>
 </div>
 </section>
 <section id="id1">
@@ -1156,7 +2170,7 @@ Indonesia: Maarten Paes, Mees Hilgers, Jay Idzes, Calvin Verdonk, Asnawi Mangku
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menghitung cosine similarity antara semua pasangan kalimat</span>
-<span class="n">cosine</span> <span class="o">=</span> <span class="n">cosine_similarity</span><span class="p">(</span><span class="n">tfidf_matrix</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<span class="n">cosine</span> <span class="o">=</span> <span class="n">cosine_similarity</span><span class="p">(</span><span class="n">tfidf_df</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 
 <span class="c1"># Membuat DataFrame untuk cosine similarity</span>
 <span class="n">cosine_sim</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">cosine</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">terms</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">terms</span><span class="p">)</span>
@@ -1168,7 +2182,7 @@ Indonesia: Maarten Paes, Mees Hilgers, Jay Idzes, Calvin Verdonk, Asnawi Mangku
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-4bd4c8e0-5880-4bd3-914c-b37937f9d053" class="colab-df-container">
+  <div id="df-b6529e5c-119d-4b69-a75f-b11896bd6741" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1187,24 +2201,24 @@ Indonesia: Maarten Paes, Mees Hilgers, Jay Idzes, Calvin Verdonk, Asnawi Mangku
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>0029vafpbedbpzjzrk13ho3d</th>
-      <th>10</th>
-      <th>14</th>
-      <th>15</th>
-      <th>2024</th>
-      <th>2026</th>
-      <th>50</th>
-      <th>absen</th>
-      <th>akses</th>
-      <th>andalanmu</th>
+      <th>arab</th>
+      <th>artikel</th>
+      <th>asia</th>
+      <th>asuhan</th>
+      <th>australia</th>
+      <th>baca</th>
+      <th>bahrain</th>
+      <th>bambu</th>
+      <th>band</th>
+      <th>bangkit</th>
       <th>...</th>
+      <th>tim</th>
+      <th>times</th>
+      <th>timnas</th>
+      <th>tiongkok</th>
+      <th>tirai</th>
       <th>vs</th>
-      <th>walsh</th>
-      <th>whatsapp</th>
-      <th>wingback</th>
-      <th>witan</th>
-      <th>www</th>
-      <th>ya</th>
+      <th>wib</th>
       <th>yong</th>
       <th>youth</th>
       <th>zona</th>
@@ -1212,124 +2226,124 @@ Indonesia: Maarten Paes, Mees Hilgers, Jay Idzes, Calvin Verdonk, Asnawi Mangku
   </thead>
   <tbody>
     <tr>
-      <th>0029vafpbedbpzjzrk13ho3d</th>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
+      <th>arab</th>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.640476</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.640476</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
       <td>...</td>
+      <td>0.459388</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.640476</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>artikel</th>
+      <td>0.000000</td>
       <td>1.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>asia</th>
+      <td>0.000000</td>
+      <td>0.0</td>
       <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.473961</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
       <td>1.0</td>
     </tr>
     <tr>
-      <th>10</th>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
+      <th>asuhan</th>
+      <td>0.640476</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.000000</td>
+      <td>0.640476</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
       <td>...</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
+      <td>0.294227</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
-      <th>14</th>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
+      <th>australia</th>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.640476</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.640476</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
       <td>...</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>2024</th>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
+      <td>0.459388</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.640476</td>
+      <td>0.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1356,141 +2370,141 @@ Indonesia: Maarten Paes, Mees Hilgers, Jay Idzes, Calvin Verdonk, Asnawi Mangku
       <td>...</td>
     </tr>
     <tr>
-      <th>www</th>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
+      <th>vs</th>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.272153</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.401408</td>
+      <td>0.0</td>
       <td>...</td>
+      <td>0.100690</td>
+      <td>0.0</td>
+      <td>0.145828</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
-      <th>ya</th>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
+      <th>wib</th>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
       <td>...</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>yong</th>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
+      <td>0.640476</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.000000</td>
+      <td>0.640476</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
       <td>...</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
+      <td>0.294227</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>youth</th>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
       <td>...</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
       <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>zona</th>
+      <td>0.000000</td>
+      <td>0.0</td>
       <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
       <td>...</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.473961</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
       <td>1.0</td>
     </tr>
   </tbody>
 </table>
-<p>150 rows × 150 columns</p>
+<p>138 rows × 138 columns</p>
 </div>
     <div class="colab-df-buttons">
-      
+
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-4bd4c8e0-5880-4bd3-914c-b37937f9d053')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-b6529e5c-119d-4b69-a75f-b11896bd6741')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
-      
+
   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
     <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
   </svg>
     </button>
-    
+
   <style>
     .colab-df-container {
       display:flex;
@@ -1534,12 +2548,12 @@ Indonesia: Maarten Paes, Mees Hilgers, Jay Idzes, Calvin Verdonk, Asnawi Mangku
 
     <script>
       const buttonEl =
-        document.querySelector('#df-4bd4c8e0-5880-4bd3-914c-b37937f9d053 button.colab-df-convert');
+        document.querySelector('#df-b6529e5c-119d-4b69-a75f-b11896bd6741 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-4bd4c8e0-5880-4bd3-914c-b37937f9d053');
+        const element = document.querySelector('#df-b6529e5c-119d-4b69-a75f-b11896bd6741');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1557,10 +2571,193 @@ Indonesia: Maarten Paes, Mees Hilgers, Jay Idzes, Calvin Verdonk, Asnawi Mangku
       }
     </script>
   </div>
-  
+
+
+<div id="df-172e9fad-4ec4-4ddc-a905-41403013e4f9">
+  <button class="colab-df-quickchart" onclick="quickchart('df-172e9fad-4ec4-4ddc-a905-41403013e4f9')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-172e9fad-4ec4-4ddc-a905-41403013e4f9 button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+
+  <div id="id_259883d7-8a29-4460-9caf-b827b6388e40">
+    <style>
+      .colab-df-generate {
+        background-color: #E8F0FE;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        fill: #1967D2;
+        height: 32px;
+        padding: 0 0 0 0;
+        width: 32px;
+      }
+
+      .colab-df-generate:hover {
+        background-color: #E2EBFA;
+        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+        fill: #174EA6;
+      }
+
+      [theme=dark] .colab-df-generate {
+        background-color: #3B4455;
+        fill: #D2E3FC;
+      }
+
+      [theme=dark] .colab-df-generate:hover {
+        background-color: #434B5C;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+        fill: #FFFFFF;
+      }
+    </style>
+    <button class="colab-df-generate" onclick="generateWithVariable('cosine_sim')"
+            title="Generate code using this dataframe."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
+  </svg>
+    </button>
+    <script>
+      (() => {
+      const buttonEl =
+        document.querySelector('#id_259883d7-8a29-4460-9caf-b827b6388e40 button.colab-df-generate');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      buttonEl.onclick = () => {
+        google.colab.notebook.generateWithVariable('cosine_sim');
+      }
+      })();
+    </script>
+  </div>
+
     </div>
   </div>
-  </div></div>
+</div></div>
 </div>
 </section>
 <section id="matrik-adjensi">
@@ -1585,7 +2782,7 @@ Indonesia: Maarten Paes, Mees Hilgers, Jay Idzes, Calvin Verdonk, Asnawi Mangku
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-375ce504-52ca-4269-ba8c-336fa1b38d57" class="colab-df-container">
+  <div id="df-001b89ca-b4cd-481f-85a3-1128ea95e1e8" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1604,24 +2801,24 @@ Indonesia: Maarten Paes, Mees Hilgers, Jay Idzes, Calvin Verdonk, Asnawi Mangku
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>0029vafpbedbpzjzrk13ho3d</th>
-      <th>10</th>
-      <th>14</th>
-      <th>15</th>
-      <th>2024</th>
-      <th>2026</th>
-      <th>50</th>
-      <th>absen</th>
-      <th>akses</th>
-      <th>andalanmu</th>
+      <th>arab</th>
+      <th>artikel</th>
+      <th>asia</th>
+      <th>asuhan</th>
+      <th>australia</th>
+      <th>baca</th>
+      <th>bahrain</th>
+      <th>bambu</th>
+      <th>band</th>
+      <th>bangkit</th>
       <th>...</th>
+      <th>tim</th>
+      <th>times</th>
+      <th>timnas</th>
+      <th>tiongkok</th>
+      <th>tirai</th>
       <th>vs</th>
-      <th>walsh</th>
-      <th>whatsapp</th>
-      <th>wingback</th>
-      <th>witan</th>
-      <th>www</th>
-      <th>ya</th>
+      <th>wib</th>
       <th>yong</th>
       <th>youth</th>
       <th>zona</th>
@@ -1629,124 +2826,124 @@ Indonesia: Maarten Paes, Mees Hilgers, Jay Idzes, Calvin Verdonk, Asnawi Mangku
   </thead>
   <tbody>
     <tr>
-      <th>0029vafpbedbpzjzrk13ho3d</th>
+      <th>arab</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
       <td>1</td>
+      <td>0</td>
       <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>artikel</th>
+      <td>0</td>
       <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>asia</th>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>10</th>
+      <th>asuhan</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
       <td>1</td>
+      <td>0</td>
       <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
-      <th>14</th>
+      <th>australia</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
       <td>1</td>
+      <td>0</td>
       <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>...</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>2024</th>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>...</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1773,141 +2970,141 @@ Indonesia: Maarten Paes, Mees Hilgers, Jay Idzes, Calvin Verdonk, Asnawi Mangku
       <td>...</td>
     </tr>
     <tr>
-      <th>www</th>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <th>vs</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
-      <th>ya</th>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <th>wib</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>yong</th>
       <td>1</td>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
       <td>1</td>
+      <td>0</td>
       <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>youth</th>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>zona</th>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>...</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
     </tr>
   </tbody>
 </table>
-<p>150 rows × 150 columns</p>
+<p>138 rows × 138 columns</p>
 </div>
     <div class="colab-df-buttons">
-      
+
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-375ce504-52ca-4269-ba8c-336fa1b38d57')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-001b89ca-b4cd-481f-85a3-1128ea95e1e8')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
-      
+
   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
     <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
   </svg>
     </button>
-    
+
   <style>
     .colab-df-container {
       display:flex;
@@ -1951,12 +3148,12 @@ Indonesia: Maarten Paes, Mees Hilgers, Jay Idzes, Calvin Verdonk, Asnawi Mangku
 
     <script>
       const buttonEl =
-        document.querySelector('#df-375ce504-52ca-4269-ba8c-336fa1b38d57 button.colab-df-convert');
+        document.querySelector('#df-001b89ca-b4cd-481f-85a3-1128ea95e1e8 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-375ce504-52ca-4269-ba8c-336fa1b38d57');
+        const element = document.querySelector('#df-001b89ca-b4cd-481f-85a3-1128ea95e1e8');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1974,10 +3171,193 @@ Indonesia: Maarten Paes, Mees Hilgers, Jay Idzes, Calvin Verdonk, Asnawi Mangku
       }
     </script>
   </div>
-  
+
+
+<div id="df-bac1427d-75ea-48de-b09c-aee4c975793f">
+  <button class="colab-df-quickchart" onclick="quickchart('df-bac1427d-75ea-48de-b09c-aee4c975793f')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-bac1427d-75ea-48de-b09c-aee4c975793f button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+
+  <div id="id_b2f3d07e-067f-4312-aafa-964a958134b1">
+    <style>
+      .colab-df-generate {
+        background-color: #E8F0FE;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        fill: #1967D2;
+        height: 32px;
+        padding: 0 0 0 0;
+        width: 32px;
+      }
+
+      .colab-df-generate:hover {
+        background-color: #E2EBFA;
+        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+        fill: #174EA6;
+      }
+
+      [theme=dark] .colab-df-generate {
+        background-color: #3B4455;
+        fill: #D2E3FC;
+      }
+
+      [theme=dark] .colab-df-generate:hover {
+        background-color: #434B5C;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+        fill: #FFFFFF;
+      }
+    </style>
+    <button class="colab-df-generate" onclick="generateWithVariable('adjacency_matrix')"
+            title="Generate code using this dataframe."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
+  </svg>
+    </button>
+    <script>
+      (() => {
+      const buttonEl =
+        document.querySelector('#id_b2f3d07e-067f-4312-aafa-964a958134b1 button.colab-df-generate');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      buttonEl.onclick = () => {
+        google.colab.notebook.generateWithVariable('adjacency_matrix');
+      }
+      })();
+    </script>
+  </div>
+
     </div>
   </div>
-  </div></div>
+</div></div>
 </div>
 </section>
 <section id="id2">
@@ -2012,7 +3392,7 @@ Indonesia: Maarten Paes, Mees Hilgers, Jay Idzes, Calvin Verdonk, Asnawi Mangku
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/fb9c8dd3b31937861fcb7aab66254db9238d36ab0db955b5798016d37fa2eed5.png" src="_images/fb9c8dd3b31937861fcb7aab66254db9238d36ab0db955b5798016d37fa2eed5.png" />
+<img alt="_images/aa18165afd87ac94bc4cc9b04a7214dff2195b15592fa41b48ae4a2f9416885f.png" src="_images/aa18165afd87ac94bc4cc9b04a7214dff2195b15592fa41b48ae4a2f9416885f.png" />
 </div>
 </div>
 </section>
@@ -2032,156 +3412,144 @@ Indonesia: Maarten Paes, Mees Hilgers, Jay Idzes, Calvin Verdonk, Asnawi Mangku
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Page Rank :
-Node 0: 0.0067
-Node 1: 0.0067
-Node 2: 0.0067
-Node 3: 0.0067
-Node 4: 0.0067
-Node 5: 0.0067
-Node 6: 0.0067
-Node 7: 0.0067
-Node 8: 0.0067
-Node 9: 0.0067
-Node 10: 0.0067
-Node 11: 0.0067
-Node 12: 0.0067
+Node 44: 0.0150
+Node 120: 0.0133
+Node 5: 0.0128
+Node 92: 0.0119
+Node 99: 0.0117
+Node 23: 0.0102
+Node 69: 0.0101
+Node 90: 0.0100
+Node 46: 0.0097
+Node 54: 0.0094
+Node 74: 0.0093
+Node 93: 0.0093
+Node 39: 0.0091
+Node 24: 0.0090
+Node 47: 0.0089
+Node 98: 0.0089
+Node 113: 0.0089
+Node 115: 0.0089
+Node 66: 0.0088
+Node 53: 0.0086
+Node 68: 0.0086
+Node 31: 0.0086
+Node 35: 0.0086
+Node 36: 0.0086
+Node 89: 0.0086
+Node 129: 0.0086
+Node 131: 0.0086
+Node 0: 0.0086
+Node 4: 0.0086
+Node 110: 0.0086
+Node 19: 0.0085
+Node 114: 0.0085
+Node 25: 0.0082
+Node 43: 0.0082
+Node 22: 0.0080
+Node 82: 0.0080
+Node 104: 0.0080
+Node 30: 0.0080
+Node 61: 0.0080
+Node 101: 0.0080
+Node 111: 0.0079
+Node 117: 0.0078
+Node 70: 0.0077
+Node 34: 0.0075
+Node 58: 0.0075
+Node 105: 0.0075
+Node 124: 0.0075
+Node 16: 0.0075
+Node 21: 0.0075
+Node 29: 0.0075
+Node 56: 0.0075
+Node 65: 0.0075
+Node 76: 0.0075
+Node 77: 0.0075
+Node 79: 0.0075
+Node 83: 0.0075
+Node 97: 0.0075
+Node 107: 0.0075
+Node 125: 0.0075
+Node 41: 0.0075
+Node 95: 0.0075
+Node 38: 0.0074
+Node 17: 0.0074
+Node 37: 0.0074
+Node 71: 0.0074
+Node 78: 0.0074
+Node 126: 0.0074
+Node 8: 0.0071
+Node 52: 0.0071
+Node 73: 0.0071
+Node 75: 0.0071
+Node 84: 0.0071
+Node 86: 0.0071
+Node 100: 0.0071
+Node 109: 0.0071
+Node 3: 0.0071
+Node 6: 0.0071
+Node 116: 0.0071
+Node 121: 0.0071
+Node 135: 0.0071
+Node 85: 0.0070
+Node 102: 0.0070
 Node 13: 0.0067
-Node 14: 0.0067
-Node 15: 0.0067
-Node 16: 0.0067
-Node 17: 0.0067
-Node 18: 0.0067
-Node 19: 0.0067
-Node 20: 0.0067
-Node 21: 0.0067
-Node 22: 0.0067
-Node 23: 0.0067
-Node 24: 0.0067
-Node 25: 0.0067
-Node 26: 0.0067
-Node 27: 0.0067
-Node 28: 0.0067
-Node 29: 0.0067
-Node 30: 0.0067
-Node 31: 0.0067
-Node 32: 0.0067
-Node 33: 0.0067
-Node 34: 0.0067
-Node 35: 0.0067
-Node 36: 0.0067
-Node 37: 0.0067
-Node 38: 0.0067
-Node 39: 0.0067
-Node 40: 0.0067
-Node 41: 0.0067
-Node 42: 0.0067
-Node 43: 0.0067
-Node 44: 0.0067
-Node 45: 0.0067
-Node 46: 0.0067
-Node 47: 0.0067
-Node 48: 0.0067
-Node 49: 0.0067
-Node 50: 0.0067
-Node 51: 0.0067
-Node 52: 0.0067
-Node 53: 0.0067
-Node 54: 0.0067
-Node 55: 0.0067
-Node 56: 0.0067
-Node 57: 0.0067
-Node 58: 0.0067
-Node 59: 0.0067
-Node 60: 0.0067
-Node 61: 0.0067
-Node 62: 0.0067
-Node 63: 0.0067
-Node 64: 0.0067
-Node 65: 0.0067
-Node 66: 0.0067
-Node 67: 0.0067
-Node 68: 0.0067
-Node 69: 0.0067
-Node 70: 0.0067
-Node 71: 0.0067
-Node 72: 0.0067
-Node 73: 0.0067
-Node 74: 0.0067
-Node 75: 0.0067
-Node 76: 0.0067
-Node 77: 0.0067
-Node 78: 0.0067
-Node 79: 0.0067
-Node 80: 0.0067
-Node 81: 0.0067
-Node 82: 0.0067
-Node 83: 0.0067
-Node 84: 0.0067
-Node 85: 0.0067
-Node 86: 0.0067
-Node 87: 0.0067
-Node 88: 0.0067
-Node 89: 0.0067
-Node 90: 0.0067
-Node 91: 0.0067
-Node 92: 0.0067
-Node 93: 0.0067
-Node 94: 0.0067
-Node 95: 0.0067
-Node 96: 0.0067
-Node 97: 0.0067
-Node 98: 0.0067
-Node 99: 0.0067
-Node 100: 0.0067
-Node 101: 0.0067
-Node 102: 0.0067
-Node 103: 0.0067
-Node 104: 0.0067
-Node 105: 0.0067
-Node 106: 0.0067
-Node 107: 0.0067
-Node 108: 0.0067
-Node 109: 0.0067
-Node 110: 0.0067
-Node 111: 0.0067
-Node 112: 0.0067
-Node 113: 0.0067
-Node 114: 0.0067
-Node 115: 0.0067
-Node 116: 0.0067
-Node 117: 0.0067
-Node 118: 0.0067
-Node 119: 0.0067
-Node 120: 0.0067
-Node 121: 0.0067
-Node 122: 0.0067
-Node 123: 0.0067
-Node 124: 0.0067
-Node 125: 0.0067
-Node 126: 0.0067
-Node 127: 0.0067
-Node 128: 0.0067
-Node 129: 0.0067
-Node 130: 0.0067
-Node 131: 0.0067
-Node 132: 0.0067
-Node 133: 0.0067
-Node 134: 0.0067
-Node 135: 0.0067
-Node 136: 0.0067
-Node 137: 0.0067
-Node 138: 0.0067
-Node 139: 0.0067
-Node 140: 0.0067
-Node 141: 0.0067
-Node 142: 0.0067
-Node 143: 0.0067
-Node 144: 0.0067
-Node 145: 0.0067
-Node 146: 0.0067
-Node 147: 0.0067
-Node 148: 0.0067
-Node 149: 0.0067
+Node 64: 0.0065
+Node 103: 0.0065
+Node 14: 0.0065
+Node 32: 0.0065
+Node 49: 0.0065
+Node 51: 0.0065
+Node 72: 0.0065
+Node 96: 0.0065
+Node 63: 0.0064
+Node 7: 0.0064
+Node 27: 0.0064
+Node 55: 0.0064
+Node 80: 0.0064
+Node 91: 0.0064
+Node 132: 0.0064
+Node 33: 0.0064
+Node 59: 0.0064
+Node 106: 0.0064
+Node 112: 0.0064
+Node 118: 0.0064
+Node 136: 0.0064
+Node 2: 0.0062
+Node 12: 0.0062
+Node 137: 0.0062
+Node 60: 0.0062
+Node 62: 0.0062
+Node 87: 0.0062
+Node 133: 0.0060
+Node 1: 0.0060
+Node 67: 0.0060
+Node 119: 0.0060
+Node 127: 0.0060
+Node 10: 0.0059
+Node 40: 0.0059
+Node 81: 0.0059
+Node 18: 0.0055
+Node 20: 0.0055
+Node 45: 0.0055
+Node 122: 0.0055
+Node 28: 0.0052
+Node 123: 0.0052
+Node 130: 0.0052
+Node 9: 0.0050
+Node 57: 0.0050
+Node 88: 0.0050
+Node 15: 0.0049
+Node 48: 0.0049
+Node 50: 0.0049
+Node 42: 0.0049
+Node 26: 0.0047
+Node 108: 0.0047
+Node 94: 0.0046
+Node 128: 0.0033
+Node 11: 0.0027
+Node 134: 0.0011
 </pre></div>
 </div>
 </div>
@@ -2200,16 +3568,16 @@ Node 149: 0.0067
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5 Node Tertinggi Page Rank :
-Node 0: Page Rank = 0.0067
-Kalimat: 0029vafpbedbpzjzrk13ho3d
-Node 1: Page Rank = 0.0067
-Kalimat: 10
-Node 2: Page Rank = 0.0067
-Kalimat: 14
-Node 3: Page Rank = 0.0067
-Kalimat: 15
-Node 4: Page Rank = 0.0067
-Kalimat: 2024
+Node 44: Page Rank = 0.0150
+Kalimat: jelang
+Node 120: Page Rank = 0.0133
+Kalimat: sty
+Node 5: Page Rank = 0.0128
+Kalimat: baca
+Node 92: Page Rank = 0.0119
+Kalimat: pelatih
+Node 99: Page Rank = 0.0117
+Kalimat: pertandingan
 </pre></div>
 </div>
 </div>
@@ -2219,47 +3587,12 @@ Kalimat: 2024
 <h2>Kata Kunci Berita<a class="headerlink" href="#kata-kunci-berita" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">news</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;konten&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Berita yang digunakan : &#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">news</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Berita yang digunakan : 
-KOMPAS.com – Susunan pemain timnas Indonesia melawan China dalam matchday keempat Grup C Kualifikasi Piala Dunia 2026 zona Asia telah keluar.
-China akan bersua dengan Indonesia dalam laga yang berlangsung di Stadion Qingdao Youth Football pada Selasa (15/10/2024).
-Dalam pertandingan hari ini, Asnawi Mangkualam dipercaya sebagai kapten, menggantikan peran Jay Idzes.
-Menghadapi tim Dragon, juru taktik skuad Garuda, Shin Tae-yong, masih memberikan kepercayaan kepada Maarten Paes sebagai kiper.
-Baca juga: Kans Garuda, Beda Kualitas Timnas China dan Kompetisi Domestik di Mata RD
-Di depan Paes, STY melakukan satu perubahan pemain, tetapi tetap menggunakan skema tiga bek. Pelatih asal Korea Selatan itu memainkan Mees Hilgers, Jay Idzes, dan Calvin Verdonk.
-
-
-
-
-Verdonk diturunkan menggantikan Jordi Amat yang absen sebab fokus dalam pemulihan cedera. Ia digeser ke kiri dalam, Jay kembali ke bek tengah.
-Memperkuat lini tengah, empat pemain diturunkan, yakni Asnawi Mangkualam, Ivar Jenner, Nathan Tjoe-A-On, dan Shayne Pattynama. 
-Asnawi menggantikan Sandy Walsh, sementara Pattynama mengisi posisi Verdonk yang digeser ke dalam. 
-Baca juga: Komentar Paul Munster Soal Debut Malik Risaldi Bersama Timnas Indonesia
-Nantinya Asnawi dan Pattynama akan berperan sebagai wingback, di mana akan membantu menyerang serta bertahan.
-Lini serang Indonesia dihuni oleh Witan Sulaeman, Rafael Struick, dan Ragnar Oratmangoen. Witan bakal menggantikan Malik Risaldi. 
-Jelang laga ini, STY menyebut kedua tim memliliki kans yang sama untuk memenangkan laga ini. Indonesia dan China memiliki peluang 50-50 untuk meraih tiga poin.
-“Kedua tim memiliki peluang yang seimbang, 50-50. Hasil pertandingan besok akan sangat tergantung pada siapa yang mampu memaksimalkan peluang dan mencetak gol lebih banyak,” kata STY dalam sesi jumpa pers jelang laga China vs Indonesia, Senin (14/10/2024).
-Susunan Pemain:
-Indonesia: Maarten Paes, Mees Hilgers, Jay Idzes, Calvin Verdonk, Asnawi Mangkualam, Ivar Jenner, Nathan Tjoe-A-On, Shayne Pattynama, Witan Sulaeman, Rafael Struick, Ragnar Oratmangoen
-    Simak breaking news dan berita pilihan kami langsung di ponselmu. Pilih saluran andalanmu akses berita Kompas.com WhatsApp Channel : https://www.whatsapp.com/channel/0029VaFPbedBPzjZrk13HO3D. Pastikan kamu sudah install aplikasi WhatsApp ya.
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Kata Kunci :&#39;</span><span class="p">,</span> <span class="n">sentence</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kata Kunci : 0029vafpbedbpzjzrk13ho3d, 10, 14, 15, 2024, 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kata Kunci : jelang, sty, baca, pelatih, pertandingan, 
 </pre></div>
 </div>
 </div>
